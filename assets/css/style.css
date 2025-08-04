@@ -39,7 +39,7 @@ body {
 .header-controls {
     display: flex;
     align-items: center;
-    padding-left: 14px; /* Matches the provided CSS */
+    padding-left: 15px; /* Matches the provided CSS */
 }
 
 .sidebar-toggle {
@@ -235,10 +235,10 @@ body {
 
         .main-content {
             margin-left: var(--sidebar-width); /* Default for large screens */
-            padding: 10px 120px;
+            padding: 6px 81px;
             transition: all 0.3s ease;
             /* margin-top: var(--magin-height);  */
-        margin-top: 31px !important;
+        margin-top: 21px !important;
         }
 
         .main-content.expanded {
@@ -277,7 +277,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-left: 10x`px;
+    padding-left: 10px;
 }
             .sidebar.collapsed { /* On small screens, collapsed means hidden */
                 width: var(--sidebar-width); /* Maintain full width for overlay */

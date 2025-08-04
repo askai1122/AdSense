@@ -195,151 +195,19 @@ Feedback</span>
     </ul>
  
 </div>
-<style>
 
-/* Main card styles */
-.custom-card-blue {
-    background-color: #1565c0 !important;
-        font-family: Google Sans, Roboto, Arial, sans-serif;
-
-}
-
-/* Card title */
-.card-title-text {
-    font-size:1.125rem;
-    font-weight: 300;
-}
-
-/* Base styles for mobile */
-.custom-stats-row .stat-label {
-    font-size: 0.9rem !important;
-    font-weight: 300;
-    margin-bottom: 0;
-}
-.Estimated{
-  margin-top: 0px !important;
-}
-.custom-stats-row .stat-value {
-    /* font-size: 1.3rem;
-    font-weight: 300;
-    margin-bottom: 0;
-    font-family: Google Sans,Roboto,Arial,sans-serif; */
-        overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    user-select: none;
-    font-family: Google Sans, Roboto, Arial, sans-serif;
-    line-height: 2.25rem;
-    font-size: 1.75rem;
-    letter-spacing: 0;
-    font-weight: 400;
-    color: var(--acx-sys-color--on-background, #202124);
-    color: inherit;
-    padding-bottom: 1px;
-}
-
-.custom-stats-row .stat-change {
-    /* font-size: 0.9rem; */
-    font-weight: 200;
-    font-size: 13px !important;
-    margin-bottom: 0;
-    font-family: Google Sans, Roboto, Arial, sans-serif;
-   margin-left: 10px;
-
-}
-
-.custom-stats-row .stat-comparison {
-    font-size: 0.7rem;
-    font-weight: 400;
-    color: #fffffff1; /* A slightly transparent white for a subtle effect */
-    display: block;
-    margin-top: 2px;
-}
-
-/* Desktop styles */
-@media (min-width: 768px) {
-    .custom-stats-row .stat-label {
-        font-size: 1rem;
-    }
-   
-    .custom-stats-row .stat-value {
-        font-size: 1.8rem;
-    }
-    
-    .custom-stats-row .stat-change {
-        font-size: 1rem;
-    }
-    
-    .custom-stats-row .stat-comparison {
-        font-size: 0.8rem;
-    }
-}
-</style>
-      <style>
-            /* Custom CSS to match the image design */
-
-  /* Override Bootstrap's progress bar default styling */
-  .progress {
-      height: 15px; /* Adjust height to match the image */
-      background-color: #e0e0e0; /* Light grey background for the empty part */
-      border-radius: 0 !important; /* Remove border-radius for a flat look */
-      width: 75% !important;
-  }
-
-  .progress-bar {
-      background-color: #e0e0e0; /* Match the background color for a uniform look when 0% filled */
-      border-radius: 0 !important; /* Remove border-radius for a flat look */
-      /* When a value is present, you might want a slightly darker grey, but for 0% it should be uniform */
-  }
-
-  /* Ensure consistent text sizing and color, although Bootstrap handles most of this */
-  .card-text.text-muted.small {
-      font-size: 0.875rem !important; /* Adjust if needed to perfectly match the image */
-  }
-
-  .small.text-muted span {
-      font-size: 0.8rem !important; /* Adjust if needed */
-  }
-
-  /* Styling for the calendar icon and text */
-  .card-body > .d-flex.align-items-center.small.text-muted {
-      margin-top: 1rem; /* Space between progress details and calendar line */
-      padding-top: 1rem; /* Padding for the line effect */
-      border-top: 1px solid #e9ecef; /* Light grey line */
-  }
-
-  .fa-calendar-alt {
-      margin-right: 0.5rem; /* Space between icon and text */
-      color: #6c757d; /* Standard muted text color */
-  }
-
-  /* Adjusting card border and shadow for a cleaner look as in the image */
-  .card {
-      border: 1px solid #e9ecef; /* Lighter border */
-      box-shadow: none; /* Remove default shadow for a flat design */
-  }
-
-  /* Adjust font sizes if Bootstrap defaults don't match exactly */
-  .card-title {
-      font-size: 1.15rem; /* Slightly smaller than default h5 */
-  }
-
-  .card-body h3 {
-      font-size: 1.8rem; /* Adjust for the earnings amount */
-      font-weight: normal; /* Less bold than default h3 */
-  }
-          </style>
-<div class="main-content" id="mainContent">
-    <div class="row mb-4  col-lg-12  col-sm-12 m-auto">
-
+ 
+  <div class="main-content" id="mainContent" style="margin-top: 70px;">
+      <div class="row mb-4 ">
  <div class="container-fluid " >
-        <div class="mb-3 text-muted small">PAYMENT ACCOUNT</div>
-        <div class="mb-4">
-            <span class="fs-5">Payments</span> <span class="text-muted">></span> <span class="fs-5 text-muted">Transactions</span>
-        </div>
-
-        <div class="d-flex flex-wrap align-items-center mb-4 gap-2">
+          <div class="mb- text-dark " style="font-size: 13px;font-weight: 400;">PAYMENTS ACCOUNT</div>
+    <div class="mb-3">
+        <span class="fs-9" style="font-size: 13PX;">AdSense (India)</span>
+    </div>
+    <div class="mb-4">
+        <span style="font-size: 18px;">Payments > Transactions  </span>
+    </div>
+        <div class="d-flex   mb-4 justify-content-end gap-3 ">
             <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Detailed transaction view
@@ -360,7 +228,7 @@ Feedback</span>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
             </div>
-            <div class="dropdown ms-auto">
+            <div class="dropdown ">
                 <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Last 3 months
                 </button>
@@ -372,79 +240,79 @@ Feedback</span>
             </div>
         </div>
 
-        <div class="card mb-4">
-            <div class="card-header bg-white">
-                <div class="d-flex justify-content-between align-items-center">
-        <h5 class="mb-0" id="dynamicMonthRange"></h5>
-
-
-
-
-
-                    <div class="text-end">
-                        <small class="d-block text-muted">Ending balance: $0.00</small>
-                    </div>
-                </div>
+        <div class=" row ">
+            <div class="col-lg-12 border-bottom mt-4    ">
+                <p style="font-size: 20px;font-weight: 600;">Aug 1 – 5, 2025</p >
             </div>
-            <div class="card-body">
-                <div class="row mb-2 text-muted small">
-                    <div class="col-3">Date</div>
-                    <div class="col-6">Description</div>
-                    <div class="col-3 text-end">Amount (USD)</div>
-                </div>
-                <div class="text-center text-muted py-5">
-                    You don't have any transactions for this billing period
-                </div>
+               <div class="col-lg-12 border-bottom  text-end" >
+                <p style="margin-top: 20px;font-size: 14px;">Ending balance: $0.00</p>
+            </div>
+                 <div class="row border-bottom " >
+                     <div class="col-lg-3 mt-2 mb-2  "><span style="font-size: 14px;">Date</span></div>   
+                     <div class="col-lg-3 mt-2 mb-2 "><span style="font-size: 14px;">Description</span></div>   
+                     <div class="col-lg-6 mt-2 mb-2  text-end"><span style="font-size: 14px;">Amount (USD)
+</span></div>   
+            </div>
+                 <div class="col-lg-12 border-bottom mt-4    p-5 text-center">
+                <p style="font-size: 14px;">You don't have any transactions for this billing period</p>
             </div>
         </div>
 
-        <div class="card mb-4">
-            <div class="card-header bg-white">
-                <div class="d-flex justify-content-between align-items-center">
-             <h5 class="mb-0" id="previousMonthRange"></h5>
-
-                    <div class="text-end">
-                        <small class="d-block text-muted">Starting balance: $0.00</small>
-                        <small class="d-block text-muted">Ending balance: $0.00</small>
-                    </div>
-                </div>
+       <div class="col-lg-12  mt-4  text-end ">
+                <p>Starting balance: $0.00
+</p>
             </div>
-            <div class="card-body">
-                <div class="row mb-2 text-muted small">
-                    <div class="col-3">Date</div>
-                    <div class="col-6">Description</div>
-                    <div class="col-3 text-end">Amount (USD)</div>
-                </div>
-                <div class="text-center text-muted py-5">
-                    You don't have any transactions for this billing period
-                </div>
+
+              <div class=" row ">
+            <div class="col-lg-12 border-bottom mt-1    ">
+                <p style="font-size: 20px;font-weight: 600;">Jul 1 – 31, 2025</p >
+            </div>
+               <div class="col-lg-12 border-bottom  text-end" >
+                <p style="margin-top: 20px;font-size: 14px;">Ending balance: $0.00</p>
+            </div>
+                 <div class="row border-bottom " >
+                     <div class="col-lg-3 mt-2 mb-2  "><span style="font-size: 14px;">Date</span></div>   
+                     <div class="col-lg-3 mt-2 mb-2 "><span style="font-size: 14px;">Description</span></div>   
+                     <div class="col-lg-6 mt-2 mb-2  text-end"><span style="font-size: 14px;">Amount (USD)
+</span></div>   
+            </div>
+                 <div class="col-lg-12 border-bottom mt-4    p-5 text-center">
+                <p style="font-size: 14px;">You don't have any transactions for this billing period</p>
             </div>
         </div>
 
-        <div class="card mb-4">
-            <div class="card-header bg-white">
-                <div class="d-flex justify-content-between align-items-center">
-                  <h5 class="mb-0" id="twoMonthsAgoRange"></h5>
-
-                    <div class="text-end">
-                        <small class="d-block text-muted">Starting balance: $0.00</small>
-                        <small class="d-block text-muted">Ending balance: $0.00</small>
-                    </div>
-                </div>
+       <div class="col-lg-12  mt-4  text-end ">
+                <p>Starting balance: $0.00
+</p>
             </div>
-            <div class="card-body">
-                <div class="text-center text-muted py-5">
-                    You don't have any transactions for this billing period
-                </div>
+
+            
+              <div class=" row ">
+            <div class="col-lg-12 border-bottom mt-1    ">
+                <p style="font-size: 20px;font-weight: 600;">Jun 1 – 30, 2025</p >
+            </div>
+               <div class="col-lg-12 border-bottom  text-end" >
+                <p style="margin-top: 20px;font-size: 14px;">Ending balance: $0.00</p>
+            </div>
+                 <div class="row border-bottom " >
+                     <div class="col-lg-3 mt-2 mb-2  "><span style="font-size: 14px;">Date</span></div>   
+                     <div class="col-lg-3 mt-2 mb-2 "><span style="font-size: 14px;">Description</span></div>   
+                     <div class="col-lg-6 mt-2 mb-2  text-end"><span style="font-size: 14px;">Amount (USD)
+</span></div>   
+            </div>
+                 <div class="col-lg-12 border-bottom mt-4    p-5 text-center">
+                <p style="font-size: 14px;">You don't have any transactions for this billing period</p>
             </div>
         </div>
+
+       <div class="col-lg-12  mt-4  text-end ">
+                <p>Starting balance: $0.00
+</p>
+            </div>
     </div>
 
-
-    </div>
-
-   
-</div>
+  </div>
+  </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
