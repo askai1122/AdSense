@@ -1,0 +1,319 @@
+:root {
+    --navbar-height: 64px;
+    --magin-height: 30px;
+    --google-blue: #4285F4;
+    --google-gray: #424242;
+    --border-color: #dadce0;
+      --sidebar-width: 308px;
+            --sidebar-collapsed-width: 72px;
+}
+
+body {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    margin: 0;
+    padding-top: var(--navbar-height);
+    background-color: #ffffff;
+}
+
+/* Header/Navbar Styles */
+.as-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--navbar-height);
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.as-app-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    padding-left: 14px; /* Matches the provided CSS */
+}
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 7px; /* Adjust spacing */
+    color: var(--google-gray);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 10px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.header-logo .logo-text {
+    font-family: 'Product Sans', 'Google Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: var(--google-gray);
+    margin-left: -5px; /* Adjust as needed */
+}
+
+.header-divider {
+    height: 39px;
+    width: 0.7px;
+    background-color: var(--border-color);
+    margin: 0 14px;
+}
+
+.as-app-header-title {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 32px;
+}
+
+.as-app-title {
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    font-size: 1.127rem;
+    font-weight: 400;
+    color: var(--google-gray);
+    margin: 0;
+    margin-top: 1px !important;
+    line-height: 1.4 !important;
+}
+
+/* Container for the icons on the right */
+.as-app-header-icons {
+    padding-right: 13px;
+}
+
+/* Flexbox container for the icons */
+.header-icons {
+    display: flex;
+    align-items: center; /* This is key for vertical alignment */
+    gap: 2px; /* A consistent gap between the buttons */
+}
+
+/* Base styles for all icon buttons */
+.header-icon-button {
+    background: transparent;
+    border: none;
+    color: var(--google-gray);
+    cursor: pointer;
+    padding: 8px; /* Adds space inside the button for a larger click area */
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    display: flex; /* Makes the button a flex container */
+    align-items: center; /* Aligns the icon/image inside the button */
+    justify-content: center; /* Centers the icon/image inside the button */
+}
+
+/* Icon button on hover */
+.header-icon-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Styling for the Material Icons within the buttons */
+.header-icon-button .material-icons {
+    font-size: 24px;
+    line-height: 1; /* Resets line-height to prevent vertical misalignment */
+}
+
+/* Consolidated styling for the profile image */
+.header-icon-button img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Ensures the image behaves as a block element */
+}
+
+/* If you need a fallback icon with a background */
+
+.header-icon-button.profile-icon img {
+    background-color: #9aa0a6;
+    color: transparent;
+    border-radius: 16px;
+}
+
+
+/* side bar */
+
+   .sidebar {
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--navbar-height));
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            padding: 0.5rem 0;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: var(--navbar-height);
+            left: 0;
+            z-index: 999; /* Slightly less than navbar */
+        }
+
+        .sidebar.collapsed {
+            width: var(--sidebar-collapsed-width);
+            overflow-x: hidden;
+        }
+
+        .sidebar.collapsed .sidebar-heading,
+        .sidebar.collapsed .nav-link span {
+            display: none;
+        }
+
+        .sidebar.collapsed .nav-link {
+            justify-content: center;
+            padding: 0.75rem 0;
+        }
+
+        .sidebar.collapsed .nav-link i {
+            margin-right: 0;
+        }
+
+        .sidebar-heading {
+            font-size: 0.30rem;
+            color: #5f6368;
+            margin-top: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: 0 1.25rem;
+        }
+
+        .nav-link {
+            color: #3c4043;
+            padding: 0.70rem;
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s ease-in-out;
+            white-space: nowrap;
+            width: 95%;
+            font-weight: 450;
+            border-left: 7px solid #00000000; /* Active state border */
+            
+        }
+        .sidebar .nav-item{
+            margin-top: 3px;
+        }
+        .nav-link img {
+            margin-right: 1rem;
+            font-size: 1.20rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .nav-link:hover {
+            background-color: #e0e1e25a;
+            color: #000000;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+
+        }
+        
+        .nav-link.active {
+            background-color: #e8f0fe;
+            color: #1a73e8; 
+            border-left: 7px solid #1a73e8; /* Active state border */
+            border-top-right-radius:30px ;
+            border-bottom-right-radius:30px ;
+        }
+
+
+        .main-content {
+            margin-left: var(--sidebar-width); /* Default for large screens */
+            padding: 10px 120px;
+            transition: all 0.3s ease;
+            /* margin-top: var(--magin-height);  */
+        margin-top: 31px !important;
+        }
+
+        .main-content.expanded {
+            margin-left: var(--sidebar-collapsed-width);
+            padding: 10px 0px;
+
+        }
+
+      
+
+
+        .heading{
+            margin-left: 25px;
+        }
+        /* --- Responsive adjustments --- */
+        @media (max-width: 992px) {
+            .sidebar {
+                left: -330px; /* Hide sidebar off-screen */
+                width: var(--sidebar-width); /* Full width for overlay */
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Add shadow for overlay effect */
+            }
+     .heading{
+            margin-left: -20px !important;
+            /* line-height: 30px !important; */
+            margin-bottom: 1px;
+        }
+        .navbar-brand{
+            display: none;
+        }
+            .sidebar.show {
+                left: 0; /* Show sidebar */
+            }
+
+.as-app-header-title {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 10x`px;
+}
+            .sidebar.collapsed { /* On small screens, collapsed means hidden */
+                width: var(--sidebar-width); /* Maintain full width for overlay */
+                left: -250px !important;
+                
+            }
+
+            .sidebar.collapsed .sidebar-heading,
+            .sidebar.collapsed .nav-link span {
+                display: block; /* Ensure text is visible when shown as overlay */
+            }
+
+            .sidebar.collapsed .nav-link {
+                justify-content: flex-start; /* Align text to start for overlay */
+                padding: 0.70rem 1.25rem;
+            }
+
+            .sidebar.collapsed .nav-link img {
+                margin-right: 40px  !important;
+            }
+
+            .main-content,
+            .main-content.expanded {
+                margin-left: 0; /* No margin on small screens */
+            }
+.main-content{
+    padding: 0px;
+}
+            /* Hide the SVG on small/medium screens */
+            .navbar-brand svg {
+                display: none;
+            }
+        }
+        @media (min-width: 993px) {
+            /* Show the SVG on large screens */
+            .navbar-brand svg {
+                display: block;
+            }
+        }
