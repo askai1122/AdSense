@@ -4,15 +4,82 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Home - Google AdSense </title>
-  <link href="https://www.gstatic.com/adsense/apps/static/adsense3_antipasti_server_20250729-12_RC00/common/resources/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="https://www.gstatic.com/adsense/apps/static/adsense3_antipasti_server_20250729-12_RC00/common/resources/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-    <link rel="stylesheet" href="assets/css/style.css"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ <style>
+
+ /* Hide the footer text when the sidebar is collapsed (large screens) */
+.sidebar.collapsed .sidebar-footer-text {
+    display: none;
+
+}
+
+/* Ensure the footer text is visible when the sidebar is shown as an overlay (small screens) */
+@media (max-width: 992px) {
+    .sidebar.show .sidebar-footer-text {
+        display: block; /* Or 'inline-block' or 'flex' depending on its intended layout */
+    }
+
+    /* Additionally, ensure it's hidden when the sidebar is NOT shown (hidden by default) */
+    .sidebar .sidebar-footer-text { /* Target it when sidebar is not .show */
+        display: none; /* Default hidden on small screens */
+    }
+}
+
+/* For expanded state on large screens, make sure it's visible by default */
+.sidebar .sidebar-footer-text {
+    display: inline-block; /* Or 'block' or 'flex' depending on your desired layout */
+}
+    </style>
+  <style>
+        /* Custom styles to match the image, if absolute necessary and minimal */
+        .card-header-blue {
+            background-color: #3b53de; /* A shade of blue */
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 0; /* Remove default border-bottom */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .card-illustration-bg {
+            background-color: #0d6efd; /* A lighter shade of blue */
+            padding: 2rem; /* Adjust as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px; /* Placeholder for illustration height */
+        }
+        .card-footer-links {
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Placeholder for star icon, if no direct Bootstrap icon matches the style */
+        .star-icon {
+            font-size: 1.5rem; /* Adjust size as needed */
+            margin-right: 0.5rem;
+        }
+        /* Placeholder for the illustration - typically an image or SVG would go here */
+        .illustration-placeholder {
+            width: 100%;
+            height: 120px; /* Adjust height as needed */
+            background-color: rgba(255, 255, 255, 0.2); /* A semi-transparent white for placeholder */
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+
 <header class="as-top-bar">
     <div class="as-app-logo">
         <div class="header-controls">
@@ -61,12 +128,11 @@
                 <img src="assets/iamges/dropdown_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt=""> <span class="nav-link-text">Ads</span>
             </a>
         </li>
-          <li class="nav-item ">
+          <li class="nav-item border-bottom">
             <a class="nav-link " aria-current="page" href="#">
                 <img src="assets/iamges/branding_watermark_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt=""> <span class="nav-link-text">Sites</span>
             </a>
         </li>
-        <hr>
         <li class="nav-item " >
             <a class="nav-link " aria-current="page" href="#">
                 <img src="assets/iamges/user-trust.png" alt=""> <span class="nav-link-text">
@@ -91,14 +157,13 @@ Reports</span>
 Optimization</span>
             </a>
         </li>
-           <li class="nav-item " >
+           <li class="nav-item border-bottom" >
             <a class="nav-link " aria-current="page" href="#">
                 <img src="assets/iamges/policy_24dp_000000_FILL1_wght400_GRAD0_opsz24.png" alt=""> <span class="nav-link-text">
 Policy center</span>
             </a>
         </li>
-        <hr>
-<li class="nav-item">
+<li class="nav-item ">
     <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="false" aria-controls="paymentsSubmenu">
         <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
         <span class="nav-link-text">Payments</span>
@@ -129,274 +194,349 @@ Feedback</span>
     </ul>
  
 </div>
-
-<div class="main-content" id="mainContent">
-    <div class="row mb-4 mt-3 col-lg-10 col-sm-12 m-auto">
-<div class="col-12 col-lg-8 mb-3 mb-lg-0 h-100 ">
-  <div class="card shadow-sm text-white" style="background-color: #1565c0;">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <p class="mt-0 mb-0">Estimated earnings</p>
-        <div class="dropdown">
-          <button class="btn btn-link p-0 text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 25px !important;">
-            <i class="bi bi-three-dots-vertical"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-              <a class="dropdown-item" href="#">
-                <img src="assets/iamges/insert_chart_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="View report icon">
-                <span class="nav-link-text ms-2">View report</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <img src="assets/iamges/edit_24dp_434343_FILL0_wght400_GRAD0_opsz24.png" alt="Configure icon">
-                <span class="nav-link-text ms-2">Configure</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <img src="assets/iamges/help_24dp_434343_FILL0_wght400_GRAD0_opsz24.png" alt="Help icon">
-                <span class="nav-link-text ms-2">Help</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">
-                <img src="assets/iamges/feedback_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Send feedback icon">
-                <span class="nav-link-text ms-2">Send feedback</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
 <style>
-  /*
- * Custom styles for the stats card.
- *
- * This CSS uses a desktop-first approach with a media query
- * to shrink font sizes specifically for mobile devices.
- */
 
-/* ============================
-   Base Styles (for Desktop)
-   ============================ */
+/* Main card styles */
+.custom-card-blue {
+    background-color: #1565c0 !important;
+        font-family: Google Sans, Roboto, Arial, sans-serif;
 
-/* Main container for the stats row to ensure specificity */
-.custom-stats-row {
-  /* No styles needed here, just a selector for targeting */
 }
 
-/* Styles for the "label" text (e.g., "Today so far") */
+/* Card title */
+.card-title-text {
+    font-size:1.125rem;
+    font-weight: 300;
+}
+
+/* Base styles for mobile */
 .custom-stats-row .stat-label {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.2;
+    font-size: 0.9rem !important;
+    font-weight: 300;
+    margin-bottom: 0;
 }
-
-/* Styles for the main value (e.g., "$0.00") */
+.Estimated{
+  margin-top: 0px !important;
+}
 .custom-stats-row .stat-value {
-  font-size: 1.8rem;
-  font-weight: 500;
-  line-height: 1.6;
+    /* font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 0;
+    font-family: Google Sans,Roboto,Arial,sans-serif; */
+        overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: Google Sans, Roboto, Arial, sans-serif;
+    line-height: 2.25rem;
+    font-size: 1.75rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--acx-sys-color--on-background, #202124);
+    color: inherit;
+    padding-bottom: 1px;
 }
 
-/* Styles for the change value (e.g., "+0.00") */
 .custom-stats-row .stat-change {
-  font-size: 1rem;
-  line-height: 1.2;
+    /* font-size: 0.9rem; */
+    font-weight: 200;
+    font-size: 13px !important;
+    margin-bottom: 0;
+    font-family: Google Sans, Roboto, Arial, sans-serif;
+   margin-left: 10px;
+
 }
 
-/* Styles for the comparison text (e.g., "vs same day last week") */
 .custom-stats-row .stat-comparison {
-  font-size: 0.8rem;
-  font-weight: 400;
-  line-height: 1.2;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #fffffff1; /* A slightly transparent white for a subtle effect */
+    display: block;
+    margin-top: 2px;
 }
 
-/* ============================
-   Media Query (for Mobile)
-   ============================ */
-
-/*
- * This media query targets screens with a width of 767.98px or less.
- * This ensures the font sizes are smaller and more readable on mobile devices.
- */
-@media (max-width: 767.98px) {
-  .custom-stats-row .stat-label {
-    font-size: 0.8rem;
-  }
-
-  .custom-stats-row .stat-value {
-    font-size: 1.3rem;
-  }
-
-  .custom-stats-row .stat-change {
-    font-size: 0.8rem;
-  }
-
-  .custom-stats-row .stat-comparison {
-    font-size: 0.7rem;
-  }
-  .smal{
-    margin-top: 20px;
-  }
+/* Desktop styles */
+@media (min-width: 768px) {
+    .custom-stats-row .stat-label {
+        font-size: 1rem;
+    }
+   
+    .custom-stats-row .stat-value {
+        font-size: 1.8rem;
+    }
+    
+    .custom-stats-row .stat-change {
+        font-size: 1rem;
+    }
+    
+    .custom-stats-row .stat-comparison {
+        font-size: 0.8rem;
+    }
 }
 </style>
-<div class="row custom-stats-row border-opacity-25">
-  <div class="col-6 col-md-3 ">
-    <p class="text-white mb-0 stat-label">Today so far</p>
-    <h3 class="mb-0 stat-value">$0.00</h3>
-  </div>
-  <div class="col-6 col-md-3 ">
-    <p class="text-white mb-0 stat-label">Yesterday</p>
-    <h3 class="mb-0 stat-value">$0.00</h3>
-    <p class="text-white mb-0 stat-change">+0.00</p>
-    <small class="d-block text-white stat-comparison">vs same day last week</small>
-  </div>
-  <div class="col-6 col-md-3 smal">
-    <p class="text-white mb-0 stat-label">Last 7 days</p>
-    <h3 class="mb-0 stat-value">$0.00</h3>
-    <p class="text-white mb-0 stat-change">+0.00</p>
-    <small class="d-block text-white stat-comparison">vs previous 7 days</small>
-  </div>
-  <div class="col-6 col-md-3 smal">
-    <p class="text-white mb-0 stat-label">This month</p>
-    <h3 class="mb-0 stat-value">$0.00</h3>
-    <p class="text-white mb-0 stat-change">+0.00</p>
-    <small class="d-block text-white stat-comparison">vs same period last year</small>
-  </div>
-</div>
-    </div>
-  </div>
-</div>
-
-  <div class="col-12 col-lg-4">
-    <div class="card shadow-sm text-white h-100" style="background-color: #1565c0;">
-      <div class="card-body d-flex flex-column justify-content-between h-100">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <p class="card-title mb-3 mt-3">Balance</p>
-          <div class="dropdown">
-            <button class="btn btn-link p-0 text-white" type="button" data-bs-toggle="dropdown" style="font-size: 25px">
-              <i class="bi bi-three-dots-vertical"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <a class="dropdown-item" href="payment.html">
-                  <img src="assets/iamges/account_balance_24dp_434343_FILL0_wght400_GRAD0_opsz24.png" alt="">
-                  <span class="nav-link-text ms-1">Payments</span> View
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img src="assets/iamges/help_24dp_434343_FILL0_wght400_GRAD0_opsz24.png" alt="">
-                  <span class="nav-link-text ms-1">Help</span>
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <img src="assets/iamges/feedback_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="">
-                  <span class="nav-link-text ms-1">Send Feedback</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <h3 class="mb-0 text-white">$0.00</h3>
-        <p class="text-white mb-3">Last payment $0.00</p>
+<div class="main-content" id="mainContent">
+    <div class="row mb-4  col-lg-12  col-sm-12 m-auto">
+<div class="col-12 col-lg-9 Estimated mb-2 mb-lg-0 h-100 ">
+<div class="card shadow-sm text-white custom-card-blue">
+  <div class="p-3">
+    <div class="d-flex justify-content-between align-items-center ">
+      <p class="card-title-text mt-0 mb-0">Estimated earnings</p>
+      <div class="dropdown">
+        <button class="btn btn-link p-0 text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 25px !important;">
+          <i class="bi bi-three-dots-vertical text-white"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">View report</a></li>
+          <li><a class="dropdown-item" href="#">Configure</a></li>
+          <li><a class="dropdown-item" href="#">Help</a></li>
+          <li><a class="dropdown-item" href="#">Send feedback</a></li>
+        </ul>
       </div>
     </div>
+    <div class="row custom-stats-row mb-3" style="margin-top: 8px;">
+      <div class="col-6 col-md-3">
+        <p class="stat-label">Today so far</p>
+        <h3 class="stat-value">$0.00</h3>
+      </div>
+      <div class="col-6 col-md-3 " >
+        <p class="stat-label">Yesterday</p>
+        <h3 class="stat-value">$0.00</h3>
+        <p class="stat-change"style="line-height: 10px;">+$0.00</p>
+        <small class="stat-comparison">vs same day last week</small>
+      </div>
+      <div class="col-6 col-md-3 mt-4 mt-md-0">
+        <p class="stat-label">Last 7 days</p>
+        <h3 class="stat-value">$0.00</h3>
+        <p class="stat-change" style="line-height: 10px;">+$0.00</p>
+        <small class="stat-comparison">vs previous 7 days</small>
+      </div>
+      <div class="col-6 col-md-3 mt-4 mt-md-0">
+        <p class="stat-label">This month</p>
+        <h3 class="stat-value">$0.00</h3>
+        <p class="stat-change" style="line-height: 10px;">+$0.00</p>
+        <small class="stat-comparison">vs same period last year</small>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
-    </div>
+  <div class="col-12 col-lg-3 Estimated">
+    <div class="card shadow-sm text-white " style="background-color: #1565c0;">
+  <div class="p-3">
+    <div class="d-flex justify-content-between align-items-center ">
+      <p class="card-title-text mt-0 mb-0">Balance</p>
+      <div class="dropdown">
+        <button class="btn btn-link p-0 text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 25px !important;">
+          <i class="bi bi-three-dots-vertical text-white"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li style="font-size: 15px;padding: 2px;"><a class="dropdown-item p-2" href="payment.html"><img src="assets/iamges/account_balance_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px;"  alt=""><span class="ms-2">View payment</span></a></li>
+          <li style="font-size: 15px;padding: 2px;"><a class="dropdown-item p-2" href="payment.html"><img src="assets/iamges/edit_24dp_434343_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px;"  alt=""><span class="ms-2">Configure</span></a></li>
+          <li style="font-size: 15px;padding: 2px;"><a class="dropdown-item p-2" href="payment.html"><img src="assets/iamges/help_24dp_434343_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px;"  alt=""><span class="ms-2">Help</span></a></li>
+          <li style="font-size: 15px;padding: 2px;"><a class="dropdown-item p-2" href="payment.html"><img src="assets/iamges/feedback_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px;"  alt=""><span class="ms-2">Send feedback</span></a></li>
 
-    <div class="row mb-4 col-lg-10 col-sm-12 m-auto">
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h5 class="card-title mb-0">Performance</h5>
-              <button class="btn btn-link p-0 text-muted"><i class="bi bi-three-dots-vertical"></i></button>
+        </ul>
+      </div>
+    </div>
+    <div class="row custom-stats-row " style="margin-top: 8px;margin-bottom: 28px;">
+        <div class="col-6 col-md-12 mt-4 mt-md-0">
+        <p class="stat-label" style="display: none;">Last 7 days</p>
+        <h3 class="stat-value mt-3">$0.00</h3>
+        <small class="stat-comparison"  style="line-height:10px;font-size: 11px;">Last payment</small>
+        <small class="stat-comparison"style="line-height:12px;font-size: 11px;">+$262.53</small>
+
+      </div>
+     
+    </div>
+  </div>
+    </div>
+  </div>
+
+    </div>
+    <style>
+
+
+.card {
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15); /* More subtle shadow */
+}
+
+.card-body {
+    padding: 24px;
+}
+
+/* Performance Card Styles */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 500; /* Medium font weight */
+    color: #202124;
+}
+
+.form-select {
+    font-size: 0.875rem;
+    color: #5f6368;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+
+.text-center h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #202124;
+    line-height: 1.2;
+}
+
+.text-center p {
+    font-size: 0.75rem; /* Small font size for labels */
+    color: #5f6368;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.btn-link {
+    font-size: 0.875rem;
+    color: #1a73e8 !important; /* Google Blue */
+    font-weight: 500;
+    padding-left: 0;
+}
+
+/* Growth Tips Card Styles */
+.card-header-blue {
+    background-color: #1565c0; /* Google Blue */
+    color: white;
+    padding: 12px 24px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.star-icon {
+    color: white;
+    font-size: 1rem;
+}
+
+.card-illustration-bg {
+    background-color: #eaf1fb; /* Light blue background for illustration */
+    padding: 16px;
+}
+
+.card-body h5 {
+    font-size: 1.375rem; /* Larger font size for the title */
+    font-weight: 500;
+    color: #202124;
+}
+
+.card-body .card-text {
+    font-size: 0.9375rem; /* Slightly larger text */
+    color: #5f6368;
+}
+
+.card-footer-links {
+    padding: 16px 24px;
+    border-top: 1px solid #dadce0;
+    display: flex;
+    justify-content: flex-start; /* Align to the right */
+    gap: 16px; /* Space between links */
+}
+
+.card-footer-links .btn {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1a73e8 !important;
+}
+    </style>
+<div class="row mb-4 col-lg-12 col-sm-12 m-auto">
+    <div class="col-lg-6 col-xl-6  mb-2">
+      <div class="card shadow-sm ">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">Performance</h5>
+            <button class="btn btn-link p-0 text-muted"><i class="bi bi-three-dots-vertical"></i></button>
+          </div>
+          <div class="mb-3">
+            <select class="form-select form-select-sm w-auto">
+              <option>Today so far</option>
+            </select>
+          </div>
+          <div class="row text-center">
+            <div class="col-4 mb-3">
+              <p class="text-muted mb-0">Page views</p>
+              <h4>0</h4>
             </div>
-            <div class="mb-3">
-              <select class="form-select form-select-sm w-auto">
-                <option>Today so far</option>
-              </select>
+            <div class="col-4 mb-3">
+              <p class="text-muted mb-0">Page RPM</p>
+              <h4>$0.00</h4>
             </div>
-            <div class="row text-center">
-              <div class="col-4 mb-3">
-                <p class="text-muted mb-0">Page views</p>
-                <h4>0</h4>
-              </div>
-              <div class="col-4 mb-3">
-                <p class="text-muted mb-0">Page RPM</p>
-                <h4>$0.00</h4>
-              </div>
-              <div class="col-4 mb-3">
-                <p class="text-muted mb-0">Impressions</p>
-                <h4>0</h4>
-              </div>
-              <div class="col-4">
-                <p class="text-muted mb-0">Clicks</p>
-                <h4>0</h4>
-              </div>
-              <div class="col-4">
-                <p class="text-muted mb-0">CPC</p>
-                <h4>$0.00</h4>
-              </div>
-              <div class="col-4">
-                <p class="text-muted mb-0">Page CTR</p>
-                <h4>0.00%</h4>
-              </div>
+            <div class="col-4 mb-3">
+              <p class="text-muted mb-0">Impressions</p>
+              <h4>0</h4>
             </div>
-            <div class="text-start mt-5">
-              <a href="#" class="btn btn-link p-0 text-decoration-none">View report <i class="bi bi-arrow-right"></i></a>
+            <div class="col-4">
+              <p class="text-muted mb-0">Clicks</p>
+              <h4>0</h4>
+            </div>
+            <div class="col-4">
+              <p class="text-muted mb-0">CPC</p>
+              <h4>$0.00</h4>
+            </div>
+            <div class="col-4">
+              <p class="text-muted mb-0">Page CTR</p>
+              <h4>0.00%</h4>
+            </div>
+          </div>
+          <div class="text-start mt-5 d-flex justify-content-between ">
+            <div class="">
+                <a href="#" class="btn btn-link p-0 text-decoration-none">View report <i class="bi bi-arrow-right"></i></a>
+          
+            </div>
+            <div class="">
+        <button class="btn btn-link p-0 text-dark">
+            <i class="bi bi-pin-angle-fill"></i> </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="col-md-6 mb-4">
- <div class="container-fluid ">
-    <div class="row justify-content-center">
+    <div class="col-lg-6 col-xl-6 mb-3 ">
+      <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card shadow-sm">
-                <div class="card-header-blue d-flex justify-content-between align-items-center">
-                    <div>
-                        <i class="bi bi-star-fill star-icon"></i> We thought you might find this card interesting
-                    </div>
-                    <button class="btn btn-light btn-sm">Got it+</button>
-                </div>
-
-                <div class="card-illustration-bg">
-                    <div class="illustration-placeholder">
-                        <img src="https://via.placeholder.com/300x120?text=Your+Illustration+Here" alt="Illustration" class="img-fluid">
-                    </div>
-                    <i class="bi bi-send text-white ms-auto" style="font-size: 1.5rem;"></i> </div>
-
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">Get personalized growth tips</h5>
-                    <p class="card-text text-muted">
-                        Learn how to optimize your site's performance and stay up to date with the latest news on AdSense.
-                    </p>
-                </div>
-
-                <div class="card-footer-links">
-                    <a href="#" class="btn btn-link p-0 text-decoration-none text-primary">Subscribe now</a>
-                    <a href="#" class="btn btn-link p-0 text-decoration-none text-primary">Got it</a>
-                </div>
+          <div class="card shadow-sm">
+            <div class="card-header-blue d-flex justify-content-between align-items-center">
+              <div>
+                <i class="bi bi-star-fill star-icon"></i> <span> We thought you might find this card interesting</span>
+              </div>
             </div>
+
+              <div class="illustration-placeholder " style="height: 149px;width: 100%;"  style="background-color: #1a73e8;">
+                <img src="personalized-optimization-opt-in.png" alt="Illustration" class="img-fluid" style="height: 100%;width: 100%;background-color: #1a73e8;">
+              </div>
+
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Get personalized growth tips</h5>
+              <p class="card-text text-muted">
+                Learn how to optimize your site's performance and stay up to date with the latest news on AdSense.
+              </p>
+            </div>
+
+            <div class="card-footer-links">
+              <a href="#" class="btn btn-link p-0 text-decoration-none text-primary">Subscribe now</a>
+              <a href="#" class="btn btn-link p-0 text-decoration-none text-dark">Got it</a>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
       </div>
     </div>
-
-    <div class="row col-lg-10 m-auto col-sm-12">
-      <div class="col-md-6 mb-4">
+     <div class="col-lg-6 col-xl-6  mb-4">
   <div class="row justify-content-center">
     <div class="col-lg-12">
       <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white d-flex align-items-center py-2">
+        <div class="card-header bg-primary text-white d-flex align-items-center py-2 mb-2">
           <i class="bi bi-info-circle-fill me-2"></i> <h6 class="mb-0 fw-bold">We thought you might find this card interesting</h6>
         </div>
         <div class="card-body">
@@ -415,7 +555,7 @@ Feedback</span>
 
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex align-items-start py-3 ps-0 border-bottom">
-              <span class="text-muted me-3">1</span>
+              <span class="text-muted me-3 ">1</span>
               <div>
                 <h6 class="mb-1">The "Significant Skin Exposure" sensi...</h6>
                 <small class="text-muted">July 23, 2025</small>
@@ -441,10 +581,10 @@ Feedback</span>
   </div>
 </div>
             </div>
-        
-    </div>
-</div>
+  </div>
 
+   
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
