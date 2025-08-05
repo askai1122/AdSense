@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
 <link rel="stylesheet" href="assets/css/style.css">
@@ -262,42 +260,12 @@ Feedback</span>
   }
 </style>
 
-<style>
-  /* Your existing CSS here */
-  .dropdown-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-  }
-  .dropdown-group .dropdown-btn {
-    min-width: 220px;
-    border-bottom: 1px solid lightgray;
-    padding-bottom: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .dropdown-group .dropdown-toggle::after {
-    display: none;
-  }
-  @media (min-width: 576px) {
-    .dropdown-group {
-      flex-direction: row;
-      gap: 1rem;
-    }
-    .dropdown-group .dropdown-btn {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-  }
-</style>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <div class="dropdown-group justify-content-end">
   <div class="dropdown">
     <button class="btn dropdown-toggle dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <span>Detailed transaction view</span>
+        <span >  Detailed transaction view</span>
       <i class="bi bi-caret-down-fill"></i>
     </button>
     <ul class="dropdown-menu">
@@ -322,17 +290,25 @@ Feedback</span>
 
   <div class="dropdown">
     <button class="btn dropdown-toggle dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
         <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
         <path d="M0 0h24v24H0z" fill="none"/>
       </svg>
-      Last 3 months
+        Last 3 months
       <i class="bi bi-caret-down-fill"></i>
     </button>
-    <ul class="dropdown-menu" id="date-range-menu">
-      </ul>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">This month</a></li>
+      <li><a class="dropdown-item" href="#">previous month</a></li>
+      <li><a class="dropdown-item" href="#">last 3 months</a></li>
+      <li><a class="dropdown-item" href="#">this year</a></li>
+      <li><a class="dropdown-item" href="#">previous year</a></li>
+      <li><a class="dropdown-item" href="#">all time</a></li>
+      <li><a class="dropdown-item" href="#">custom  date range</a></li>
+    </ul>
   </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <style>
   /* This style applies to the element only when it does NOT have the 'is-active' class */
@@ -349,132 +325,91 @@ Feedback</span>
 
 <div id="months-container"></div>
 
-<style>
-    /* This style applies to the element only when it does NOT have the 'is-active' class */
-    .transaction-header:not(.is-active):hover {
-        /* Adds a shadow when the mouse hovers over the div */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Optional: Add a transition for a smooth effect on the initial state */
-    .transaction-header {
-        transition: box-shadow 0.3s ease-in-out;
-    }
-</style>
-
-<div id="months-container"></div>
-
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const monthsContainer = document.getElementById('months-container');
-        const today = new Date();
-        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  document.addEventListener("DOMContentLoaded", function() {
+    const monthsContainer = document.getElementById('months-container');
+    const today = new Date();
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-        for (let i = 0; i < 3; i++) {
-            const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
-            const month = monthNames[date.getMonth()];
-            const year = date.getFullYear();
-            const monthId = month.toLowerCase() + year; // e.g., "august2025"
-            const monthText = `${month} 1 – 5, ${year}`;
+    for (let i = 0; i < 3; i++) {
+      const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
+      const month = monthNames[date.getMonth()];
+      const year = date.getFullYear();
+      const monthId = month.toLowerCase() + year; // e.g., "august2025"
+      const monthText = `${month} 1 – 5, ${year}`;
 
-            const rowHtml = `
-                <div class="row mt-3">
-                    <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
-                        data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
-                        aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
+      const rowHtml = `
+            <div class="row mt-3">
+                <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
+                    data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
+                    aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
 
-                        <div class="d-flex align-items-center">
-                            <p class="mb-0 transaction-header-collapse">${monthText}</p>
-                            <div class="transaction-icons ms-3" style="display: none;">
-                                <a href="kk.html?action=pdf" class="text-dark FS-5 me-2 ms-2"><i class="fas fa-download"></i></a>
-                                <a href="kk.html?action=print" class="text-dark ms-3"><i class="fas fa-print"></i></a>
-                            </div>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 transaction-header-collapse">${monthText}</p>
+                        <div class="transaction-icons ms-3" style="display: none;">
+                            <a href="kk.html?action=pdf" class="text-dark FS-5 me-2 ms-2"><i class="fas fa-download"></i></a>
+                            <a href="kk.html?action=print" class="text-dark ms-3"><i class="fas fa-print"></i></a>
                         </div>
-
-                        <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
                     </div>
 
-                    <div class="collapse" id="${monthId}-collapse">
-                        <div class="row mt-2 border-bottom">
-                            <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance: $0.00</span></div>
-                        </div>
-                        <div class="row mt-2" style="font-size: 13px;">
-                            <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
-                            <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
-                            <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
-                        </div>
-                        <hr>
-                        <div class="row p-5 text-center">
-                            <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
-                        </div>
-                        <div class="row mt-4 text-end">
-                            <p class="transaction-expanded-message mb-0" style="font-size: 15px;">Starting balance: $0.00</p>
-                        </div>
+                    <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
+                </div>
+
+                <div class="collapse" id="${monthId}-collapse">
+                    <div class="row mt-2 border-bottom">
+                        <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance: $0.00</span></div>
+                    </div>
+                    <div class="row mt-2" style="font-size: 13px;">
+                        <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
+                        <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
+                        <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
+                    </div>
+                    <hr>
+                    <div class="row p-5 text-center">
+                        <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
+                    </div>
+                    <div class="row mt-4 text-end">
+                        <p class="transaction-expanded-message mb-0" style="font-size: 15px;">Starting balance: $0.00</p>
                     </div>
                 </div>
-            `;
-            monthsContainer.innerHTML += rowHtml;
-        }
-    });
-
-    // Your existing toggleHeader function remains the same
-    function toggleHeader(element) {
-        element.classList.toggle('is-active');
-        const iconsContainer = element.querySelector('.transaction-icons');
-        if (element.classList.contains('is-active')) {
-            const dateElement = element.querySelector('.transaction-header-collapse');
-            const balanceElement = element.querySelector('.transaction-ending-balance');
-            element.dataset.originalDateText = dateElement.textContent;
-            const newHeading = document.createElement('h3');
-            newHeading.classList.add('mt-3');
-            newHeading.textContent = dateElement.textContent;
-            dateElement.replaceWith(newHeading);
-            balanceElement.style.display = 'none';
-            iconsContainer.style.display = 'block';
-            element.classList.remove('border', 'rounded-2');
-            element.classList.add('border-bottom');
-        } else {
-            const heading = element.querySelector('h3');
-            const originalDateElement = document.createElement('p');
-            originalDateElement.classList.add('mb-0', 'transaction-header-collapse');
-            originalDateElement.textContent = element.dataset.originalDateText;
-            heading.replaceWith(originalDateElement);
-            const balanceElement = element.querySelector('.transaction-ending-balance');
-            balanceElement.style.display = '';
-            iconsContainer.style.display = 'none';
-            element.classList.add('border', 'rounded-2');
-            element.classList.remove('border-bottom');
-        }
+            </div>
+        `;
+      monthsContainer.innerHTML += rowHtml;
     }
+  });
+
+  function toggleHeader(element) {
+    element.classList.toggle('is-active');
+    const iconsContainer = element.querySelector('.transaction-icons');
+
+    if (element.classList.contains('is-active')) {
+      const dateElement = element.querySelector('.transaction-header-collapse');
+      const balanceElement = element.querySelector('.transaction-ending-balance');
+      element.dataset.originalDateText = dateElement.textContent;
+      const newHeading = document.createElement('h3');
+      newHeading.classList.add('mt-3');
+      newHeading.textContent = dateElement.textContent;
+      dateElement.replaceWith(newHeading);
+      balanceElement.style.display = 'none';
+      iconsContainer.style.display = 'block';
+      element.classList.remove('border', 'rounded-2');
+      element.classList.add('border-bottom');
+    } else {
+      const heading = element.querySelector('h3');
+      const originalDateElement = document.createElement('p');
+      originalDateElement.classList.add('mb-0', 'transaction-header-collapse');
+      originalDateElement.textContent = element.dataset.originalDateText;
+      heading.replaceWith(originalDateElement);
+      const balanceElement = element.querySelector('.transaction-ending-balance');
+      balanceElement.style.display = '';
+      iconsContainer.style.display = 'none';
+      element.classList.add('border', 'rounded-2');
+      element.classList.remove('border-bottom');
+    }
+  }
 </script>
     
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const dateRangeMenu = document.getElementById('date-range-menu');
-    const today = new Date();
-    const currentMonth = today.toLocaleString('default', { month: 'long' });
-    const previousMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1).toLocaleString('default', { month: 'long' });
-    const currentYear = today.getFullYear();
-    const previousYear = currentYear - 1;
-
-    // Clear any static items
-    dateRangeMenu.innerHTML = '';
-
-    const dropdownItems = [
-      `<li><a class="dropdown-item" href="#">This month (${currentMonth})</a></li>`,
-      `<li><a class="dropdown-item" href="#">Previous month (${previousMonth})</a></li>`,
-      `<li><a class="dropdown-item" href="#">Last 3 months</a></li>`,
-      `<li><a class="dropdown-item" href="#">This year (${currentYear})</a></li>`,
-      `<li><a class="dropdown-item" href="#">Previous year (${previousYear})</a></li>`,
-      `<li><a class="dropdown-item" href="#">All time</a></li>`,
-      `<li><a class="dropdown-item" href="#">Custom date range</a></li>`
-    ];
-
-    dropdownItems.forEach(item => {
-      dateRangeMenu.innerHTML += item;
-    });
-  });
-</script>
+    
     <!-- <div class="row mt-2">
         <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center"
             data-bs-toggle="collapse" data-bs-target="#july-collapse" aria-expanded="false" aria-controls="july-collapse" style="cursor: pointer;">
