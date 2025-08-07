@@ -232,7 +232,8 @@ body {
             border-bottom-right-radius:30px ;
         }
 
-
+ 
+      
         .main-content {
             margin-left: var(--sidebar-width); /* Default for large screens */
             padding: 6px 81px;
@@ -259,6 +260,9 @@ body {
                 left: -330px; /* Hide sidebar off-screen */
                 width: var(--sidebar-width); /* Full width for overlay */
                 box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Add shadow for overlay effect */
+            }
+            .header-divider{
+                display: none;
             }
      .heading{
             margin-left: -20px !important;
