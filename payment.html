@@ -164,36 +164,60 @@ Optimization</span>
 Policy center</span>
             </a>
         </li>
-<li class="nav-item ">
-    <a class="nav-link collapsed " href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="false" aria-controls="paymentsSubmenu">
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="true" aria-controls="paymentsSubmenu">
         <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
         <span class="nav-link-text">Payments</span>
-        <!-- <i class="bi bi-chevron-down ms-auto"></i>  -->
         </a>
-        <style>
-            .navs{
-                 background-color: #e8f0fe;
-            color: #1a73e8; 
-            border-left: 7px solid #1a73e8; /* Active state border */
-            border-top-right-radius:30px ;
-            border-bottom-right-radius:30px ;
+    <style>
+        .navs {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            border-left: 7px solid #1a73e8;
+            border-top-right-radius: 30px !important;
+            border-bottom-right-radius: 30px !important;
             padding: 10px;
-            }
-            .navs1,.navs2{
-                 background-color: #e8f0fe;
-            color: #454647; 
-            border-left: 7px solid #dbdbdb; /* Active state border */
-            border-top-right-radius:30px ;
-            border-bottom-right-radius:30px ;
+        }
+
+        .navs1,
+        .navs2 {
+            background-color: transparent;
+            color: #454647;
+            border-left: 7px solid transparent;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
             padding: 10px;
-            }
-        </style>
-    <div class="collapse" id="paymentsSubmenu">
+        }
+        
+        .active-link {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            border-left: 7px solid #1a73e8;
+                border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        
+        .inactive-link {
+            background-color: #ffffff;
+            color: #454647;
+               border-left: 7px solid transparent;
+        }
+        
+        .bullet-blue {
+            color: #1a73e8;
+            font-size: 17px !important;
+        }
+        
+        .bullet-grey {
+            color: #707070;
+        }
+    </style>
+    <div class="collapse show" id="paymentsSubmenu">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li ><a class="nav-link navs  kk ps-7 py-2"  href="payment.html"> <i class="fa-solid fa-circle"></i> <span class="ms-3">Payments Info</span></a></li>
-            <li><a class="nav-link navs1 ps-5 py-2" href="#"> <i class="fa-solid fa-circle"></i><span class="ms-3">Verification Check</span></a></li>
-            <li><a class="nav-link navs2 ps-5 py-2" href="#"> <i class="fa-solid fa-circle"></i><span class="ms-3">Transaction History</span></a></li>
-            </ul>
+            <li><a class="nav-link kk ps-5 py-2 active-link" href="payment.html"><i class="fa-solid fa-circle bullet-blue"></i> <span class="ms-3">Payments info</span></a></li>
+            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
+            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Transaction History</span></a></li>
+        </ul>
     </div>
 </li>
            <li class="nav-item " >
@@ -218,23 +242,23 @@ Feedback</span>
 <div class="main-content" id="mainContent">
     <div class="row mb-4  col-lg-12  col-sm-12 m-auto">
 <div class="container-fluid">
-<div class="mb- text-dark " style="font-size: 13px;font-weight: 400;">PAYMENTS ACCOUNT</div>
+<div class="mb- text-dark " style="font-size: 12px;font-weight: 430;">PAYMENTS ACCOUNT</div>
     <div class="mb-3">
-        <span class="fs-9" style="font-size: 13PX;">AdSense (India)</span>
+        <span class="fs-9" style="font-size: 13.7PX;">AdSense (India)</span>
     </div>
-    <div class="mb-4">
-        <span style="font-size: 18px;">Payments   </span>
+    <div class="mb-2 mt-3">
+        <span style="font-size: 18px;">Payment </span>
     </div>
 <div class="balance-card">
   <div class="card-header ">
     <div class="card-titles">
-      <div class="card-itle mb-1 mt-2" style="font-size: 18px;" >Your earnings</div>
+      <div class="card-itle mb-2 mt-2" style="font-size: 18px;" >Your earnings</div>
       <div class="card-subtitle">Paid monthly if the total is at least $100.00 (your payout threshold)</div>
     </div>
     <div class="card-balance">$0.00</div>
   </div>
 
-  <div class="card-content mt-5">
+  <div class="card-content mt-4">
     <div class="progress-container">
       <div class="progress-bar" style="width: 70%"></div>
     </div>
@@ -420,7 +444,7 @@ Feedback</span>
                             <img src="https://lh6.ggpht.com/mVnFFyvZhK-1oHP2YMYvxVwuEYdHbU_r-1WKk-bQyZfCbFxrtAm5ZJUiGbMuI4viuSEf46U" alt="" style="height: 80px;width: 120px;">
                         </div>
                 <div class=" d-block" style="line-height: 3.2; display: block !important;">
-    <span class="text-dark d-block" style="color: rgba(0, 0, 0, .87); font: normal 12px Roboto, Arial, Helvetica, sans-serif; line-height: 1.4;">Wire transfer to bank account •••• 736</span>
+    <span class="text-dark d-block" style="color: rgba(0, 0, 0, .87); font: normal 12px Roboto, Arial, Helvetica, sans-serif; ;">Wire transfer to bank account •••• 736</span>
     <span class="d-block" style="font: normal 12px Roboto, Arial, Helvetica, sans-serif; line-height: 3.3;color: rgb(128, 128, 128);">Faizan Ali</span>
 </div>
                     </div>

@@ -164,18 +164,60 @@ Optimization</span>
 Policy center</span>
             </a>
         </li>
-<li class="nav-item ">
-    <a class="nav-link  active collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="false" aria-controls="paymentsSubmenu">
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="true" aria-controls="paymentsSubmenu">
         <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
         <span class="nav-link-text">Payments</span>
-        <!-- <i class="bi bi-chevron-down ms-auto"></i>  -->
         </a>
-    <div class="collapse" id="paymentsSubmenu">
+    <style>
+        .navs {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            border-left: 7px solid #1a73e8;
+            border-top-right-radius: 30px !important;
+            border-bottom-right-radius: 30px !important;
+            padding: 10px;
+        }
+
+        .navs1,
+        .navs2 {
+            background-color: transparent;
+            color: #454647;
+            border-left: 7px solid transparent;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding: 10px;
+        }
+        
+        .active-link {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+            border-left: 7px solid #1a73e8;
+                border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        
+        .inactive-link {
+            background-color: #ffffff;
+            color: #454647;
+               border-left: 7px solid transparent;
+        }
+        
+        .bullet-blue {
+            color: #1a73e8;
+            font-size: 17px !important;
+        }
+        
+        .bullet-grey {
+            color: #707070;
+        }
+    </style>
+    <div class="collapse show" id="paymentsSubmenu">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a class="nav-link ps-5 py-2 " href="payment.html">Payments Info</a></li>
-            <li><a class="nav-link ps-5 py-2" href="#">Verification Check</a></li>
-            <li><a class="nav-link ps-5 py-2" href="#">Transaction History</a></li>
-            </ul>
+            <li><a class="nav-link kk ps-5 py-2 active-link" href="payment.html"><i class="fa-solid fa-circle bullet-blue"></i> <span class="ms-3">Payments info</span></a></li>
+            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
+            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Transaction History</span></a></li>
+        </ul>
     </div>
 </li>
            <li class="nav-item " >
@@ -264,9 +306,9 @@ Feedback</span>
 
 <div class="dropdown-group justify-content-end">
   <div class="dropdown">
-    <button class="btn dropdown-toggle dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn dropdown-toggle border-bottom dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <span >  Detailed transaction view</span>
-      <i class="bi bi-caret-down-fill"></i>
+      <i class="bi bi-caret-down-fill" style="color: lightgray;"></i>
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Detailed transaction view</a></li>
@@ -275,9 +317,9 @@ Feedback</span>
   </div>
 
   <div class="dropdown">
-    <button class="btn dropdown-toggle dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn dropdown-toggle border-bottom dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       All transactions
-      <i class="bi bi-caret-down-fill"></i>
+      <i class="bi bi-caret-down-fill" style="color: lightgray;"></i>
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">All transactions</a></li>
@@ -289,13 +331,13 @@ Feedback</span>
   </div>
 
   <div class="dropdown">
-    <button class="btn dropdown-toggle dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+    <button class="btn dropdown-toggle border-bottom dropdown-btn" style="font-size: 14px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
         <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
         <path d="M0 0h24v24H0z" fill="none"/>
-      </svg>
+      </svg> -->
         Last 3 months
-      <i class="bi bi-caret-down-fill"></i>
+      <i class="bi bi-caret-down-fill "  style="color: lightgray;"></i>
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">This month</a></li>
