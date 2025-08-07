@@ -10,10 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
  <style>
 
  /* Hide the footer text when the sidebar is collapsed (large screens) */
@@ -302,7 +303,6 @@ Feedback</span>
   }
 </style>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <div class="dropdown-group justify-content-end">
   <div class="dropdown">
@@ -594,49 +594,66 @@ Feedback</span>
 </html>
 
 
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const loader = document.getElementById('loader-wrapper');
-            const content = document.getElementById('content');
-            
-            // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
-            setTimeout(function() {
-                loader.style.display = 'none';
-                content.style.display = 'block';
-            }, 3000);
-        });
-    </script>  <div id="loader-wrapper">
-        <div class="adsense-loader"></div>
-    </div>
-    <style>
-              #loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            z-index: 9999;
-        }
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    const loader = document.getElementById("loader-wrapper");
+    const content = document.getElementById("content");
 
-        .adsense-loader {
-            border: 4px solid #f3f3f3; /* Light grey border */
-            border-top: 4px solid #4285f4; /* Google AdSense red color */
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1.5s linear infinite;
-        }
+    // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
+    setTimeout(function () {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 3000);
+  });
+</script>
+<div id="loader-wrapper">
+  <div class="adsense-loader"></div>
+</div>
+<style>
+  #loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    z-index: 9999;
+  }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+  
+
+  .adsense-loader {
+    border: 4px solid #f3f3f3; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.7s linear infinite, color-change 2.5s linear infinite; /* Both animations running */
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes color-change {
+    0% {
+      border-top: 4px solid yellow;
+    }
+    33% {
+      border-top: 4px solid red;
+    }
+    66% {
+      border-top: 4px solid #4285f4;
+    }
+    100% {
+      border-top: 4px solid yellow; /* Returns to yellow to complete the loop */
+    }
+  }
+</style>

@@ -42,44 +42,7 @@
  
 </head>
 <body>
-     <div id="loader-wrapper">
-        <div class="adsense-loader"></div>
-    </div>
-    <style>
-              #loader-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #ffffff;
-            z-index: 9999;
-        }
-
-        .adsense-loader {
-            border: 4px solid #f3f3f3; /* Light grey border */
-            border-top: 4px solid #4285f4; /* Google AdSense red color */
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1.5s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        .hover-trasiton-card:hover{
-            background-color:#4286f40f ;
-        }
-    </style>
+    
 <header class="as-top-bar">
     <div class="as-app-logo">
         <div class="header-controls">
@@ -443,8 +406,8 @@ Feedback</span>
                         <div class=" p-1 rounded-2 me-3 d-flex align-items-center justify-content-center" style="width: auto; height: auto;">
                             <img src="https://lh6.ggpht.com/mVnFFyvZhK-1oHP2YMYvxVwuEYdHbU_r-1WKk-bQyZfCbFxrtAm5ZJUiGbMuI4viuSEf46U" alt="" style="height: 80px;width: 120px;">
                         </div>
-                <div class=" d-block" style="line-height: 3.2; display: block !important;">
-    <span class="text-dark d-block" style="color: rgba(0, 0, 0, .87); font: normal 12px Roboto, Arial, Helvetica, sans-serif; ;">Wire transfer to bank account •••• 736</span>
+                <div class=" d-block " style=" display: block !important;margin-bottom: 25px;">
+    <span class="text-dark d-block" style="color: rgba(0, 0, 0, 0.901); font: normal 12px Roboto, Arial, Helvetica, sans-serif; ;">Wire transfer to bank account •••• 736</span>
     <span class="d-block" style="font: normal 12px Roboto, Arial, Helvetica, sans-serif; line-height: 3.3;color: rgb(128, 128, 128);">Faizan Ali</span>
 </div>
                     </div>
@@ -609,15 +572,67 @@ Feedback</span>
 </html>
 
 
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            const loader = document.getElementById('loader-wrapper');
-            const content = document.getElementById('content');
-            
-            // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
-            setTimeout(function() {
-                loader.style.display = 'none';
-                content.style.display = 'block';
-            }, 3000);
-        });
-    </script> 
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    const loader = document.getElementById("loader-wrapper");
+    const content = document.getElementById("content");
+
+    // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
+    setTimeout(function () {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 3000);
+  });
+</script>
+<div id="loader-wrapper">
+  <div class="adsense-loader"></div>
+</div>
+<style>
+  #loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    z-index: 9999;
+  }
+
+  
+
+  .adsense-loader {
+    border: 4px solid #f3f3f3; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.7s linear infinite, color-change 2.5s linear infinite; /* Both animations running */
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes color-change {
+    0% {
+      border-top: 4px solid yellow;
+    }
+    33% {
+      border-top: 4px solid red;
+    }
+    66% {
+      border-top: 4px solid #4285f4;
+    }
+    100% {
+      border-top: 4px solid yellow; /* Returns to yellow to complete the loop */
+    }
+  }
+</style>
