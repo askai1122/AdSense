@@ -36,6 +36,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       /* Hide the footer text when the sidebar is collapsed (large screens) */
       .sidebar.collapsed .sidebar-footer-text {
@@ -135,13 +136,7 @@
       <div class="as-app-header-icons">
         <div class="header-icons">
           <button class="header-icon-button help-icon" aria-label="Help">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#434343"
-            >
+           <i class="fa-solid fa-circle-question" style="font-size: 19px;"></i>
               <path
                 d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
               />
@@ -272,9 +267,9 @@
               <li>
                 <a class="nav-link ps-5 py-2" href="#">Verification Check</a>
               </li>
-              <li>
+              <!-- <li>
                 <a class="nav-link ps-5 py-2" href="#">Transaction History</a>
-              </li>
+              </li> -->
             </ul>
           </div>
         </li>
@@ -298,8 +293,8 @@
         </li>
         <hr />
         <span class="ms-4 mt-3 sidebar-footer-text" style="line-height: 30px"
-          ><span>Google</span>&nbsp;&nbsp;<span><a href="">Privacy</a></span
-          >&nbsp;&nbsp;<span><a href="">Terms</a></span></span
+          ><span cla>Google</span>&nbsp;&nbsp;<span><a href="" class="text-dark" style="font-weight: 200;">Privacy</a></span
+          >&nbsp;&nbsp;<span><a href="" class="text-dark b-0" style="font-weight: 200;">Terms</a></span></span
         >
       </ul>
     </div>
@@ -380,7 +375,7 @@
           font-size: 0.8rem;
         }
       }
-    </style>
+      </style>
     <div class="main-content" id="mainContent">
       <div class="row mb-4 col-lg-12 col-sm-12 m-auto">
         <div class="col-12 col-lg-9 Estimated mb-2 mb-lg-0 h-100">
@@ -568,18 +563,22 @@
         }
 
         .text-center h4 {
-          font-size: 1.5rem;
+          font-size: 1.75rem;
           font-weight: 400;
           color: #202124;
           line-height: 1.2;
+          text-align: left;
         }
 
         .text-center p {
-          font-size: 0.75rem; /* Small font size for labels */
-          color: #5f6368;
-          text-transform: uppercase;
+          font-size: 0.875rem; /* Small font size for labels */
+          color: #2f3031;
+          text-transform: capitalize;
           font-weight: 500;
           letter-spacing: 0.5px;
+          
+          text-align: left;
+
         }
 
         .btn-link {
@@ -648,7 +647,7 @@
                 </button>
               </div>
               <div class="mb-3">
-                <select class="form-select form-select-sm w-auto">
+                <select class="form-select form-select-sm border-0 w-auto">
                   <option>Today so far</option>
                 </select>
               </div>
@@ -686,7 +685,23 @@
                 </div>
                 <div class="">
                   <button class="btn btn-link p-0 text-dark">
-                    <i class="bi bi-pin-angle-fill"></i>
+                    <!-- <i class="fa-solid fa-thumbtack"></i> -->
+             <img id="toggleImage" src="pin.png" alt="Pin" style="height: 20px; cursor: pointer;">
+
+<script>
+    const toggleImage = document.getElementById('toggleImage');
+    let isFirstImage = true; // Track which image is showing
+
+    toggleImage.addEventListener('click', function () {
+        if (isFirstImage) {
+            toggleImage.src = 'thumbtacks.png'; // Show second image
+        } else {
+            toggleImage.src = 'pin.png'; // Show first image
+        }
+        isFirstImage = !isFirstImage; // Toggle the state
+    });
+</script>
+
                   </button>
                 </div>
               </div>
@@ -741,7 +756,7 @@
                   <a
                     href="#"
                     class="btn btn-link p-0 text-decoration-none text-dark"
-                    >Got it</a
+                    style="color: black !important;">Got it</a
                   >
                 </div>
               </div>
@@ -753,18 +768,26 @@
             <div class="col-lg-12">
               <div class="card shadow-sm">
                 <div
-                  class="card-header bg-primary text-white d-flex align-items-center py-2 mb-2"
+                  class="card-header  text-white d-flex align-items-center py-2 mb-2" style="background-color: #1565c0;"
                 >
                   <i class="bi bi-info-circle-fill me-2"></i>
-                  <h6 class="mb-0 fw-bold">
+                  <p class="mb-0 ms-2" style="font-size: .875rem;">
                     We thought you might find this card interesting
-                  </h6>
+                  </p>
                 </div>
                 <div class="card-body">
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
                   >
-                    <h5 class="card-title mb-0 fw-bold">Announcements</h5>
+                    <P class="card-title mb-0 b-0" style="
+    font-family: Google Sans, Roboto, Arial, sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--acx-sys-color--on-background, #202124);
+    color: inherit;
+  
+   
+">Announcements</P>
                     <div class="dropdown">
                       <button
                         class="btn btn-sm btn-link text-dark p-0"
@@ -772,8 +795,9 @@
                         id="dropdownMenuButton1"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-                      >
-                        <i class="bi bi-three-dots-vertical"></i>
+                       
+                        >
+                        <i class="bi bi-three-dots-vertical text-dark" ></i>
                       </button>
                       <ul
                         class="dropdown-menu"
@@ -796,7 +820,16 @@
                     <li
                       class="list-group-item d-flex align-items-start py-3 ps-0 border-bottom"
                     >
-                      <span class="text-muted me-3">1</span>
+                      <span class="text-muted me-3" style="font-family: Google Sans, Roboto, Arial, sans-serif;
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--acx-sys-color--on-background, #202124);
+    border-left: 2px solid #1a73e8;
+    color: #1a73e8 !important;
+    margin: 4px;
+    padding: 4px 16px 4px 14px;">1</span>
                       <div>
                         <h6 class="mb-1">
                           The "Significant Skin Exposure" sensi...
@@ -814,7 +847,16 @@
                     <li
                       class="list-group-item d-flex align-items-start py-3 ps-0"
                     >
-                      <span class="text-muted me-3">2</span>
+                      <span class="text-muted me-3"  style="font-family: Google Sans, Roboto, Arial, sans-serif;
+    line-height: 1.5rem;
+    font-size: 1.125rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--acx-sys-color--on-background, #202124);
+    border-left: 2px solid #1a73e8;
+    color: #1a73e8 !important;
+    margin: 4px;
+    padding: 4px 16px 4px 14px;">2</span>
                       <div>
                         <h6 class="mb-1">
                           Optimizing your empty in-page ad spaces
@@ -838,7 +880,25 @@
                     >View announcements</a
                   >
                   <button class="btn btn-link p-0 text-dark">
-                    <i class="bi bi-pin-angle-fill"></i>
+                    <!-- <i class="bi bi-pin-angle-fill text-dark"></i> -->
+                     <!-- <img src="push-pin.png" alt="" style="height:17px;"> -->
+                                     <!-- <i class="fa-solid fa-thumbtack"></i> -->
+
+                                        <img id="toggleImage1" src="push-pin.png" alt="Pin" style="height: 20px; cursor: pointer;">
+
+<script>
+    const toggleImage1 = document.getElementById('toggleImage1');
+    let isFirstImage1 = true; // Track which image is showing
+
+    toggleImage1.addEventListener('click', function () {
+        if (isFirstImage1) {
+            toggleImage1.src = 'push-pin.png'; // Show second image
+        } else {
+            toggleImage1.src = 'pin.png'; // Show first image
+        }
+        isFirstImage1 = !isFirstImage1; // Toggle the state
+    });
+</script>
                   </button>
                 </div>
               </div>
@@ -847,7 +907,9 @@
         </div>
       </div>
     </div>
-
+<footer class=" text-end " style="padding-right: 15px;">
+<p class=""> <span style="font-size: 17px;"></span>  2025 Google</p>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {

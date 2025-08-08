@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
  <style>
 
@@ -103,13 +104,29 @@
     </div>
     <div class="as-app-header-icons">
         <div class="header-icons">
-            <button class="header-icon-button help-icon " aria-label="Help">
-                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-
-            </button>
-            <button class="header-icon-button notifications-icon " aria-label="Notifications">
-               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z"/></svg>
-            </button>
+           <button class="header-icon-button help-icon" aria-label="Help">
+           <i class="fa-solid fa-circle-question" style="font-size: 19px;"></i>
+              <path
+                d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+              />
+            </svg>
+          </button>
+         <button
+            class="header-icon-button notifications-icon"
+            aria-label="Notifications"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#434343"
+            >
+              <path
+                d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z"
+              />
+            </svg>
+          </button>
             <button class="header-icon-button profile-icon" aria-label="Google account">
                 <!-- <i class="material-icons">account_circle</i> -->
                 <img src="photo.png" alt="">
@@ -171,53 +188,74 @@ Policy center</span>
         <span class="nav-link-text">Payments</span>
         </a>
     <style>
-        .navs {
-            background-color: #e8f0fe;
-            color: #1a73e8;
-            border-left: 7px solid #1a73e8;
-            border-top-right-radius: 30px !important;
-            border-bottom-right-radius: 30px !important;
-            padding: 10px;
-        }
+    /* Active main menu */
+    .navs {
+      background-color: #e8f0fe;
+      color: #1a73e8;
+      border-left: 7px solid #1a73e8;
+      border-top-right-radius: 30px !important;
+      border-bottom-right-radius: 30px !important;
+      padding: 10px;
+    }
 
-        .navs1,
-        .navs2 {
-            background-color: transparent;
-            color: #454647;
-            border-left: 7px solid transparent;
-            border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-            padding: 10px;
-        }
-        
-        .active-link {
-            background-color: #e8f0fe;
-            color: #1a73e8;
-            border-left: 7px solid #1a73e8;
-                border-top-right-radius: 30px;
-            border-bottom-right-radius: 30px;
-        }
-        
-        .inactive-link {
-            background-color: #ffffff;
-            color: #454647;
-               border-left: 7px solid transparent;
-        }
-        
-        .bullet-blue {
-            color: #1a73e8;
-            font-size: 17px !important;
-        }
-        
-        .bullet-grey {
-            color: #707070;
-        }
-    </style>
+    /* Inactive main menu */
+    .navs1,
+    .navs2 {
+      background-color: transparent;
+      color: #454647;
+      border-left: 7px solid transparent;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      padding: 10px;
+    }
+
+    /* Active submenu link */
+    .active-link {
+      background-color: #e8f0fe;
+      color: #1a73e8;
+      border-left: 7px solid #1a73e8;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    /* Inactive submenu link */
+    .inactive-link {
+      background-color: #ffffff;
+      color: #454647;
+      border-left: 7px solid transparent;
+    }
+
+    /* Bullets */
+    .bullet-blue {
+      color: #1a73e8;
+      font-size: 13px !important;
+    }
+
+    .bullet-grey {
+      color: #707070;
+      font-size: 13px !important;
+    }
+
+    /* Payments title ka font size */
+    .nav-link-text {
+      font-size: 16px !important;
+    }
+
+    /* Submenu text ka font size */
+    .btn-toggle-nav .nav-link span {
+      font-size: 13px !important;
+    }
+  </style>
+  <style>
+  .hover-trasiton-card:hover{
+    background-color: #1a73e815;
+  }
+</style>
     <div class="collapse show" id="paymentsSubmenu">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a class="nav-link kk ps-5 py-2 active-link" href="payment.html"><i class="fa-solid fa-circle bullet-blue"></i> <span class="ms-3">Payments info</span></a></li>
             <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
-            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Transaction History</span></a></li>
+            <!-- <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Transaction History</span></a></li> -->
         </ul>
     </div>
 </li>
@@ -234,7 +272,7 @@ Feedback</span>
             </a>
         </li>
            <hr >
-    <span class="ms-4 sidebar-footer-text mt-4" style="line-height: 30px;" ><span>Google</span>&nbsp;&nbsp;<span><a href="">Privacy</a></span>&nbsp;&nbsp;<span><a href="">Terms</a></span></span>
+    <span class="ms-4 sidebar-footer-text mt-4" style="line-height: 30px;" ><span>Google</span>&nbsp;&nbsp;<span><a href="" class="text-dark">Privacy</a></span>&nbsp;&nbsp;<span><a href="" class="text-dark">Terms</a></span></span>
     </ul>
  
 </div>
@@ -349,6 +387,7 @@ Feedback</span>
       <li><a class="dropdown-item" href="#">custom  date range</a></li>
     </ul>
   </div>
+ 
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -394,12 +433,12 @@ Feedback</span>
                         </div>
                     </div>
 
-                    <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
+                    <p class="mb-0 transaction-ending-balance">Ending balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i></p>
                 </div>
 
                 <div class="collapse" id="${monthId}-collapse">
                     <div class="row mt-2 border-bottom">
-                        <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance: $0.00</span></div>
+                        <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span style="margin-left:2px">0.00</span></i></span></div>
                     </div>
                     <div class="row mt-2" style="font-size: 13px;">
                         <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
@@ -411,7 +450,7 @@ Feedback</span>
                         <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
                     </div>
                     <div class="row mt-4 text-end">
-                        <p class="transaction-expanded-message mb-0" style="font-size: 15px;">Starting balance: $0.00</p>
+                        <p class="transaction-expanded-message mb-0"     >Starting balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i>  </p>
                     </div>
                 </div>
             </div>
@@ -456,7 +495,7 @@ Feedback</span>
         <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center"
             data-bs-toggle="collapse" data-bs-target="#july-collapse" aria-expanded="false" aria-controls="july-collapse" style="cursor: pointer;">
             <p class="mb-0 fs-5 fw-bold">Jul 1 – 31, 2025</p>
-            <p class="mb-0 text-end">Ending balance: $0.00</p>
+            <p class="mb-0 text-end">Ending balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i></p>
         </div>
         <div class="collapse" id="july-collapse">
             <div class="row mt-2 border-bottom">
@@ -468,7 +507,7 @@ Feedback</span>
                 <p class="fs-6">You don't have any transactions for this billing period</p>
             </div>
             <div class="row mt-4 text-end">
-                <p>Starting balance: $0.00</p>
+                <p>Starting balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i></p>
             </div>
         </div>
     </div>
@@ -478,7 +517,7 @@ Feedback</span>
         <div class="col-12 p-3 border  rounded-2d-flex justify-content-between align-items-center"
             data-bs-toggle="collapse" data-bs-target="#june-collapse" aria-expanded="false" aria-controls="june-collapse" style="cursor: pointer;">
             <p class="mb-0 fs-5 fw-bold">Jun 1 – 30, 2025</p>
-            <p class="mb-0 text-end">Ending balance: $0.00</p>
+            <p class="mb-0 text-end">Ending balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i></p>
         </div>
         <div class="collapse" id="june-collapse">
             <div class="row mt-2 border-bottom">
@@ -490,7 +529,7 @@ Feedback</span>
                 <p class="fs-6">You don't have any transactions for this billing period</p>
             </div>
             <div class="row mt-4 text-end">
-                <p>Starting balance: $0.00</p>
+                <p>Starting balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i></p>
             </div>
         </div>
     </div> -->
@@ -500,8 +539,14 @@ Feedback</span>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-      function toggleHeader(element) {
+ <style>
+.transaction-ending-balance {
+    margin-right: 10px; /* Right se 10px space */
+}
+</style>
+
+<script>
+function toggleHeader(element) {
     element.classList.toggle('is-active');
 
     const iconsContainer = element.querySelector('.transaction-icons');
@@ -527,7 +572,7 @@ Feedback</span>
         element.classList.add('border-bottom');
     } else {
         // REVERT CHANGES
-        const heading = element.querySelector('h4');
+        const heading = element.querySelector('h3'); // h4 ko h3 kiya
         const originalDateElement = document.createElement('p');
         originalDateElement.classList.add('mb-0', 'transaction-header-collapse');
         originalDateElement.textContent = element.dataset.originalDateText;
@@ -544,7 +589,8 @@ Feedback</span>
         element.classList.remove('border-bottom');
     }
 }
-    </script>
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const sidebar = document.getElementById('sidebar');
