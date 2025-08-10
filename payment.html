@@ -68,8 +68,63 @@
         display: inline-block; /* Or 'block' or 'flex' depending on your desired layout */
       }
     </style>
+    
+<style>
+  /* Full page grey background while loading */
+#pageLoader {
+    position: fixed;
+    inset: 0;
+    background: white; /* grey overlay */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Top progress bar */
+#topLoaderBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 1%;
+    background: linear-gradient(90deg, #0d6efd);
+    transition: width 1s linear;
+}
+
+/* Center logo */
+#logoLoader img {
+    max-width: 150px;
+}
+
+/* Hide animation */
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+</style>
   </head>
   <body>
+<!-- Full page loader overlay -->
+<div id="pageLoader">
+    <!-- Top bar -->
+    <div id="topLoaderBar"></div>
+
+    <!-- Logo in center -->
+    <div id="logoLoader">
+        <img src="logo_google_adsense_color_1x_web_512dp.max-1440x810.png" alt="Logo">
+    </div>
+</div>
+
+<!-- Main content -->
+<div id="mainContent" style="display:none;">
+    <!-- Yahan aapka actual page content -->
+</div>
+
+
     <header class="as-top-bar">
       <div class="as-app-logo">
         <div class="header-controls">
@@ -457,7 +512,6 @@
               display: flex;
               align-items: center;
               padding-top: 16px;
-              border-top: 1px solid #e0e0e0;
               font-size: 14px;
               color: #5f6368;
             }
@@ -827,63 +881,20 @@
 </html>
 
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
-    const loader = document.getElementById("loader-wrapper");
-    const content = document.getElementById("content");
+document.addEventListener('DOMContentLoaded', function () {
+    var bar = document.getElementById('topLoaderBar');
+    var loader = document.getElementById('pageLoader');
+    var main = document.getElementById('mainContent');
 
-    // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
-    setTimeout(function () {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 3000);
-  });
+    // Start bar animation
+    requestAnimationFrame(function(){
+        bar.style.width = '100%';
+    });
+
+    // After 10s hide loader and show content
+    setTimeout(function(){
+        loader.classList.add('hide');
+        main.style.display = '';
+    }, 1000);
+});
 </script>
-<div id="loader-wrapper">
-  <div class="adsense-loader"></div>
-</div>
-<style>
-  #loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    z-index: 9999;
-  }
-
-  .adsense-loader {
-    border: 4px solid #f3f3f3;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 0.7s linear infinite, color-change 2.5s linear infinite; /* Both animations running */
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes color-change {
-    0% {
-      border-top: 4px solid yellow;
-    }
-    33% {
-      border-top: 4px solid red;
-    }
-    66% {
-      border-top: 4px solid #4285f4;
-    }
-    100% {
-      border-top: 4px solid yellow; /* Returns to yellow to complete the loop */
-    }
-  }
-</style>

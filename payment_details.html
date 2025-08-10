@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Home - Google AdSense </title>
-<link href="https://www.gstatic.com/adsense/apps/static/adsense3_antipasti_server_20250729-12_RC00/common/resources/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Google AdSense</title>
+    <link
+      href="https://www.gstatic.com/adsense/apps/static/adsense3_antipasti_server_20250729-12_RC00/common/resources/favicon.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
  <style>
@@ -79,8 +107,55 @@
             border-radius: 5px;
         }
     </style>
-</head>
-<body>
+<style>
+  /* Full page grey background while loading */
+#pageLoader {
+    position: fixed;
+    inset: 0;
+    background: white; /* grey overlay */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Top progress bar */
+#topLoaderBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 1%;
+    background: linear-gradient(90deg, #0d6efd);
+    transition: width 1s linear;
+}
+
+/* Center logo */
+#logoLoader img {
+    max-width: 150px;
+}
+
+/* Hide animation */
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+</style>
+  </head>
+  <body>
+<!-- Full page loader overlay -->
+<div id="pageLoader">
+    <!-- Top bar -->
+    <div id="topLoaderBar"></div>
+
+    <!-- Logo in center -->
+    <div id="logoLoader">
+        <img src="logo_google_adsense_color_1x_web_512dp.max-1440x810.png" alt="Logo">
+    </div>
+</div>
 
 <header class="as-top-bar">
     <div class="as-app-logo">
@@ -293,8 +368,8 @@ Feedback</span>
 }
   }
   </style>
-
   <div class="main-content" id="mainContent" style="margin-top: 70px;">
+
       <div class="row mb-4 ">
  <div class="container-fluid " >
           <div class="mb- text-dark " style="font-size: 12px;font-weight: 500;">PAYMENTS ACCOUNT</div>
@@ -404,7 +479,7 @@ Feedback</span>
   }
 </style>
 
-<div id="months-container"></div>
+<div id="months-container" style="font-family: 'Roboto', Arial, sans-serif;"></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -420,7 +495,7 @@ Feedback</span>
       const monthText = `${month} 1 – 5, ${year}`;
 
       const rowHtml = `
-            <div class="row mt-3">
+            <div class="row mt-3" >
                 <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
                     data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
                     aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
@@ -428,17 +503,16 @@ Feedback</span>
                     <div class="d-flex align-items-center">
                         <p class="mb-0 transaction-header-collapse">${monthText}</p>
                         <div class="transaction-icons ms-3" style="display: none;">
-                            <a href="kk.html?action=pdf" class="text-dark FS-5 me-2 ms-2"><i class="fas fa-download"></i></a>
-                            <a href="kk.html?action=print" class="text-dark ms-3"><i class="fas fa-print"></i></a>
+                           
                         </div>
                     </div>
 
-                    <p class="mb-0 transaction-ending-balance">Ending balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i></p>
+                    <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
                 </div>
 
                 <div class="collapse" id="${monthId}-collapse">
                     <div class="row mt-2 border-bottom">
-                        <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span style="margin-left:2px">0.00</span></i></span></div>
+                        <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $0.00</div>
                     </div>
                     <div class="row mt-2" style="font-size: 13px;">
                         <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
@@ -450,7 +524,7 @@ Feedback</span>
                         <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
                     </div>
                     <div class="row mt-4 text-end">
-                        <p class="transaction-expanded-message mb-0"     >Starting balance: <i class="fa-solid fa-dollar-sign" style="color:#646464;font-size:13px;margin-right:2px"><span >0.00</span></i>  </p>
+                        <p class="transaction-expanded-message mb-0"     >Starting balance:  $0.00  </p>
                     </div>
                 </div>
             </div>
@@ -536,6 +610,7 @@ Feedback</span>
 
   </div>
   </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -558,7 +633,7 @@ function toggleHeader(element) {
 
         element.dataset.originalDateText = dateElement.textContent;
 
-        const newHeading = document.createElement('h3');
+        const newHeading = document.createElement('h5');
         newHeading.classList.add('mt-3');
         newHeading.textContent = dateElement.textContent;
 
@@ -572,7 +647,7 @@ function toggleHeader(element) {
         element.classList.add('border-bottom');
     } else {
         // REVERT CHANGES
-        const heading = element.querySelector('h3'); // h4 ko h3 kiya
+        const heading = element.querySelector('h5'); // h4 ko h3 kiya
         const originalDateElement = document.createElement('p');
         originalDateElement.classList.add('mb-0', 'transaction-header-collapse');
         originalDateElement.textContent = element.dataset.originalDateText;
@@ -636,70 +711,27 @@ function toggleHeader(element) {
         window.addEventListener('resize', setSidebarState);
     });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var bar = document.getElementById('topLoaderBar');
+    var loader = document.getElementById('pageLoader');
+    var main = document.getElementById('mainContent');
+
+    // Start bar animation
+    requestAnimationFrame(function(){
+        bar.style.width = '100%';
+    });
+
+    // After 10s hide loader and show content
+    setTimeout(function(){
+        loader.classList.add('hide');
+        main.style.display = '';
+    }, 1000);
+});
+</script>
+
 </body>
 </html>
 
 
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    const loader = document.getElementById("loader-wrapper");
-    const content = document.getElementById("content");
-
-    // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
-    setTimeout(function () {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 3000);
-  });
-</script>
-<div id="loader-wrapper">
-  <div class="adsense-loader"></div>
-</div>
-<style>
-  #loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    z-index: 9999;
-  }
-
-  
-
-  .adsense-loader {
-    border: 4px solid #f3f3f3; 
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 0.7s linear infinite, color-change 2.5s linear infinite; /* Both animations running */
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes color-change {
-    0% {
-      border-top: 4px solid yellow;
-    }
-    33% {
-      border-top: 4px solid red;
-    }
-    66% {
-      border-top: 4px solid #4285f4;
-    }
-    100% {
-      border-top: 4px solid yellow; /* Returns to yellow to complete the loop */
-    }
-  }
-</style>

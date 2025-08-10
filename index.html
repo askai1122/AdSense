@@ -104,8 +104,56 @@
         border-radius: 5px;
       }
     </style>
+ <style>
+  /* Full page grey background while loading */
+#pageLoader {
+    position: fixed;
+    inset: 0;
+    background: white; /* grey overlay */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Top progress bar */
+#topLoaderBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 1%;
+    background: linear-gradient(90deg, #0d6efd);
+    transition: width 1s linear;
+}
+
+/* Center logo */
+#logoLoader img {
+    max-width: 150px;
+}
+
+/* Hide animation */
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+</style>
   </head>
   <body>
+<!-- Full page loader overlay -->
+<div id="pageLoader">
+    <!-- Top bar -->
+    <div id="topLoaderBar"></div>
+
+    <!-- Logo in center -->
+    <div id="logoLoader">
+        <img src="logo_google_adsense_color_1x_web_512dp.max-1440x810.png" alt="Logo">
+    </div>
+</div>
+
     <header class="as-top-bar">
       <div class="as-app-logo">
         <div class="header-controls">
@@ -135,13 +183,7 @@
       </div>
       <div class="as-app-header-icons">
         <div class="header-icons">
-          <button class="header-icon-button help-icon" aria-label="Help">
-           <i class="fa-solid fa-circle-question" style="font-size: 19px;"></i>
-              <path
-                d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
-              />
-            </svg>
-          </button>
+          <img src="help-round-button.png" alt="" style="height: 20px;">
           <button
             class="header-icon-button notifications-icon"
             aria-label="Notifications"
@@ -189,30 +231,34 @@
             <span class="nav-link-text">Ads</span>
           </a>
         </li>
+        <style>
+          .title-svg-icon {
+  height: 27px; /* or any smaller height you want */
+  width: auto; /* keep aspect ratio */
+}
+
+        </style>
         <li class="nav-item border-bottom">
           <a class="nav-link" aria-current="page" href="#">
-            <img
-              src="assets/iamges/branding_watermark_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
-              alt=""
-            />
-            <span class="nav-link-text">Sites</span>
+          <svg class="title-svg-icon _ngcontent-dot-20" viewBox="0 0 24 24"><path class="_ngcontent-dot-20" d="M10.4 2.5C8.1 2.5 6.2 4.4 6.2 6.7C6.2 9 8.1 11 10.4 11C12.7 11 14.6 9.1 14.6 6.8C14.6 4.5 12.8 2.5 10.4 2.5ZM10.4 4.6C11.6 4.6 12.5 5.5 12.5 6.7C12.5 7.9 11.6 8.8 10.4 8.8C9.2 8.8 8.3 7.9 8.3 6.7C8.3 5.5 9.3 4.6 10.4 4.6ZM13.6 12L17.8 9.9L22 12V14.8C22 17.4 20.2 19.8 17.8 20.4C15.4 19.8 13.6 17.4 13.6 14.8V12ZM12.6 12.2C11.8 12.1 11 12 10.4 12C7.6 12 2 13.4 2 16.2V19.4H14.3C13.8 18.8 13.3 18.1 13 17.3H4.1V16.3C4.3 15.5 7.6 14.2 10.4 14.2C11.1 14.2 11.8 14.3 12.5 14.4V12.2H12.6Z"></path></svg>
+            <span class="nav-link-text ms-3">Sites</span>
           </a>
         </li>
-        <li class="nav-item">
+         <li class="nav-item ">
           <a class="nav-link" aria-current="page" href="#">
-            <img src="assets/iamges/user-trust.png" alt="" />
-            <span class="nav-link-text"> Privacy & messaging</span>
+          <svg class="title-svg-icon _ngcontent-dot-20" viewBox="0 0 24 24"><path class="_ngcontent-dot-20" d="M10.4 2.5C8.1 2.5 6.2 4.4 6.2 6.7C6.2 9 8.1 11 10.4 11C12.7 11 14.6 9.1 14.6 6.8C14.6 4.5 12.8 2.5 10.4 2.5ZM10.4 4.6C11.6 4.6 12.5 5.5 12.5 6.7C12.5 7.9 11.6 8.8 10.4 8.8C9.2 8.8 8.3 7.9 8.3 6.7C8.3 5.5 9.3 4.6 10.4 4.6ZM13.6 12L17.8 9.9L22 12V14.8C22 17.4 20.2 19.8 17.8 20.4C15.4 19.8 13.6 17.4 13.6 14.8V12ZM12.6 12.2C11.8 12.1 11 12 10.4 12C7.6 12 2 13.4 2 16.2V19.4H14.3C13.8 18.8 13.3 18.1 13 17.3H4.1V16.3C4.3 15.5 7.6 14.2 10.4 14.2C11.1 14.2 11.8 14.3 12.5 14.4V12.2H12.6Z"></path></svg>
+            <span class="nav-link-text ms-3">Privacy & messaging</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">
-            <img
-              src="assets/iamges/block_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
-              alt=""
-            />
-            <span class="nav-link-text"> Brand Safety</span>
-          </a>
-        </li>
+     
+    <li class="nav-item">
+  <a class="nav-link" href="#">
+    <i class="fa-solid fa-caret-right caret-icon"></i>
+    <img src="assets/iamges/block_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="" />
+    <span class="nav-link-text">Brand Safety</span>
+  </a>
+</li>
+
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">
             <img
@@ -240,39 +286,51 @@
             <span class="nav-link-text"> Policy center</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            href="#paymentsSubmenu"
-            data-bs-toggle="collapse"
-            aria-expanded="false"
-            aria-controls="paymentsSubmenu"
-          >
-            <img
-              src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
-              alt="Payments icon"
-              width="24"
-              height="24"
-            />
-            <span class="nav-link-text">Payments</span>
-            <!-- <i class="bi bi-chevron-down ms-auto"></i>  -->
-          </a>
-          <div class="collapse" id="paymentsSubmenu">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <a class="nav-link ps-5 py-2" href="payment.html"
-                  >Payments Info</a
-                >
-              </li>
-              <li>
-                <a class="nav-link ps-5 py-2" href="#">Verification Check</a>
-              </li>
-              <!-- <li>
-                <a class="nav-link ps-5 py-2" href="#">Transaction History</a>
-              </li> -->
-            </ul>
-          </div>
-        </li>
+      <li class="nav-item">
+    <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="true" aria-controls="paymentsSubmenu">
+        <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
+        <span class="nav-link-text">Payments</span>
+        </a>
+    <style>
+    /* Active main menu */
+   
+    /* Inactive main menu */
+    
+    /* Inactive submenu link */
+
+
+    /* Bullets */
+    .bullet-blue {
+      color: #1a73e8;
+      font-size: 13px !important;
+    }
+
+    .bullet-grey {
+      color: #707070;
+      font-size: 13px !important;
+    }
+
+    /* Payments title ka font size */
+    .nav-link-text {
+      font-size: 16px !important;
+    }
+
+    /* Submenu text ka font size */
+    .btn-toggle-nav .nav-link span {
+      font-size: 13px !important;
+    }
+  </style>
+  <style>
+  
+</style>
+    <div class="collapse show" id="paymentsSubmenu">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a class="nav-link kk ps-5 py-2 inactive-link" href="payment.html"><i class="fa-solid fa-circle bullet-grey"></i> <span class="ms-3">Payments info</span></a></li>
+            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
+            <!-- <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Transaction History</span></a></li> -->
+        </ul>
+    </div>
+</li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">
             <img
@@ -622,7 +680,7 @@
 
         .card-footer-links {
           padding: 16px 24px;
-          border-top: 1px solid #dadce0;
+          /* border-top: 1px solid #dadce0; */
           display: flex;
           justify-content: flex-start; /* Align to the right */
           gap: 16px; /* Space between links */
@@ -641,9 +699,9 @@
               <div
                 class="d-flex justify-content-between align-items-center mb-3"
               >
-                <h5 class="card-title mb-0">Performance</h5>
+                <p class="card-titles mb-0 b-0" style="font-size: 1.125rem;">Performance</p>
                 <button class="btn btn-link p-0 text-muted">
-                  <i class="bi bi-three-dots-vertical"></i>
+                  <i class="bi bi-three-dots-vertical text-dark"></i>
                 </button>
               </div>
               <div class="mb-3">
@@ -686,7 +744,7 @@
                 <div class="">
                   <button class="btn btn-link p-0 text-dark">
                     <!-- <i class="fa-solid fa-thumbtack"></i> -->
-             <img id="toggleImage" src="pin.png" alt="Pin" style="height: 20px; cursor: pointer;">
+             <img id="toggleImage" src="pin.png" alt="Pin" style="height: 20px;cursor: pointer;">
 
 <script>
     const toggleImage = document.getElementById('toggleImage');
@@ -738,9 +796,9 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title fw-bold">
+                  <p class="card-titsle " style="font-size: 1.128rem;" >
                     Get personalized growth tips
-                  </h5>
+                  </p>
                   <p class="card-text text-muted">
                     Learn how to optimize your site's performance and stay up to
                     date with the latest news on AdSense.
@@ -818,7 +876,7 @@
 
                   <ul class="list-group list-group-flush">
                     <li
-                      class="list-group-item d-flex align-items-start py-3 ps-0 border-bottom"
+                      class="list-group-item d-flex align-items-start py-3 ps-0 "
                     >
                       <span class="text-muted me-3" style="font-family: Google Sans, Roboto, Arial, sans-serif;
     line-height: 1.5rem;
@@ -874,7 +932,7 @@
                   </ul>
                 </div>
                 <div
-                  class="card-footer bg-white border-top d-flex justify-content-between align-items-center py-3"
+                  class="card-footer bg-white d-flex justify-content-between align-items-center py-3"
                 >
                   <a href="#" class="card-link text-decoration-none"
                     >View announcements</a
@@ -962,67 +1020,21 @@
     </script>
   </body>
 </html>
-
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
-    const loader = document.getElementById("loader-wrapper");
-    const content = document.getElementById("content");
+document.addEventListener('DOMContentLoaded', function () {
+    var bar = document.getElementById('topLoaderBar');
+    var loader = document.getElementById('pageLoader');
+    var main = document.getElementById('mainContent');
 
-    // Set a timeout to hide the loader after 3000 milliseconds (3 seconds)
-    setTimeout(function () {
-      loader.style.display = "none";
-      content.style.display = "block";
-    }, 3000);
-  });
+    // Start bar animation
+    requestAnimationFrame(function(){
+        bar.style.width = '100%';
+    });
+
+    // After 10s hide loader and show content
+    setTimeout(function(){
+        loader.classList.add('hide');
+        main.style.display = '';
+    }, 1000);
+});
 </script>
-<div id="loader-wrapper">
-  <div class="adsense-loader"></div>
-</div>
-<style>
-  #loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    z-index: 9999;
-  }
-
-  
-
-  .adsense-loader {
-    border: 4px solid #f3f3f3; 
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 0.7s linear infinite, color-change 2.5s linear infinite; /* Both animations running */
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes color-change {
-    0% {
-      border-top: 4px solid yellow;
-    }
-    33% {
-      border-top: 4px solid red;
-    }
-    66% {
-      border-top: 4px solid #4285f4;
-    }
-    100% {
-      border-top: 4px solid yellow; /* Returns to yellow to complete the loop */
-    }
-  }
-</style>
