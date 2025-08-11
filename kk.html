@@ -19,6 +19,23 @@
 .table-bordered td {
     border: 1px solid #000000 !important;
 }
+ @media print {
+ body {
+padding: 0 !important;
+ }
+ #content {
+width: 800px; /* Ek fixed width set karein */
+margin: 0 auto;
+ }
+ .col-lg-5, .col-lg-7 {
+ /* Col-md classes ko overwrite karein */
+flex: 0 0 auto !important;
+ width: 41.66666667% !important; /* Col-5 */
+ }
+ .col-lg-7 {
+ width: 58.33333333% !important; /* Col-7 */
+}
+ }
     </style>
 </head>
 <body>
@@ -88,35 +105,29 @@
 <!-- CDN links include -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const { jsPDF } = window.jspdf;
-
-    html2canvas(document.getElementById("content"), {
-        scale: 2,
-        useCORS: true,       // CORS-enabled images allow
-        allowTaint: false,
-        backgroundColor: null // transparent background maintain
-    }).then(canvas => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF('p', 'mm', 'a4');
-
-        const imgWidth = 190;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
-        const position = 10;
-
-        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-        
-        // PDF save hone ke baad hi redirect karein
-        pdf.save("receipt.pdf");
-        
-        setTimeout(() => {
-            window.location.href = "payment_details.html";
-        }, 1000); // 1 sec delay taake save complete ho
-    });
-});
-</script>
+      document.addEventListener("DOMContentLoaded", function() {
+            const { jsPDF } = window.jspdf;
+            html2canvas(document.getElementById("content"), {
+                // PDF quality ko behtar karne ke liye scale badhaya gaya hai
+                scale: 2, 
+                useCORS: true,
+                allowTaint: false,
+                backgroundColor: null
+            }).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgWidth = 190;
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                const position = 10;
+                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                pdf.save("receipt.pdf");
+                setTimeout(() => {
+                    window.location.href = "payment_details.html";
+                }, 1000);
+            });
+        });
+    </script>
 
 </body>
 </html>
