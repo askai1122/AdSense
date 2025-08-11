@@ -6,45 +6,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+     font-family: 'Roboto', Arial, sans-serif;
             padding: 20px;
-            background: #f5f5f5;
+            background: #ffffff;
         }
         .section-title {
-            font-size: 30px;
-            font-weight: 600;
+            font-size: 27px;
+            font-weight: 540;
             margin: 15px 0;
         }
         .table-bordered th,
 .table-bordered td {
     border: 1px solid #000000 !important;
 }
- @media print {
- body {
-padding: 0 !important;
- }
- #content {
-width: 800px; /* Ek fixed width set karein */
-margin: 0 auto;
- }
- .col-lg-5, .col-lg-7 {
- /* Col-md classes ko overwrite karein */
-flex: 0 0 auto !important;
- width: 41.66666667% !important; /* Col-5 */
- }
- .col-lg-7 {
- width: 58.33333333% !important; /* Col-7 */
-}
- }
     </style>
 </head>
 <body>
-    <div class="row container  m-auto p-3 bg-white" id="content">
+    <div class="row container  bg-white" id="content">
         <div class="col-lg-5 col-sm-5">
-            <div class="header">
+            <div class="header ">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
             </div>
-            <div class="address mt-3">
+            <div class="address mt-5 " style="font-weight: 545 !important;">
                 Google Asia Pacific Pte. Ltd.<br>
                 70 Pasir Panjang Road, #03-71<br>
                 Mapletree Business City<br>
@@ -60,7 +43,7 @@ flex: 0 0 auto !important;
         </div>
         <div class="col-lg-7 col-sm-7">
             <div class="section-title">Payment Receipt</div>
-            <div class="row col-lg-6 col-sm-6 col-md-6">
+            <div class="row col-lg-6 col-sm-6 col-md-6 mt-5">
                 <div class="col-lg-6 col-md-6 col-sm-6"><b>Payment date</b></div>
                 <div class="col-lg-6 col-md-6 col-sm-6">Aug 21, 2024</div>
             </div>
@@ -77,17 +60,10 @@ flex: 0 0 auto !important;
                 <div class="col-lg-6 col-md-6 col-sm-6">GG103OIGD0</div>
             </div>
         </div>
-    <style>
-/* ... aapka pehle wala CSS */
+  
 
-/* Table borders ke liye custom CSS */
-.table-bordered th,
-.table-bordered td {
-    border: 1px solid #dee2e6 !important;
-}
-</style>
-
-<table class="table table-bordered border mt-3">
+<div class="col-lg-12">
+    <table class="table table-bordered border mt-3 ">
     <thead>
         <tr>
             <th>Description</th>
@@ -101,33 +77,40 @@ flex: 0 0 auto !important;
         </tr>
     </tbody>
 </table>
+</div>
     </div>
 <!-- CDN links include -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-      document.addEventListener("DOMContentLoaded", function() {
-            const { jsPDF } = window.jspdf;
-            html2canvas(document.getElementById("content"), {
-                // PDF quality ko behtar karne ke liye scale badhaya gaya hai
-                scale: 2, 
-                useCORS: true,
-                allowTaint: false,
-                backgroundColor: null
-            }).then(canvas => {
-                const imgData = canvas.toDataURL("image/png");
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgWidth = 190;
-                const imgHeight = canvas.height * imgWidth / canvas.width;
-                const position = 10;
-                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                pdf.save("receipt.pdf");
-                setTimeout(() => {
-                    window.location.href = "payment_details.html";
-                }, 1000);
-            });
-        });
-    </script>
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const { jsPDF } = window.jspdf;
+
+    html2canvas(document.getElementById("content"), {
+        scale: 2,
+        useCORS: true,       // CORS-enabled images allow
+        allowTaint: false,
+        backgroundColor: null // transparent background maintain
+    }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF('p', 'mm', 'a4');
+
+        const imgWidth = 190;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+        const position = 10;
+
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+        
+        // PDF save hone ke baad hi redirect karein
+        pdf.save("receipt.pdf");
+        
+        setTimeout(() => {
+            window.location.href = "payment_details.html";
+        }, 1000); // 1 sec delay taake save complete ho
+    });
+});
+</script> -->
 
 </body>
 </html>

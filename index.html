@@ -36,10 +36,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
-  
-   <style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended"
+      rel="stylesheet"
+    />
+
+    <style>
       /* Hide the footer text when the sidebar is collapsed (large screens) */
       .sidebar.collapsed .sidebar-footer-text {
         display: none;
@@ -106,55 +115,57 @@
         border-radius: 5px;
       }
     </style>
- <style>
-  /* Full page grey background while loading */
-#pageLoader {
-    position: fixed;
-    inset: 0;
-    background: white; /* grey overlay */
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    <style>
+      /* Full page grey background while loading */
+      #pageLoader {
+        position: fixed;
+        inset: 0;
+        background: white; /* grey overlay */
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-/* Top progress bar */
-#topLoaderBar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 5px;
-    width: 1%;
-    background: linear-gradient(90deg, #0d6efd);
-    transition: width 1s linear;
-}
+      /* Top progress bar */
+      #topLoaderBar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 1%;
+        background: linear-gradient(90deg, #0d6efd);
+        transition: width 1s linear;
+      }
 
-/* Center logo */
-#logoLoader img {
-    max-width: 150px;
-}
+      /* Center logo */
+      #logoLoader img {
+        max-width: 150px;
+      }
 
-/* Hide animation */
-.hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-</style>
+      /* Hide animation */
+      .hide {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+      }
+    </style>
   </head>
   <body>
-<!-- Full page loader overlay -->
-<div id="pageLoader">
-    <!-- Top bar -->
-    <div id="topLoaderBar"></div>
+    <!-- Full page loader overlay -->
+    <div id="pageLoader">
+      <!-- Top bar -->
+      <div id="topLoaderBar"></div>
 
-    <!-- Logo in center -->
-    <div id="logoLoader">
-        <img src="logo_google_adsense_color_1x_web_512dp.max-1440x810.png" alt="Logo">
+      <!-- Logo in center -->
+      <div id="logoLoader">
+        <img
+          src="logo_google_adsense_color_1x_web_512dp.max-1440x810.png"
+          alt="Logo"
+        />
+      </div>
     </div>
-</div>
 
     <header class="as-top-bar">
       <div class="as-app-logo">
@@ -185,7 +196,7 @@
       </div>
       <div class="as-app-header-icons">
         <div class="header-icons">
-          <img src="help-round-button.png" alt="" style="height: 20px;">
+          <img src="help-round-button.png" alt="" style="height: 20px" />
           <button
             class="header-icon-button notifications-icon"
             aria-label="Notifications"
@@ -235,31 +246,38 @@
         </li>
         <style>
           .title-svg-icon {
-  height: 27px; /* or any smaller height you want */
-  width: auto; /* keep aspect ratio */
-}
-
+            height: 27px; /* or any smaller height you want */
+            width: auto; /* keep aspect ratio */
+          }
         </style>
         <li class="nav-item border-bottom">
           <a class="nav-link" aria-current="page" href="#">
-     <i class="material-icons-extended">drive_site</i>
-          <span class="nav-link-text ms-3">Sites</span>
+            <i class="material-icons-extended">drive_site</i>
+            <span class="nav-link-text ms-3">Sites</span>
           </a>
         </li>
-         <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">
-          <svg class="title-svg-icon _ngcontent-dot-20" viewBox="0 0 24 24"><path class="_ngcontent-dot-20" d="M10.4 2.5C8.1 2.5 6.2 4.4 6.2 6.7C6.2 9 8.1 11 10.4 11C12.7 11 14.6 9.1 14.6 6.8C14.6 4.5 12.8 2.5 10.4 2.5ZM10.4 4.6C11.6 4.6 12.5 5.5 12.5 6.7C12.5 7.9 11.6 8.8 10.4 8.8C9.2 8.8 8.3 7.9 8.3 6.7C8.3 5.5 9.3 4.6 10.4 4.6ZM13.6 12L17.8 9.9L22 12V14.8C22 17.4 20.2 19.8 17.8 20.4C15.4 19.8 13.6 17.4 13.6 14.8V12ZM12.6 12.2C11.8 12.1 11 12 10.4 12C7.6 12 2 13.4 2 16.2V19.4H14.3C13.8 18.8 13.3 18.1 13 17.3H4.1V16.3C4.3 15.5 7.6 14.2 10.4 14.2C11.1 14.2 11.8 14.3 12.5 14.4V12.2H12.6Z"></path></svg>
+            <svg class="title-svg-icon _ngcontent-dot-20" viewBox="0 0 24 24">
+              <path
+                class="_ngcontent-dot-20"
+                d="M10.4 2.5C8.1 2.5 6.2 4.4 6.2 6.7C6.2 9 8.1 11 10.4 11C12.7 11 14.6 9.1 14.6 6.8C14.6 4.5 12.8 2.5 10.4 2.5ZM10.4 4.6C11.6 4.6 12.5 5.5 12.5 6.7C12.5 7.9 11.6 8.8 10.4 8.8C9.2 8.8 8.3 7.9 8.3 6.7C8.3 5.5 9.3 4.6 10.4 4.6ZM13.6 12L17.8 9.9L22 12V14.8C22 17.4 20.2 19.8 17.8 20.4C15.4 19.8 13.6 17.4 13.6 14.8V12ZM12.6 12.2C11.8 12.1 11 12 10.4 12C7.6 12 2 13.4 2 16.2V19.4H14.3C13.8 18.8 13.3 18.1 13 17.3H4.1V16.3C4.3 15.5 7.6 14.2 10.4 14.2C11.1 14.2 11.8 14.3 12.5 14.4V12.2H12.6Z"
+              ></path>
+            </svg>
             <span class="nav-link-text ms-3">Privacy & messaging</span>
           </a>
         </li>
-     
-    <li class="nav-item">
-  <a class="nav-link" href="#">
-    <i class="fa-solid fa-caret-right caret-icon"></i>
-    <img src="assets/iamges/block_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="" />
-    <span class="nav-link-text">Brand Safety</span>
-  </a>
-</li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-caret-right caret-icon"></i>
+            <img
+              src="assets/iamges/block_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
+              alt=""
+            />
+            <span class="nav-link-text">Brand Safety</span>
+          </a>
+        </li>
 
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">
@@ -288,18 +306,41 @@
             <span class="nav-link-text"> Policy center</span>
           </a>
         </li>
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="false" aria-controls="paymentsSubmenu">
-        <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
-        <span class="nav-link-text">Payments</span>
-    </a>
-    <div class="collapse" id="paymentsSubmenu" >
-        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a class="nav-link kk ps-5 py-2 inactive-link" href="payment.html"><i class="fa-solid fa-circle bullet-grey"></i> <span class="ms-3">Payments info</span></a></li>
-            <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
-        </ul>
-    </div>
-</li>
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#paymentsSubmenu"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="paymentsSubmenu"
+          >
+            <img
+              src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png"
+              alt="Payments icon"
+              width="24"
+              height="24"
+            />
+            <span class="nav-link-text">Payments</span>
+          </a>
+          <div class="collapse" id="paymentsSubmenu">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a
+                  class="nav-link kk ps-5 py-2 inactive-link"
+                  href="payment.html"
+                  ><i class="fa-solid fa-circle bullet-grey"></i>
+                  <span class="ms-3">Payments info</span></a
+                >
+              </li>
+              <li>
+                <a class="nav-link ps-5 py-2 inactive-link" href="#"
+                  ><i class="fa-solid fa-circle bullet-grey"></i
+                  ><span class="ms-3">Verification check</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">
             <img
@@ -320,8 +361,15 @@
         </li>
         <hr />
         <span class="ms-4 mt-3 sidebar-footer-text" style="line-height: 30px"
-          ><span cla>Google</span>&nbsp;&nbsp;<span><a href="" class="text-dark" style="font-weight: 200;">Privacy</a></span
-          >&nbsp;&nbsp;<span><a href="" class="text-dark b-0" style="font-weight: 200;">Terms</a></span></span
+          ><span cla>Google</span>&nbsp;&nbsp;<span
+            ><a href="" class="text-dark" style="font-weight: 200"
+              >Privacy</a
+            ></span
+          >&nbsp;&nbsp;<span
+            ><a href="" class="text-dark b-0" style="font-weight: 200"
+              >Terms</a
+            ></span
+          ></span
         >
       </ul>
     </div>
@@ -402,8 +450,8 @@
           font-size: 0.8rem;
         }
       }
-      </style>
-    <div class="main-content" id="mainContent" >
+    </style>
+    <div class="main-content" id="mainContent">
       <div class="row mb-4 col-lg-12 col-sm-12 m-auto">
         <div class="col-12 col-lg-9 Estimated mb-2 mb-lg-0 h-100">
           <div class="card shadow-sm text-white custom-card-blue">
@@ -420,7 +468,7 @@
                   >
                     <i class="bi bi-three-dots-vertical text-white"></i>
                   </button>
-              <ul class="dropdown-menu dropdown-menu-end">
+                  <ul class="dropdown-menu dropdown-menu-end">
                     <li style="font-size: 15px; padding: 2px">
                       <a class="dropdown-item p-2" href="payment.html"
                         ><img
@@ -460,7 +508,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="row custom-stats-row mb-3" style="margin-top: 8px;">
+              <div class="row custom-stats-row mb-3" style="margin-top: 8px">
                 <div class="col-6 col-md-3">
                   <p class="stat-label">Today so far</p>
                   <h3 class="stat-value" style="">$0.00</h3>
@@ -468,19 +516,19 @@
                 <div class="col-6 col-md-3">
                   <p class="stat-label">Yesterday</p>
                   <h3 class="stat-value" style="">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px;">+$0.00</p>
+                  <p class="stat-change" style="line-height: 10px">+$0.00</p>
                   <small class="stat-comparison">vs same day last week</small>
                 </div>
                 <div class="col-6 col-md-3 mt-4 mt-md-0">
                   <p class="stat-label">Last 7 days</p>
                   <h3 class="stat-value" style="">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px;">+$0.00</p>
+                  <p class="stat-change" style="line-height: 10px">+$0.00</p>
                   <small class="stat-comparison">vs previous 7 days</small>
                 </div>
                 <div class="col-6 col-md-3 mt-4 mt-md-0">
                   <p class="stat-label">This month</p>
                   <h3 class="stat-value" style="">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px;">+$0.00</p>
+                  <p class="stat-change" style="line-height: 10px">+$0.00</p>
                   <small class="stat-comparison"
                     >vs same period last year</small
                   >
@@ -518,7 +566,7 @@
                         /><span class="ms-2">View payment</span></a
                       >
                     </li>
-                   
+
                     <li style="font-size: 15px; padding: 2px">
                       <a class="dropdown-item p-2" href="payment.html"
                         ><img
@@ -546,7 +594,7 @@
               >
                 <div class="col-6 col-md-12 mt-4 mt-md-0">
                   <p class="stat-label" style="display: none">Last 7 days</p>
-                  <h3 class="stat-value mt-3" >$0.00</h3>
+                  <h3 class="stat-value mt-3">$0.00</h3>
                   <small
                     class="stat-comparison"
                     style="line-height: 10px; font-size: 11px"
@@ -603,9 +651,8 @@
           text-transform: capitalize;
           font-weight: 500;
           letter-spacing: 0.5px;
-          
-          text-align: left;
 
+          text-align: left;
         }
 
         .btn-link {
@@ -661,28 +708,38 @@
           color: #1a73e8 !important;
         }
       </style>
-      <div class="row mb-4 col-lg-12 col-sm-12 m-auto" >
+      <div class="row mb-4 col-lg-12 col-sm-12 m-auto">
         <div class="col-lg-6 col-xl-6 mb-2">
           <div class="card shadow-sm">
             <div class="card-body">
               <div
                 class="d-flex justify-content-between align-items-center mb-3"
               >
-                <p class="card-titles mb-0 b-0" style="font-size: 1.125rem;">Performance</p>
+                <p class="card-titles mb-0 b-0" style="font-size: 1.125rem">
+                  Performance
+                </p>
                 <button class="btn btn-link p-0 text-muted">
                   <i class="bi bi-three-dots-vertical text-dark"></i>
                 </button>
               </div>
-            <div class="mb-3 position-relative">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+              <div class="mb-3 position-relative">
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+                />
 
-
-<span style="font-size:14px; cursor:pointer;">
-  Today so far <i class="fa-solid fa-caret-down" style="font-size:14px; color:#555;line-height: 1px !important;"></i>
-</span>
-
-
-</div>
+                <span style="font-size: 14px; cursor: pointer">
+                  Today so far
+                  <i
+                    class="fa-solid fa-caret-down"
+                    style="
+                      font-size: 14px;
+                      color: #555;
+                      line-height: 1px !important;
+                    "
+                  ></i>
+                </span>
+              </div>
 
               <div class="row text-center">
                 <div class="col-4 mb-3">
@@ -719,22 +776,27 @@
                 <div class="">
                   <button class="btn btn-link p-0 text-dark">
                     <!-- <i class="fa-solid fa-thumbtack"></i> -->
-             <img id="toggleImage" src="pin.png" alt="Pin" style="height: 20px;cursor: pointer;">
+                    <img
+                      id="toggleImage"
+                      src="pin.png"
+                      alt="Pin"
+                      style="height: 20px; cursor: pointer"
+                    />
 
-<script>
-    const toggleImage = document.getElementById('toggleImage');
-    let isFirstImage = true; // Track which image is showing
+                    <script>
+                      const toggleImage =
+                        document.getElementById("toggleImage");
+                      let isFirstImage = true; // Track which image is showing
 
-    toggleImage.addEventListener('click', function () {
-        if (isFirstImage) {
-            toggleImage.src = 'thumbtacks.png'; // Show second image
-        } else {
-            toggleImage.src = 'pin.png'; // Show first image
-        }
-        isFirstImage = !isFirstImage; // Toggle the state
-    });
-</script>
-
+                      toggleImage.addEventListener("click", function () {
+                        if (isFirstImage) {
+                          toggleImage.src = "thumbtacks.png"; // Show second image
+                        } else {
+                          toggleImage.src = "pin.png"; // Show first image
+                        }
+                        isFirstImage = !isFirstImage; // Toggle the state
+                      });
+                    </script>
                   </button>
                 </div>
               </div>
@@ -771,7 +833,7 @@
                 </div>
 
                 <div class="card-body">
-                  <p class="card-titsle " style="font-size: 1.128rem;" >
+                  <p class="card-titsle" style="font-size: 1.128rem">
                     Get personalized growth tips
                   </p>
                   <p class="card-text text-muted">
@@ -789,7 +851,8 @@
                   <a
                     href="#"
                     class="btn btn-link p-0 text-decoration-none text-dark"
-                    style="color: black !important;">Got it</a
+                    style="color: black !important"
+                    >Got it</a
                   >
                 </div>
               </div>
@@ -801,10 +864,11 @@
             <div class="col-lg-12">
               <div class="card shadow-sm">
                 <div
-                  class="card-header  text-white d-flex align-items-center py-2 mb-2" style="background-color: #1565c0;"
+                  class="card-header text-white d-flex align-items-center py-2 mb-2"
+                  style="background-color: #1565c0"
                 >
                   <i class="bi bi-info-circle-fill me-2"></i>
-                  <p class="mb-0 ms-2" style="font-size: .875rem;">
+                  <p class="mb-0 ms-2" style="font-size: 0.875rem">
                     We thought you might find this card interesting
                   </p>
                 </div>
@@ -812,15 +876,18 @@
                   <div
                     class="d-flex justify-content-between align-items-center mb-3"
                   >
-                    <P class="card-title mb-0 b-0" style="
-    font-family: Google Sans, Roboto, Arial, sans-serif;
-    font-size: 1.125rem;
-    font-weight: 400;
-    color: var(--acx-sys-color--on-background, #202124);
-    color: inherit;
-  
-   
-">Announcements</P>
+                    <p
+                      class="card-title mb-0 b-0"
+                      style="
+                        font-family: Google Sans, Roboto, Arial, sans-serif;
+                        font-size: 1.125rem;
+                        font-weight: 400;
+                        color: var(--acx-sys-color--on-background, #202124);
+                        color: inherit;
+                      "
+                    >
+                      Announcements
+                    </p>
                     <div class="dropdown">
                       <button
                         class="btn btn-sm btn-link text-dark p-0"
@@ -828,9 +895,8 @@
                         id="dropdownMenuButton1"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-                       
-                        >
-                        <i class="bi bi-three-dots-vertical text-dark" ></i>
+                      >
+                        <i class="bi bi-three-dots-vertical text-dark"></i>
                       </button>
                       <ul
                         class="dropdown-menu"
@@ -851,18 +917,24 @@
 
                   <ul class="list-group list-group-flush">
                     <li
-                      class="list-group-item d-flex align-items-start py-3 ps-0 "
+                      class="list-group-item d-flex align-items-start py-3 ps-0"
                     >
-                      <span class="text-muted me-3" style="font-family: Google Sans, Roboto, Arial, sans-serif;
-    line-height: 1.5rem;
-    font-size: 1.125rem;
-    letter-spacing: 0;
-    font-weight: 400;
-    color: var(--acx-sys-color--on-background, #202124);
-    border-left: 2px solid #1a73e8;
-    color: #1a73e8 !important;
-    margin: 4px;
-    padding: 4px 16px 4px 14px;">1</span>
+                      <span
+                        class="text-muted me-3"
+                        style="
+                          font-family: Google Sans, Roboto, Arial, sans-serif;
+                          line-height: 1.5rem;
+                          font-size: 1.125rem;
+                          letter-spacing: 0;
+                          font-weight: 400;
+                          color: var(--acx-sys-color--on-background, #202124);
+                          border-left: 2px solid #1a73e8;
+                          color: #1a73e8 !important;
+                          margin: 4px;
+                          padding: 4px 16px 4px 14px;
+                        "
+                        >1</span
+                      >
                       <div>
                         <h6 class="mb-1">
                           The "Significant Skin Exposure" sensi...
@@ -880,16 +952,22 @@
                     <li
                       class="list-group-item d-flex align-items-start py-3 ps-0"
                     >
-                      <span class="text-muted me-3"  style="font-family: Google Sans, Roboto, Arial, sans-serif;
-    line-height: 1.5rem;
-    font-size: 1.125rem;
-    letter-spacing: 0;
-    font-weight: 400;
-    color: var(--acx-sys-color--on-background, #202124);
-    border-left: 2px solid #1a73e8;
-    color: #1a73e8 !important;
-    margin: 4px;
-    padding: 4px 16px 4px 14px;">2</span>
+                      <span
+                        class="text-muted me-3"
+                        style="
+                          font-family: Google Sans, Roboto, Arial, sans-serif;
+                          line-height: 1.5rem;
+                          font-size: 1.125rem;
+                          letter-spacing: 0;
+                          font-weight: 400;
+                          color: var(--acx-sys-color--on-background, #202124);
+                          border-left: 2px solid #1a73e8;
+                          color: #1a73e8 !important;
+                          margin: 4px;
+                          padding: 4px 16px 4px 14px;
+                        "
+                        >2</span
+                      >
                       <div>
                         <h6 class="mb-1">
                           Optimizing your empty in-page ad spaces
@@ -914,24 +992,30 @@
                   >
                   <button class="btn btn-link p-0 text-dark">
                     <!-- <i class="bi bi-pin-angle-fill text-dark"></i> -->
-                     <!-- <img src="push-pin.png" alt="" style="height:17px;"> -->
-                                     <!-- <i class="fa-solid fa-thumbtack"></i> -->
+                    <!-- <img src="push-pin.png" alt="" style="height:17px;"> -->
+                    <!-- <i class="fa-solid fa-thumbtack"></i> -->
 
-                                        <img id="toggleImage1" src="push-pin.png" alt="Pin" style="height: 20px; cursor: pointer;">
+                    <img
+                      id="toggleImage1"
+                      src="push-pin.png"
+                      alt="Pin"
+                      style="height: 20px; cursor: pointer"
+                    />
 
-<script>
-    const toggleImage1 = document.getElementById('toggleImage1');
-    let isFirstImage1 = true; // Track which image is showing
+                    <script>
+                      const toggleImage1 =
+                        document.getElementById("toggleImage1");
+                      let isFirstImage1 = true; // Track which image is showing
 
-    toggleImage1.addEventListener('click', function () {
-        if (isFirstImage1) {
-            toggleImage1.src = 'push-pin.png'; // Show second image
-        } else {
-            toggleImage1.src = 'pin.png'; // Show first image
-        }
-        isFirstImage1 = !isFirstImage1; // Toggle the state
-    });
-</script>
+                      toggleImage1.addEventListener("click", function () {
+                        if (isFirstImage1) {
+                          toggleImage1.src = "push-pin.png"; // Show second image
+                        } else {
+                          toggleImage1.src = "pin.png"; // Show first image
+                        }
+                        isFirstImage1 = !isFirstImage1; // Toggle the state
+                      });
+                    </script>
                   </button>
                 </div>
               </div>
@@ -940,9 +1024,9 @@
         </div>
       </div>
     </div>
-<footer class=" text-end " style="padding-right: 15px;">
-<p class=""> <span style="font-size: 17px;">&copy;</span>  2025 Google</p>
-</footer>
+    <footer class="text-end" style="padding-right: 15px">
+      <p class=""><span style="font-size: 17px">&copy;</span>  2025 Google</p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -996,20 +1080,20 @@
   </body>
 </html>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var bar = document.getElementById('topLoaderBar');
-    var loader = document.getElementById('pageLoader');
-    var main = document.getElementById('mainContent');
+  document.addEventListener("DOMContentLoaded", function () {
+    var bar = document.getElementById("topLoaderBar");
+    var loader = document.getElementById("pageLoader");
+    var main = document.getElementById("mainContent");
 
     // Start bar animation
-    requestAnimationFrame(function(){
-        bar.style.width = '100%';
+    requestAnimationFrame(function () {
+      bar.style.width = "100%";
     });
 
     // After 10s hide loader and show content
-    setTimeout(function(){
-        loader.classList.add('hide');
-        main.style.display = '';
+    setTimeout(function () {
+      loader.classList.add("hide");
+      main.style.display = "";
     }, 1000);
-});
+  });
 </script>
