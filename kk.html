@@ -67,26 +67,38 @@
             </tr>
         </table>
     </div>
+<!-- CDN links include -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const { jsPDF } = window.jspdf;
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const { jsPDF } = window.jspdf;
 
-            html2canvas(document.getElementById("content"), {
-                scale: 2,
-                useCORS: true, // images load hone ke liye
-                allowTaint: false
-            }).then(canvas => {
-                const imgData = canvas.toDataURL("image/png");
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgWidth = 190;
-                const imgHeight = canvas.height * imgWidth / canvas.width;
-                let position = 10;
+    html2canvas(document.getElementById("content"), {
+        scale: 2,
+        useCORS: true,       // CORS-enabled images allow
+        allowTaint: false,
+        backgroundColor: null // transparent background maintain
+    }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF('p', 'mm', 'a4');
 
-                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                pdf.save("receipt.pdf");
-            });
-        });
-    </script>
+        const imgWidth = 190;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+        const position = 10;
+
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+        
+        // PDF save hone ke baad hi redirect karein
+        pdf.save("receipt.pdf");
+        
+        setTimeout(() => {
+            window.location.href = "payment_details.html";
+        }, 1000); // 1 sec delay taake save complete ho
+    });
+});
+</script>
+
 </body>
 </html>
