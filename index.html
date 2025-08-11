@@ -37,7 +37,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+  
+   <style>
       /* Hide the footer text when the sidebar is collapsed (large screens) */
       .sidebar.collapsed .sidebar-footer-text {
         display: none;
@@ -240,8 +242,8 @@
         </style>
         <li class="nav-item border-bottom">
           <a class="nav-link" aria-current="page" href="#">
-          <svg class="title-svg-icon _ngcontent-dot-20" viewBox="0 0 24 24"><path class="_ngcontent-dot-20" d="M10.4 2.5C8.1 2.5 6.2 4.4 6.2 6.7C6.2 9 8.1 11 10.4 11C12.7 11 14.6 9.1 14.6 6.8C14.6 4.5 12.8 2.5 10.4 2.5ZM10.4 4.6C11.6 4.6 12.5 5.5 12.5 6.7C12.5 7.9 11.6 8.8 10.4 8.8C9.2 8.8 8.3 7.9 8.3 6.7C8.3 5.5 9.3 4.6 10.4 4.6ZM13.6 12L17.8 9.9L22 12V14.8C22 17.4 20.2 19.8 17.8 20.4C15.4 19.8 13.6 17.4 13.6 14.8V12ZM12.6 12.2C11.8 12.1 11 12 10.4 12C7.6 12 2 13.4 2 16.2V19.4H14.3C13.8 18.8 13.3 18.1 13 17.3H4.1V16.3C4.3 15.5 7.6 14.2 10.4 14.2C11.1 14.2 11.8 14.3 12.5 14.4V12.2H12.6Z"></path></svg>
-            <span class="nav-link-text ms-3">Sites</span>
+     <i class="material-icons-extended">drive_site</i>
+          <span class="nav-link-text ms-3">Sites</span>
           </a>
         </li>
          <li class="nav-item ">
@@ -286,48 +288,15 @@
             <span class="nav-link-text"> Policy center</span>
           </a>
         </li>
-      <li class="nav-item">
-    <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="true" aria-controls="paymentsSubmenu">
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#paymentsSubmenu" data-bs-toggle="collapse" aria-expanded="false" aria-controls="paymentsSubmenu">
         <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
         <span class="nav-link-text">Payments</span>
-        </a>
-    <style>
-    /* Active main menu */
-   
-    /* Inactive main menu */
-    
-    /* Inactive submenu link */
-
-
-    /* Bullets */
-    .bullet-blue {
-      color: #1a73e8;
-      font-size: 13px !important;
-    }
-
-    .bullet-grey {
-      color: #707070;
-      font-size: 13px !important;
-    }
-
-    /* Payments title ka font size */
-    .nav-link-text {
-      font-size: 16px !important;
-    }
-
-    /* Submenu text ka font size */
-    .btn-toggle-nav .nav-link span {
-      font-size: 13px !important;
-    }
-  </style>
-  <style>
-  
-</style>
-    <div class="collapse show" id="paymentsSubmenu" >
+    </a>
+    <div class="collapse" id="paymentsSubmenu" >
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a class="nav-link kk ps-5 py-2 inactive-link" href="payment.html"><i class="fa-solid fa-circle bullet-grey"></i> <span class="ms-3">Payments info</span></a></li>
             <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
-            <!-- <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Transaction History</span></a></li> -->
         </ul>
     </div>
 </li>
@@ -434,8 +403,8 @@
         }
       }
       </style>
-    <div class="main-content" id="mainContent" style="font-family: 'Roboto', Arial, sans-serif;">
-      <div class="row mb-4 col-lg-12 col-sm-12 m-auto" style="font-family: 'Roboto', Arial, sans-serif;">
+    <div class="main-content" id="mainContent" >
+      <div class="row mb-4 col-lg-12 col-sm-12 m-auto">
         <div class="col-12 col-lg-9 Estimated mb-2 mb-lg-0 h-100">
           <div class="card shadow-sm text-white custom-card-blue">
             <div class="p-3">
@@ -491,27 +460,27 @@
                   </ul>
                 </div>
               </div>
-              <div class="row custom-stats-row mb-3" style="margin-top: 8px;font-family: 'Roboto', Arial, sans-serif;">
+              <div class="row custom-stats-row mb-3" style="margin-top: 8px;">
                 <div class="col-6 col-md-3">
                   <p class="stat-label">Today so far</p>
-                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
+                  <h3 class="stat-value" style="">$0.00</h3>
                 </div>
                 <div class="col-6 col-md-3">
                   <p class="stat-label">Yesterday</p>
-                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px;font-family: 'Roboto', Arial, sans-serif !important;">+$0.00</p>
+                  <h3 class="stat-value" style="">$0.00</h3>
+                  <p class="stat-change" style="line-height: 10px;">+$0.00</p>
                   <small class="stat-comparison">vs same day last week</small>
                 </div>
                 <div class="col-6 col-md-3 mt-4 mt-md-0">
                   <p class="stat-label">Last 7 days</p>
-                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px;font-family: 'Roboto', Arial, sans-serif !important;">+$0.00</p>
+                  <h3 class="stat-value" style="">$0.00</h3>
+                  <p class="stat-change" style="line-height: 10px;">+$0.00</p>
                   <small class="stat-comparison">vs previous 7 days</small>
                 </div>
                 <div class="col-6 col-md-3 mt-4 mt-md-0">
                   <p class="stat-label">This month</p>
-                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px;font-family: 'Roboto', Arial, sans-serif !important;">+$0.00</p>
+                  <h3 class="stat-value" style="">$0.00</h3>
+                  <p class="stat-change" style="line-height: 10px;">+$0.00</p>
                   <small class="stat-comparison"
                     >vs same period last year</small
                   >
@@ -521,7 +490,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-lg-3 Estimated" style="font-family: 'Roboto', Arial, sans-serif;">
+        <div class="col-12 col-lg-3 Estimated">
           <div
             class="card shadow-sm text-white"
             style="background-color: #1565c0"
@@ -577,7 +546,7 @@
               >
                 <div class="col-6 col-md-12 mt-4 mt-md-0">
                   <p class="stat-label" style="display: none">Last 7 days</p>
-                  <h3 class="stat-value mt-3" style="font-family: 'Roboto', Arial, sans-serif;">$0.00</h3>
+                  <h3 class="stat-value mt-3" >$0.00</h3>
                   <small
                     class="stat-comparison"
                     style="line-height: 10px; font-size: 11px"
@@ -692,7 +661,7 @@
           color: #1a73e8 !important;
         }
       </style>
-      <div class="row mb-4 col-lg-12 col-sm-12 m-auto" style="font-family: 'Roboto', Arial, sans-serif;">
+      <div class="row mb-4 col-lg-12 col-sm-12 m-auto" >
         <div class="col-lg-6 col-xl-6 mb-2">
           <div class="card shadow-sm">
             <div class="card-body">

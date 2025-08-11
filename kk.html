@@ -11,14 +11,18 @@
             background: #f5f5f5;
         }
         .section-title {
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 30px;
+            font-weight: 600;
             margin: 15px 0;
         }
+        .table-bordered th,
+.table-bordered td {
+    border: 1px solid #000000 !important;
+}
     </style>
 </head>
 <body>
-    <div class="row container border border-dark m-auto p-3 bg-white" id="content">
+    <div class="row container  m-auto p-3 bg-white" id="content">
         <div class="col-lg-5 col-sm-5">
             <div class="header">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
@@ -40,32 +44,46 @@
         <div class="col-lg-7 col-sm-7">
             <div class="section-title">Payment Receipt</div>
             <div class="row col-6">
-                <div class="col-lg-6"><b>Payment date</b></div>
-                <div class="col-lg-6">Aug 21, 2024</div>
+                <div class="col-lg-6 col-sm-6"><b>Payment date</b></div>
+                <div class="col-lg-6 col-sm-6">Aug 21, 2024</div>
             </div>
             <div class="row col-6">
-                <div class="col-lg-6"><b>Billing ID</b></div>
-                <div class="col-lg-6">5954-1208-8010</div>
+                <div class="col-lg-6 col-sm-6"><b>Billing ID</b></div>
+                <div class="col-lg-6 col-sm-6">5954-1208-8010</div>
             </div>
             <div class="row col-6">
-                <div class="col-lg-6"><b>Payment method</b></div>
-                <div class="col-lg-6">Wire transfer to bank account · · · · 736</div>
+                <div class="col-lg-6 col-sm-6"><b>Payment method</b></div>
+                <div class="col-lg-6 col-sm-6">Wire transfer to bank account · · · · 736</div>
             </div>
             <div class="row col-6">
-                <div class="col-lg-6"><b>Payment number</b></div>
-                <div class="col-lg-6">GG103OIGD0</div>
+                <div class="col-lg-6 col-sm-6"><b>Payment number</b></div>
+                <div class="col-lg-6 col-sm-6">GG103OIGD0</div>
             </div>
         </div>
-        <table class="table table-bordered mt-3">
-            <tr>
-                <td>Description</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Payment amount</td>
-                <td>$262.53</td>
-            </tr>
-        </table>
+    <style>
+/* ... aapka pehle wala CSS */
+
+/* Table borders ke liye custom CSS */
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6 !important;
+}
+</style>
+
+<table class="table table-bordered border mt-3">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Payment amount</td>
+            <td>$262.53</td>
+        </tr>
+    </tbody>
+</table>
     </div>
 <!-- CDN links include -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
