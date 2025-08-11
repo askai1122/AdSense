@@ -1,179 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-       <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            /* max-width: 600px; */
-            margin: 0 auto;
             padding: 20px;
-            line-height: 1.5;
-        }
-        .header {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .address {
-            margin-bottom: 30px;
-            font-size: 14px;
-            line-height: 1.4;
+            background: #f5f5f5;
         }
         .section-title {
-            font-size: 29px;
+            font-size: 20px;
             font-weight: 500;
-            margin: 25px 0 15px 0;
-            /* border-bottom: 1px solid #ddd; */
-            padding-bottom: 5px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-        td {
-            padding: 8px 0;
-            vertical-align: top;
-        }
-        td:first-child {
-            font-weight: bold;
-            width: 40%;
-        }
-        .divider {
-            border-top: 1px solid #ddd;
-            margin: 20px 0;
-        }
-        .amount {
-            font-size: 16px;
-            font-weight: bold;
+            margin: 15px 0;
         }
     </style>
 </head>
-<body >
-    <!-- <div class="header">Google</div>
-    
-    <div class="address">
-        Google Asia Pacific Pte. Ltd.<br>
-        70 Pasir Panjang Road, #03-71<br>
-        Mapletree Business City<br>
-        Singapore 117371<br><br>
-        
-        Tax identification number<br>
-        200817984R<br><br>
-        
-        Simardeep Singh<br>
-        Flat No #1003, Willow Homes, Near Atta Chakki<br>
-        Dashmesh Nagar<br>
-        Kharar, Punjab 140301<br>
-        India
-    </div>
-    
-    <div class="divider"></div>
-    
-    <div class="section-title">Payment Receipt</div>
-    
-    <table>
-        <tr>
-            <td>Payment date</td>
-            <td>Aug 21, 2024</td>
-        </tr>
-        <tr>
-            <td>Billing ID</td>
-            <td>5954-1208-8010</td>
-        </tr>
-        <tr>
-            <td>Payment method</td>
-            <td>Wire transfer to bank account · · · · 736</td>
-        </tr>
-        <tr>
-            <td>Payment number</td>
-            <td>GG103OIGD0</td>
-        </tr>
-    </table>
-    
-    <div class="divider"></div>
-    
-    <div class="section-title">Description</div>
-    
-    <table>
-        <tr>
-            <td>Payment amount</td>
-            <td class="amount">$262.53</td>
-        </tr>
-    </table> -->
-
-    <div class="row container border m-auto" id="content">
+<body>
+    <div class="row container border border-dark m-auto p-3 bg-white" id="content">
         <div class="col-lg-5 col-sm-5">
-            <div class="header"><img src="png-transparent-google-logo-google-search-google-play-google-text-logo-number-thumbnail-removebg-preview.png" alt="" style="height: 120px;"></div>
-    
-             <div class="address">
-        Google Asia Pacific Pte. Ltd.<br>
-        70 Pasir Panjang Road, #03-71<br>
-        Mapletree Business City<br>
-        Singapore 117371<br><br>
-        
-        Tax identification number<br>
-        200817984R<br><br>
-        
-        Simardeep Singh<br>
-        Flat No #1003, Willow Homes, Near Atta Chakki<br>
-        Dashmesh Nagar<br>
-        Kharar, Punjab 140301<br>
-        India
-    </div>
+            <div class="header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
+            </div>
+            <div class="address mt-3">
+                Google Asia Pacific Pte. Ltd.<br>
+                70 Pasir Panjang Road, #03-71<br>
+                Mapletree Business City<br>
+                Singapore 117371<br><br>
+                Tax identification number<br>
+                200817984R<br><br>
+                Simardeep Singh<br>
+                Flat No #1003, Willow Homes, Near Atta Chakki<br>
+                Dashmesh Nagar<br>
+                Kharar, Punjab 140301<br>
+                India
+            </div>
         </div>
         <div class="col-lg-7 col-sm-7">
-    <div class="section-title ">Payment Receipt</div>
+            <div class="section-title">Payment Receipt</div>
             <div class="row col-6">
                 <div class="col-lg-6"><b>Payment date</b></div>
                 <div class="col-lg-6">Aug 21, 2024</div>
             </div>
-                  <div class="row col-6">
-                <div class="col-lg-6"><b>Billing ID</b>	</div>
-                <div class="col-lg-6">	5954-1208-8010</div>
-            </div>
-                    <div class="row col-6">
-                <div class="col-lg-6"><b>Payment method</b></div>
-                <div class="col-lg-6">		Wire transfer to bank account · · · · 736</div>
+            <div class="row col-6">
+                <div class="col-lg-6"><b>Billing ID</b></div>
+                <div class="col-lg-6">5954-1208-8010</div>
             </div>
             <div class="row col-6">
-                <div class="col-lg-6"><b>Payment number</b>	</div>
-                <div class="col-lg-6">		GG103OIGD0</div>
+                <div class="col-lg-6"><b>Payment method</b></div>
+                <div class="col-lg-6">Wire transfer to bank account · · · · 736</div>
+            </div>
+            <div class="row col-6">
+                <div class="col-lg-6"><b>Payment number</b></div>
+                <div class="col-lg-6">GG103OIGD0</div>
             </div>
         </div>
-          <table class="table table-border border">
-              <tr>
-            <td>Description</td>
-            <td class="border"></td>
-        </tr>
-        <tr>
-            <td>Payment amount</td>
-            <td class="border">$262.53</td>
-        </tr>
-    </table>
+        <table class="table table-bordered mt-3">
+            <tr>
+                <td>Description</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Payment amount</td>
+                <td>$262.53</td>
+            </tr>
+        </table>
     </div>
-   
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const { jsPDF } = window.jspdf;
+
+            html2canvas(document.getElementById("content"), {
+                scale: 2,
+                useCORS: true, // images load hone ke liye
+                allowTaint: false
+            }).then(canvas => {
+                const imgData = canvas.toDataURL("image/png");
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgWidth = 190;
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                let position = 10;
+
+                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                pdf.save("receipt.pdf");
+            });
+        });
+    </script>
 </body>
-</html> 
-<script>
-window.onload = function() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Get content
-    let content = document.getElementById("content").innerText;
-    doc.text(content, 10, 10);
-
-    // Save PDF
-    doc.save("receipt.pdf");
-
-    // Redirect back after 1 second
-    setTimeout(function(){
-        window.location.href = "index.html"; // apne original page ka path
-    }, 1000);
-};
+</html>
