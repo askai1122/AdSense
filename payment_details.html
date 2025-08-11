@@ -478,9 +478,10 @@ Feedback</span>
     transition: box-shadow 0.3s ease-in-out;
   }
 </style>
+<!-- A.html -->
+
 
 <div id="months-container" style="font-family: 'Roboto', Arial, sans-serif;"></div>
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const monthsContainer = document.getElementById('months-container');
@@ -491,44 +492,79 @@ Feedback</span>
       const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
       const month = monthNames[date.getMonth()];
       const year = date.getFullYear();
-      const monthId = month.toLowerCase() + year; // e.g., "august2025"
+      const monthId = month.toLowerCase() + year;
       const monthText = `${month} 1 – 5, ${year}`;
 
-      const rowHtml = `
-            <div class="row mt-3" >
-                <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
-                    data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
-                    aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
+      let transactionsHtml = "";
+      let noTransactions = false;
 
-                    <div class="d-flex align-items-center">
-                        <p class="mb-0 transaction-header-collapse">${monthText}</p>
-                        <div class="transaction-icons ms-3" style="display: none;">
-                           
-                        </div>
-                    </div>
-
-                    <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
-                </div>
-
-                <div class="collapse" id="${monthId}-collapse">
-                    <div class="row mt-2 border-bottom">
-                        <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $0.00</div>
-                    </div>
-                    <div class="row mt-2" style="font-size: 13px;">
-                        <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
-                        <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
-                        <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
-                    </div>
-                    <hr>
-                    <div class="row p-5 text-center">
-                        <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
-                    </div>
-                    <div class="row mt-4 text-end">
-                        <p class="transaction-expanded-message mb-0"     >Starting balance:  $0.00  </p>
-                    </div>
-                </div>
-            </div>
+      // First month → Payment
+      if (i === 0) {
+        transactionsHtml = `
+          <div class="row mt-2 border-top" style="font-size: 13px;">
+            <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Aug 21, 2024</span></div>
+            <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+              <a href="kk.html">Automatic payment wire transfer to bank account ....736 GG1030IGDG</a>
+            </span></div>
+            <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-$262.53</span></div>
+          </div>
+          <hr>
         `;
+      }
+      // Second month → Earnings
+      else if (i === 1) {
+        transactionsHtml = `
+          <div class="row mt-2 border-top" style="font-size: 13px;">
+            <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Jul 1-31, 2025</span></div>
+            <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+              <span>Invalid traffic - Ad Exchange for content</span>
+            </span></div>
+            <div class="col-4 mt-2 mb-1 text-end "><span class="transaction-expanded-header mt-3 ">-$31.44</span></div>
+          </div>
+          <hr>
+        `;
+      }
+      // Third month → No transactions
+      else {
+        noTransactions = true;
+      }
+
+      const rowHtml = `
+        <div class="row mt-3">
+          <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
+              data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
+              aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
+
+              <div class="d-flex align-items-center">
+                  <p class="mb-0 transaction-header-collapse">${monthText}</p>
+                  <div class="transaction-icons ms-3" style="display: none;"></div>
+              </div>
+              <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
+          </div>
+
+          <div class="collapse" id="${monthId}-collapse">
+              <div class="row mt-2 border-bottom">
+                  <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $0.00</div>
+              </div>
+              <div class="row mt-2" style="font-size: 13px;">
+                  <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
+                  <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
+                  <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
+              </div>
+
+              ${transactionsHtml}
+
+              <div class="row p-5 text-center" style="${noTransactions ? '' : 'display:none;'}">
+                  <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
+              </div>
+
+              <div class="row mt-4 text-end">
+                  <p class="transaction-expanded-message mb-0">Starting balance:  $262.53</p>
+              </div>
+          </div>
+        </div>
+      `;
+
       monthsContainer.innerHTML += rowHtml;
     }
   });
@@ -563,6 +599,8 @@ Feedback</span>
     }
   }
 </script>
+
+
     
     
     <!-- <div class="row mt-2">

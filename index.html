@@ -323,7 +323,7 @@
   <style>
   
 </style>
-    <div class="collapse show" id="paymentsSubmenu">
+    <div class="collapse show" id="paymentsSubmenu" >
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a class="nav-link kk ps-5 py-2 inactive-link" href="payment.html"><i class="fa-solid fa-circle bullet-grey"></i> <span class="ms-3">Payments info</span></a></li>
             <li><a class="nav-link ps-5 py-2 inactive-link" href="#"><i class="fa-solid fa-circle bullet-grey"></i><span class="ms-3">Verification check</span></a></li>
@@ -434,8 +434,8 @@
         }
       }
       </style>
-    <div class="main-content" id="mainContent">
-      <div class="row mb-4 col-lg-12 col-sm-12 m-auto">
+    <div class="main-content" id="mainContent" style="font-family: 'Roboto', Arial, sans-serif;">
+      <div class="row mb-4 col-lg-12 col-sm-12 m-auto" style="font-family: 'Roboto', Arial, sans-serif;">
         <div class="col-12 col-lg-9 Estimated mb-2 mb-lg-0 h-100">
           <div class="card shadow-sm text-white custom-card-blue">
             <div class="p-3">
@@ -491,27 +491,27 @@
                   </ul>
                 </div>
               </div>
-              <div class="row custom-stats-row mb-3" style="margin-top: 8px">
+              <div class="row custom-stats-row mb-3" style="margin-top: 8px;font-family: 'Roboto', Arial, sans-serif;">
                 <div class="col-6 col-md-3">
                   <p class="stat-label">Today so far</p>
-                  <h3 class="stat-value">$0.00</h3>
+                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
                 </div>
                 <div class="col-6 col-md-3">
                   <p class="stat-label">Yesterday</p>
-                  <h3 class="stat-value">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px">+$0.00</p>
+                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
+                  <p class="stat-change" style="line-height: 10px;font-family: 'Roboto', Arial, sans-serif !important;">+$0.00</p>
                   <small class="stat-comparison">vs same day last week</small>
                 </div>
                 <div class="col-6 col-md-3 mt-4 mt-md-0">
                   <p class="stat-label">Last 7 days</p>
-                  <h3 class="stat-value">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px">+$0.00</p>
+                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
+                  <p class="stat-change" style="line-height: 10px;font-family: 'Roboto', Arial, sans-serif !important;">+$0.00</p>
                   <small class="stat-comparison">vs previous 7 days</small>
                 </div>
                 <div class="col-6 col-md-3 mt-4 mt-md-0">
                   <p class="stat-label">This month</p>
-                  <h3 class="stat-value">$0.00</h3>
-                  <p class="stat-change" style="line-height: 10px">+$0.00</p>
+                  <h3 class="stat-value" style="font-family: 'Roboto', Arial, sans-serif !important;">$0.00</h3>
+                  <p class="stat-change" style="line-height: 10px;font-family: 'Roboto', Arial, sans-serif !important;">+$0.00</p>
                   <small class="stat-comparison"
                     >vs same period last year</small
                   >
@@ -521,7 +521,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-lg-3 Estimated">
+        <div class="col-12 col-lg-3 Estimated" style="font-family: 'Roboto', Arial, sans-serif;">
           <div
             class="card shadow-sm text-white"
             style="background-color: #1565c0"
@@ -577,7 +577,7 @@
               >
                 <div class="col-6 col-md-12 mt-4 mt-md-0">
                   <p class="stat-label" style="display: none">Last 7 days</p>
-                  <h3 class="stat-value mt-3">$0.00</h3>
+                  <h3 class="stat-value mt-3" style="font-family: 'Roboto', Arial, sans-serif;">$0.00</h3>
                   <small
                     class="stat-comparison"
                     style="line-height: 10px; font-size: 11px"
@@ -692,7 +692,7 @@
           color: #1a73e8 !important;
         }
       </style>
-      <div class="row mb-4 col-lg-12 col-sm-12 m-auto">
+      <div class="row mb-4 col-lg-12 col-sm-12 m-auto" style="font-family: 'Roboto', Arial, sans-serif;">
         <div class="col-lg-6 col-xl-6 mb-2">
           <div class="card shadow-sm">
             <div class="card-body">
@@ -704,11 +704,17 @@
                   <i class="bi bi-three-dots-vertical text-dark"></i>
                 </button>
               </div>
-              <div class="mb-3">
-                <select class="form-select form-select-sm border-0 w-auto">
-                  <option>Today so far</option>
-                </select>
-              </div>
+            <div class="mb-3 position-relative">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+<span style="font-size:14px; cursor:pointer;">
+  Today so far <i class="fa-solid fa-caret-down" style="font-size:14px; color:#555;line-height: 1px !important;"></i>
+</span>
+
+
+</div>
+
               <div class="row text-center">
                 <div class="col-4 mb-3">
                   <p class="text-muted mb-0">Page views</p>
