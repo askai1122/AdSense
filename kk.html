@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Google AdSense Payment Receipt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
-     font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             padding: 20px;
             background: #ffffff;
         }
@@ -16,101 +16,121 @@
             margin: 15px 0;
         }
         .table-bordered th,
-.table-bordered td {
-    border: 1px solid #000000 !important;
-}
+        .table-bordered td {
+            border: 1px solid #000000 !important;
+        }
+
+        /* Ensure content starts from left edge */
+        #content {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+        }
+
+        /* Keep columns side-by-side */
+        .no-wrap {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .col-fixed {
+            flex: 0 0 40%;
+            max-width: 50%;
+        }
+
+        /* Font & spacing adjustments for smaller screens */
+        @media (max-width: 992px) {
+            body { padding: 15px; }
+            .section-title { font-size: 24px; }
+            .address { font-size: 14px; }
+            table { font-size: 14px; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .section-title { font-size: 22px; }
+            .address { font-size: 13px; }
+            table { font-size: 13px; }
+            img { height: 40px !important; }
+        }
+        @media (max-width: 576px) {
+            body { padding: 8px; }
+            .section-title { font-size: 20px; }
+            .address { font-size: 12px; }
+            table { font-size: 12px; }
+            img { height: 35px !important; }
+        }
+          @media (max-width: 1200px) {
+            body { padding: 8px; }
+            .section-title { font-size: 20px; }
+            .address { font-size: 12px; }
+            table { font-size: 12px; }
+            img { height: 35px !important; }
+        }
     </style>
 </head>
 <body>
-    <div class="row container  bg-white" id="content">
-        <div class="col-lg-5 col-sm-5">
-            <div class="header ">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
+    <div id="content" class="bg-white">
+        <div class="row no-wrap">
+            <!-- Left Column -->
+            <div class="col-fixed">
+                <div class="header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
+                </div>
+                <div class="address mt-5" style="font-weight: 545 !important;">
+                    Google Asia Pacific Pte. Ltd.<br>
+                    70 Pasir Panjang Road, #03-71<br>
+                    Mapletree Business City<br>
+                    Singapore 117371<br><br>
+                    Tax identification number<br>
+                    200817984R<br><br>
+                    Simardeep Singh<br>
+                    Flat No #1003, Willow Homes, Near Atta Chakki<br>
+                    Dashmesh Nagar<br>
+                    Kharar, Punjab 140301<br>
+                    India
+                </div>
             </div>
-            <div class="address mt-5 " style="font-weight: 545 !important;">
-                Google Asia Pacific Pte. Ltd.<br>
-                70 Pasir Panjang Road, #03-71<br>
-                Mapletree Business City<br>
-                Singapore 117371<br><br>
-                Tax identification number<br>
-                200817984R<br><br>
-                Simardeep Singh<br>
-                Flat No #1003, Willow Homes, Near Atta Chakki<br>
-                Dashmesh Nagar<br>
-                Kharar, Punjab 140301<br>
-                India
-            </div>
-        </div>
-        <div class="col-lg-7 col-sm-7">
-            <div class="section-title">Payment Receipt</div>
-            <div class="row col-lg-6 col-sm-6 col-md-6 mt-5">
-                <div class="col-lg-6 col-md-6 col-sm-6"><b>Payment date</b></div>
-                <div class="col-lg-6 col-md-6 col-sm-6">Aug 21, 2024</div>
-            </div>
-            <div class="row col-lg-6 col-sm-6 col-md-6">
-                <div class="col-lg-6 col-md-6 col-sm-6"><b>Billing ID</b></div>
-                <div class="col-lg-6 col-md-6 col-sm-6">5954-1208-8010</div>
-            </div>
-            <div class="row col-lg-6 col-sm-6 col-md-6">
-                <div class="col-lg-6 col-md-6 col-sm-6"><b>Payment method</b></div>
-                <div class="col-lg-6 col-md-6 col-sm-6">Wire transfer to bank account · · · · 736</div>
-            </div>
-            <div class="row col-lg-6 col-sm-6 col-md-6">
-                <div class="col-lg-6 col-md-6 col-sm-6"><b>Payment number</b></div>
-                <div class="col-lg-6 col-md-6 col-sm-6">GG103OIGD0</div>
-            </div>
-        </div>
-  
 
-<div class="col-lg-12">
-    <table class="table table-bordered border mt-3 ">
-    <thead>
-        <tr>
-            <th>Description</th>
-            <th>Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Payment amount</td>
-            <td>$262.53</td>
-        </tr>
-    </tbody>
-</table>
-</div>
+            <!-- Right Column -->
+            <div class="col-fixed">
+                <div class="section-title">Payment Receipt</div>
+
+                <div class="row mt-5">
+                    <div class="col-4"><b>Payment date</b></div>
+                    <div class="col-7">Aug 21, 2024</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>Billing ID</b></div>
+                    <div class="col-7">5954-1208-8010</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>Payment method</b></div>
+                    <div class="col-7">Wire transfer to bank account · · · · 736</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><b>Payment number</b></div>
+                    <div class="col-7">GG103OIGD0</div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Table -->
+        <div class="col-9 mt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Payment amount</td>
+                        <td>$262.53</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-<!-- CDN links include -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<!-- <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const { jsPDF } = window.jspdf;
-
-    html2canvas(document.getElementById("content"), {
-        scale: 2,
-        useCORS: true,       // CORS-enabled images allow
-        allowTaint: false,
-        backgroundColor: null // transparent background maintain
-    }).then(canvas => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF('p', 'mm', 'a4');
-
-        const imgWidth = 190;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
-        const position = 10;
-
-        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-        
-        // PDF save hone ke baad hi redirect karein
-        pdf.save("receipt.pdf");
-        
-        setTimeout(() => {
-            window.location.href = "payment_details.html";
-        }, 1000); // 1 sec delay taake save complete ho
-    });
-});
-</script> -->
-
 </body>
 </html>
