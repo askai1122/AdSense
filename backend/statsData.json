@@ -1,0 +1,55 @@
+{
+  "estimated_earnings": {
+    "today": "$3235",
+    "yesterday": "$456",
+    "extrayesterday": "+$65",
+    "last7days": "$645",
+    "extralast7days": "4",
+    "thismonth": "56",
+    "extrathismonth": "56"
+  },
+  "balance": {
+    "balance": "44",
+    "last_payment": "$344"
+  },
+  "performance": {
+    "pageviews": "$34",
+    "pagerpm": "$34",
+    "impressions": "$4",
+    "clicks": "$5",
+    "cpc": "$3",
+    "pagectr": "$5"
+  },
+  "payment_page": {
+    "earnings": "$55",
+    "lastpaymentdate": "224",
+    "bankaccountname": "343",
+    "lastthreedigits": "asd"
+  },
+  "transactionform": {
+    "firstmonth": "3",
+    "secondmonth": "45",
+    "thirdmonth": "55"
+  },
+  "currentmonthtrans": {
+    "startingbalance": "22",
+    "endingbalance": "33",
+    "banknumber": "55",
+    "amount": "77"
+  },
+  "lastmonthtrans": {
+    "lastmonth_balance": "65",
+    "lastmonth_endingbalance": "34",
+    "lastmonth_invalid": "65",
+    "lastmonth_earnings": "44"
+  },
+  "reciptform": {
+    "paymentdate": "324",
+    "billingid": "sd",
+    "taxidentification": "324",
+    "paymentmethod": "5656",
+    "paymentnumber": "6767676",
+    "Amount": "454",
+    "address": "werwer asdasdasdasdasd asdas dasdasssssssssssssssssssssssss sadddddddddddddddddddddddddddd"
+  }
+}

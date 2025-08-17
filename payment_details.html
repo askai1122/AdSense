@@ -108,42 +108,142 @@
             border-radius: 5px;
         }
     </style>
-<style>
-  /* Full page grey background while loading */
-#pageLoader {
-    position: fixed;
-    inset: 0;
-    background: white; /* grey overlay */
-    z-index: 9999;
+
+   <style>
+    /* Active main menu */
+    .navs {
+      background-color: #e8f0fe;
+      color: #1a73e8;
+      border-left: 7px solid #1a73e8;
+      border-top-right-radius: 30px !important;
+      border-bottom-right-radius: 30px !important;
+      padding: 10px;
+    }
+
+    /* Inactive main menu */
+    .navs1,
+    .navs2 {
+      background-color: transparent;
+      color: #454647;
+      border-left: 7px solid transparent;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      padding: 10px;
+    }
+
+    /* Active submenu link */
+    .active-link {
+      background-color: #e8f0fe;
+      color: #1a73e8;
+      border-left: 7px solid #1a73e8;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    /* Inactive submenu link */
+    .inactive-link {
+      background-color: #ffffff;
+      color: #454647;
+      border-left: 7px solid transparent;
+    }
+
+    /* Bullets */
+    .bullet-blue {
+      color: #1a73e8;
+      font-size: 13px !important;
+    }
+
+    .bullet-grey {
+      color: #707070;
+      font-size: 13px !important;
+    }
+
+    /* Payments title ka font size */
+    .nav-link-text {
+      font-size: 16px !important;
+    }
+
+    /* Submenu text ka font size */
+    .btn-toggle-nav .nav-link span {
+      font-size: 13px !important;
+    }
+  </style>
+  <style>
+  .hover-trasiton-card:hover{
+    background-color: #1a73e815;
+  }
+</style>
+   <style>
+          .title-svg-icon {
+  height: 27px; /* or any smaller height you want */
+  width: auto; /* keep aspect ratio */
+}
+
+        </style>
+          <style>
+
+  @media (max-width: 992px) {
+.main-content{
+    padding: 0px 20px;
+}
+.dropdown-togglesa{
+    display: block !important;
+    justify-content: end;
+    margin-top: 5px !important;
+    padding: 0px 10px;
+}
+.dropdown-togglesa .dropdown button{
+    width: 300px !important;
+}
+  }
+  </style>
+  <style>
+  /* Base styles for all screen sizes */
+  .dropdown-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stacks items vertically by default (for small screens) */
+    align-items: flex-end; /* Aligns items to the end (right) */
+    gap: 0.5rem; /* Adds space between stacked items */
+  }
+
+  .dropdown-group .dropdown-btn {
+    min-width: 220px; /* Use a fixed width for consistent size */
+    border-bottom: 1px solid lightgray; /* Adds the separator line to the button */
+    padding-bottom: 0.5rem;
+    display: flex; /* Enables flexbox on the button itself */
+    justify-content: space-between; /* Pushes the content to the left and right */
     align-items: center;
-    justify-content: center;
-}
+  }
+  
+  /* Hide the default dropdown-toggle arrow */
+  .dropdown-group .dropdown-toggle::after {
+      display: none;
+  }
 
-/* Top progress bar */
-#topLoaderBar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 5px;
-    width: 1%;
-    background: linear-gradient(90deg, #0d6efd);
-    transition: width 1s linear;
-}
+  /* Media query for screens wider than 576px (small and up) */
+  @media (min-width: 576px) {
+    .dropdown-group {
+      flex-direction: row; /* Arranges items horizontally */
+      gap: 1rem; /* Adds space between horizontal items */
+    }
+    
+    .dropdown-group .dropdown-btn {
+        border-bottom: none; /* Removes the border for horizontal view */
+        padding-bottom: 0;
+    }
+  }
+</style>
+<style>
+  /* This style applies to the element only when it does NOT have the 'is-active' class */
+  .transaction-header:not(.is-active):hover {
+    /* Adds a shadow when the mouse hovers over the div */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-/* Center logo */
-#logoLoader img {
-    max-width: 150px;
-}
-
-/* Hide animation */
-.hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
+  /* Optional: Add a transition for a smooth effect on the initial state */
+  .transaction-header {
+    transition: box-shadow 0.3s ease-in-out;
+  }
 </style>
   </head>
   <body>
@@ -229,13 +329,7 @@
           <span class="nav-link-text ms-3">Sites</span>
           </a>
         </li>
-          <style>
-          .title-svg-icon {
-  height: 27px; /* or any smaller height you want */
-  width: auto; /* keep aspect ratio */
-}
-
-        </style>
+       
       <li class="nav-item ">
           <a class="nav-link" aria-current="page" href="#">
           <svg class="title-svg-icon _ngcontent-dot-20" viewBox="0 0 24 24"><path class="_ngcontent-dot-20" d="M10.4 2.5C8.1 2.5 6.2 4.4 6.2 6.7C6.2 9 8.1 11 10.4 11C12.7 11 14.6 9.1 14.6 6.8C14.6 4.5 12.8 2.5 10.4 2.5ZM10.4 4.6C11.6 4.6 12.5 5.5 12.5 6.7C12.5 7.9 11.6 8.8 10.4 8.8C9.2 8.8 8.3 7.9 8.3 6.7C8.3 5.5 9.3 4.6 10.4 4.6ZM13.6 12L17.8 9.9L22 12V14.8C22 17.4 20.2 19.8 17.8 20.4C15.4 19.8 13.6 17.4 13.6 14.8V12ZM12.6 12.2C11.8 12.1 11 12 10.4 12C7.6 12 2 13.4 2 16.2V19.4H14.3C13.8 18.8 13.3 18.1 13 17.3H4.1V16.3C4.3 15.5 7.6 14.2 10.4 14.2C11.1 14.2 11.8 14.3 12.5 14.4V12.2H12.6Z"></path></svg>
@@ -278,70 +372,7 @@ Policy center</span>
       <img src="assets/iamges/payments_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Payments icon" width="24" height="24">
         <span class="nav-link-text">Payments</span>
         </a>
-    <style>
-    /* Active main menu */
-    .navs {
-      background-color: #e8f0fe;
-      color: #1a73e8;
-      border-left: 7px solid #1a73e8;
-      border-top-right-radius: 30px !important;
-      border-bottom-right-radius: 30px !important;
-      padding: 10px;
-    }
-
-    /* Inactive main menu */
-    .navs1,
-    .navs2 {
-      background-color: transparent;
-      color: #454647;
-      border-left: 7px solid transparent;
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-      padding: 10px;
-    }
-
-    /* Active submenu link */
-    .active-link {
-      background-color: #e8f0fe;
-      color: #1a73e8;
-      border-left: 7px solid #1a73e8;
-      border-top-right-radius: 30px;
-      border-bottom-right-radius: 30px;
-    }
-
-    /* Inactive submenu link */
-    .inactive-link {
-      background-color: #ffffff;
-      color: #454647;
-      border-left: 7px solid transparent;
-    }
-
-    /* Bullets */
-    .bullet-blue {
-      color: #1a73e8;
-      font-size: 13px !important;
-    }
-
-    .bullet-grey {
-      color: #707070;
-      font-size: 13px !important;
-    }
-
-    /* Payments title ka font size */
-    .nav-link-text {
-      font-size: 16px !important;
-    }
-
-    /* Submenu text ka font size */
-    .btn-toggle-nav .nav-link span {
-      font-size: 13px !important;
-    }
-  </style>
-  <style>
-  .hover-trasiton-card:hover{
-    background-color: #1a73e815;
-  }
-</style>
+ 
     <div class="collapse show" id="paymentsSubmenu">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a class="nav-link kk ps-5 py-2 active-link" href="payment.html"><i class="fa-solid fa-circle bullet-blue"></i> <span class="ms-3">Payments info</span></a></li>
@@ -369,23 +400,7 @@ Feedback</span>
     </ul>
  
 </div>
-  <style>
 
-  @media (max-width: 992px) {
-.main-content{
-    padding: 0px 20px;
-}
-.dropdown-togglesa{
-    display: block !important;
-    justify-content: end;
-    margin-top: 5px !important;
-    padding: 0px 10px;
-}
-.dropdown-togglesa .dropdown button{
-    width: 300px !important;
-}
-  }
-  </style>
   <div class="main-content" id="mainContent" style="margin-top: 70px;">
 
       <div class="row mb-4 ">
@@ -397,42 +412,6 @@ Feedback</span>
     <div class="mb-4">
         <span style="font-size: 18px;"><span class="text-muted">Payments</span> &nbsp; &nbsp;>  &nbsp; &nbsp; <span style="font-weight: 400;">Transactions</span>  </span>
     </div>
-<style>
-  /* Base styles for all screen sizes */
-  .dropdown-group {
-    display: flex;
-    flex-direction: column; /* Stacks items vertically by default (for small screens) */
-    align-items: flex-end; /* Aligns items to the end (right) */
-    gap: 0.5rem; /* Adds space between stacked items */
-  }
-
-  .dropdown-group .dropdown-btn {
-    min-width: 220px; /* Use a fixed width for consistent size */
-    border-bottom: 1px solid lightgray; /* Adds the separator line to the button */
-    padding-bottom: 0.5rem;
-    display: flex; /* Enables flexbox on the button itself */
-    justify-content: space-between; /* Pushes the content to the left and right */
-    align-items: center;
-  }
-  
-  /* Hide the default dropdown-toggle arrow */
-  .dropdown-group .dropdown-toggle::after {
-      display: none;
-  }
-
-  /* Media query for screens wider than 576px (small and up) */
-  @media (min-width: 576px) {
-    .dropdown-group {
-      flex-direction: row; /* Arranges items horizontally */
-      gap: 1rem; /* Adds space between horizontal items */
-    }
-    
-    .dropdown-group .dropdown-btn {
-        border-bottom: none; /* Removes the border for horizontal view */
-        padding-bottom: 0;
-    }
-  }
-</style>
 
 
 <div class="dropdown-group justify-content-end">
@@ -485,138 +464,118 @@ Feedback</span>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-<style>
-  /* This style applies to the element only when it does NOT have the 'is-active' class */
-  .transaction-header:not(.is-active):hover {
-    /* Adds a shadow when the mouse hovers over the div */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
 
-  /* Optional: Add a transition for a smooth effect on the initial state */
-  .transaction-header {
-    transition: box-shadow 0.3s ease-in-out;
-  }
-</style>
 <!-- A.html -->
 
 
 <div id="months-container" style="font-family: 'Roboto', Arial, sans-serif;"></div>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const monthsContainer = document.getElementById('months-container');
-    const today = new Date();
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  document.addEventListener("DOMContentLoaded", function () {
+  const monthsContainer = document.getElementById('months-container');
+  const today = new Date();
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    for (let i = 0; i < 3; i++) {
-      const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
-      const month = monthNames[date.getMonth()];
-      const year = date.getFullYear();
-      const monthId = month.toLowerCase() + year;
-      const monthText = `${month} 1 – 5, ${year}`;
+  // current months balance yah ap month and starting and ending balance deskhty hai
+  const balances = [
+    { starting: 1.53, ending: 1.00 }, // Current month (i = 0)
+    { starting: 294.00, ending: 262.53 }, // Last month (i = 1)
+    { starting: 100.00, ending: 294.00 }  // Two months ago (i = 2)
+  ];
 
-      let transactionsHtml = "";
-      let noTransactions = false;
+  for (let i = 0; i < 3; i++) {
+    const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    const monthId = month.toLowerCase() + year;
 
-      // First month → Payment
-      if (i === 0) {
-        transactionsHtml = `
-          <div class="row mt-2 border-top" style="font-size: 13px;">
-            <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Aug 21, 2024</span></div>
-            <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
-              <a href="kk.html">Automatic payment wire transfer to bank account ....736 GG1030IGDG</a>
-            </span></div>
-            <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-$262.53</span></div>
-          </div>
-          <hr>
-        `;
-      }
-      // Second month → Earnings
-      else if (i === 1) {
-        transactionsHtml = `
-          <div class="row mt-2 border-top" style="font-size: 13px;">
-            <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Jul 1-31, 2025</span></div>
-            <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
-              <span>Invalid traffic - Ad Exchange for content</span>
-            </span></div>
-            <div class="col-4 mt-2 mb-1 text-end "><span class="transaction-expanded-header mt-3 ">-$31.44</span></div>
-          </div>
-          <hr>
-        `;
-      }
-      // Third month → No transactions
-      else {
-        noTransactions = true;
-      }
-
-      const rowHtml = `
-        <div class="row mt-3">
-          <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
-              data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
-              aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
-
-              <div class="d-flex align-items-center">
-                  <p class="mb-0 transaction-header-collapse">${monthText}</p>
-                  <div class="transaction-icons ms-3" style="display: none;"></div>
-              </div>
-              <p class="mb-0 transaction-ending-balance">Ending balance: $0.00</p>
-          </div>
-
-          <div class="collapse" id="${monthId}-collapse">
-              <div class="row mt-2 border-bottom">
-                  <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $0.00</div>
-              </div>
-              <div class="row mt-2" style="font-size: 13px;">
-                  <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
-                  <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
-                  <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
-              </div>
-
-              ${transactionsHtml}
-
-              <div class="row p-5 text-center" style="${noTransactions ? '' : 'display:none;'}">
-                  <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
-              </div>
-
-              <div class="row mt-4 text-end">
-                  <p class="transaction-expanded-message mb-0">Starting balance:  $262.53</p>
-              </div>
-          </div>
-        </div>
-      `;
-
-      monthsContainer.innerHTML += rowHtml;
-    }
-  });
-
-  function toggleHeader(element) {
-    element.classList.toggle('is-active');
-    const iconsContainer = element.querySelector('.transaction-icons');
-
-    if (element.classList.contains('is-active')) {
-      const dateElement = element.querySelector('.transaction-header-collapse');
-      const balanceElement = element.querySelector('.transaction-ending-balance');
-      element.dataset.originalDateText = dateElement.textContent;
-      const newHeading = document.createElement('h3');
-      newHeading.classList.add('mt-3');
-      newHeading.textContent = dateElement.textContent;
-      dateElement.replaceWith(newHeading);
-      balanceElement.style.display = 'none';
-      iconsContainer.style.display = 'block';
-      element.classList.remove('border', 'rounded-2');
-      element.classList.add('border-bottom');
+    let monthText;
+    if (i === 0) {
+      const currentDay = today.getDate();
+      monthText = `${month} 1 – ${currentDay}, ${year}`;
     } else {
-      const heading = element.querySelector('h3');
-      const originalDateElement = document.createElement('p');
-      originalDateElement.classList.add('mb-0', 'transaction-header-collapse');
-      originalDateElement.textContent = element.dataset.originalDateText;
-      heading.replaceWith(originalDateElement);
-      const balanceElement = element.querySelector('.transaction-ending-balance');
-      balanceElement.style.display = '';
-      iconsContainer.style.display = 'none';
-      element.classList.add('border', 'rounded-2');
-      element.classList.remove('border-bottom');
+      monthText = `${month} 1 – 31, ${year}`;
     }
+
+    let transactionsHtml = "";
+    let noTransactions = false;
+
+    // Add specific content per month
+    if (i === 0) {
+      transactionsHtml = `
+        <div class="row mt-2 border-top" style="font-size: 13px;">
+          <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Aug 21, 2024</span></div>
+          <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+            <a href="recipt.html">Automatic payment wire transfer to bank account  <span name="banknumber">....736 GG1030IGDG</span></a>
+          </span></div>
+          <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 " name="startingbalance">-$262.53</span></div>
+        </div>
+        <hr>
+      `;
+    } else if (i === 1) {
+      transactionsHtml = `
+        <div class="row mt-2 border-top" style="font-size: 13px;">
+          <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Jul 1-31, 2025</span></div>
+          <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+            <span>Invalid traffic - Ad Exchange for content</span>
+          </span></div>
+          <div class="col-4 mt-2 mb-1 text-end "><span class="transaction-expanded-header mt-3 " name="lastmonth_invalid">-$31.44</span></div>
+        </div>
+         <div class="row mt-2 border-top" style="font-size: 13px;">
+          <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Jul 1-31, 2025</span></div>
+          <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+            <span>Earnings - Ad Exchange for content</span>
+          </span></div>
+          <div class="col-4 mt-2 mb-1 text-end "><span class="transaction-expanded-header mt-3 " name="lastmonth_earnings">-$31.44</span></div>
+        </div>
+        <hr>
+      `;
+    } else {
+      noTransactions = true;
+    }
+
+    // 🧮 Inject correct balances
+    const startingBalance = balances[i].starting.toFixed(2);
+    const endingBalance = balances[i].ending.toFixed(2);
+
+    const rowHtml = `
+      <div class="row mt-3">
+        <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
+            data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
+            aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
+            <div class="d-flex align-items-center">
+                <p class="mb-0 transaction-header-collapse">${monthText}</p>
+                <div class="transaction-icons ms-3" style="display: none;"></div>
+            </div>
+            <p class="mb-0 transaction-ending-balance">Ending balance: $${endingBalance}</p>
+        </div>
+
+        <div class="collapse" id="${monthId}-collapse">
+            <div class="row mt-2 border-bottom">
+                <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $${endingBalance}</span></div>
+            </div>
+            <div class="row mt-2" style="font-size: 13px;">
+                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
+                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
+                <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
+            </div>
+
+            ${transactionsHtml}
+
+            <div class="row p-5 text-center" style="${noTransactions ? '' : 'display:none;'}">
+                <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
+            </div>
+
+            <div class="row mt-4 text-end">
+                <p class="transaction-expanded-message mb-0">Starting balance:  $${startingBalance}</p>
+            </div>
+        </div>
+      </div>
+    `;
+
+    monthsContainer.innerHTML += rowHtml;
   }
+});
+
 </script>
 
 
@@ -725,6 +684,127 @@ function toggleHeader(element) {
         element.classList.remove('border-bottom');
     }
 }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    loadData();
+    setInterval(loadData, 5000); // 5s refresh
+  });
+
+  function loadData() {
+    fetch("http://localhost:5000/get-data")
+      .then((res) => res.json())
+      .then((allData) => {
+        // 🧮 Backend values uthao
+        const current = allData.currentmonthtrans || {};
+        const last = allData.lastmonthtrans || {};
+
+        const balances = [
+          { starting: parseFloat(current.startingbalance) || 0, ending: parseFloat(current.endingbalance) || 0 },
+          { starting: parseFloat(last.lastmonth_balance) || 0, ending: parseFloat(last.lastmonth_endingbalance) || 0 },
+          { starting: 0.0, ending: 0.0 } // two months ago static
+        ];
+
+        // 🔄 Pehle container empty karo
+        const monthsContainer = document.getElementById("months-container");
+        monthsContainer.innerHTML = "";
+
+        const today = new Date();
+        const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+        for (let i = 0; i < 3; i++) {
+          const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
+          const month = monthNames[date.getMonth()];
+          const year = date.getFullYear();
+          const monthId = month.toLowerCase() + year;
+
+          let monthText;
+          if (i === 0) {
+            const currentDay = today.getDate();
+            monthText = `${month} 1 – ${currentDay}, ${year}`;
+          } else {
+            monthText = `${month} 1 – 31, ${year}`;
+          }
+
+          let transactionsHtml = "";
+          let noTransactions = false;
+
+          if (i === 0) {
+            transactionsHtml = `
+              <div class="row mt-2 border-top" style="font-size: 13px;">
+                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${month} ${today.getDate()}, ${year}</span></div>
+                <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+                  <a href="kk.html">Automatic payment wire transfer to bank account <span name="banknumber">${current.banknumber || "..."}</span></a>
+                </span></div>
+                <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-$${current.amount || "0.00"}</span></div>
+              </div>
+              <hr>
+            `;
+          } else if (i === 1) {
+            transactionsHtml = `
+              <div class="row mt-2 border-top" style="font-size: 13px;">
+                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${month} 1-31, ${year}</span></div>
+                <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+                  <span>Invalid traffic - Ad Exchange for content</span>
+                </span></div>
+                <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-${last.lastmonth_invalid || "0.00"}</span></div>
+              </div>
+               <div class="row mt-2 border-top" style="font-size: 13px;">
+                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${month} 1-31, ${year}</span></div>
+                <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
+                  <span>Earnings - Ad Exchange for content</span>
+                </span></div>
+                <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">${last.lastmonth_earnings || "0.00"}</span></div>
+              </div>
+              <hr>
+            `;
+          } else {
+            noTransactions = true;
+          }
+
+          const startingBalance = balances[i].starting.toFixed(2);
+          const endingBalance = balances[i].ending.toFixed(2);
+
+          const rowHtml = `
+            <div class="row mt-3">
+              <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
+                  data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
+                  aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
+                  <div class="d-flex align-items-center">
+                      <p class="mb-0 transaction-header-collapse">${monthText}</p>
+                      <div class="transaction-icons ms-3" style="display: none;"></div>
+                  </div>
+                  <p class="mb-0 transaction-ending-balance">Ending balance: $${endingBalance}</p>
+              </div>
+
+              <div class="collapse" id="${monthId}-collapse">
+                  <div class="row mt-2 border-bottom">
+                      <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $${endingBalance}</span></div>
+                  </div>
+                  <div class="row mt-2" style="font-size: 13px;">
+                      <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Date</span></div>
+                      <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">Description</span></div>
+                      <div class="col-6 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">Amount (USD)</span></div>
+                  </div>
+
+                  ${transactionsHtml}
+
+                  <div class="row p-5 text-center" style="${noTransactions ? '' : 'display:none;'}">
+                      <p class="transaction-expanded-message mb-0" style="font-size: 13px;">You don't have any transactions for this billing period</p>
+                  </div>
+
+                  <div class="row mt-4 text-end">
+                      <p class="transaction-expanded-message mb-0">Starting balance:  $${startingBalance}</p>
+                  </div>
+              </div>
+            </div>
+          `;
+
+          monthsContainer.innerHTML += rowHtml;
+        }
+      })
+      .catch((err) => console.error("Error loading data:", err));
+  }
 </script>
 
 <script>

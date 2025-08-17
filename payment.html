@@ -107,6 +107,200 @@
 }
 
 </style>
+<style>
+/* --- Main Card Styling --- */
+.balance-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.card-titles {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #202124;
+  margin-bottom: 4px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.card-balance {
+  font-size: 28px;
+  font-weight: 400;
+  color: #202124;
+}
+
+/* Progress Bar */
+.progress-container {
+  height: 16px;
+  background-color: #e1e1e1;
+  /* border-radius: 4px; */
+  margin-bottom: 8px;
+  overflow: hidden;
+  width: 100% ; 
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4285f4;
+  /* border-radius: 4px; */
+width: 70% ; 
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 20px;
+  width: 70% ; 
+
+}
+
+/* Payment Info */
+.payment-info {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.payment-info svg {
+  margin-right: 8px;
+  fill: #5f6368;
+}
+
+/* Text & Card Styling */
+.card {
+  border: 1px solid #e9ecef;
+  box-shadow: none;
+}
+
+.card-body h3 {
+  font-weight: normal;
+}
+
+.card-text.text-muted.small {
+  font-size: 0.875rem;
+}
+
+.small.text-muted span {
+  font-size: 0.8rem;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 1100px) {
+  .balance-card {
+    padding: 16px;
+  }
+  .progress-container,
+  .progress-bar {
+    width: 100%;
+  }
+  .card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .card-titles {
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-balance {
+    font-size: 32px;
+  }
+
+  .card-subtitle {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .progress-labels {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    margin-bottom: 16px;
+    width: 100% !important;
+  }
+
+  .payment-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 16px;
+  }
+
+  .payment-info svg {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 576px) {
+  .center-on-small {
+    text-align: center;
+  }
+
+  .center-on-small .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .center-on-small .d-flex.justify-content-between {
+    flex-direction: column;
+  }
+
+  .center-on-small .progress {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .center-on-small .d-flex.w-75 {
+    width: 100%;
+  }
+
+  .center-on-small .card-body h3 {
+    font-size: 1.8rem;
+  }
+
+  .center-on-small .card-body > .d-flex.align-items-center.small.text-muted {
+    border-top: 1px solid #e9ecef;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  .progress-container,
+  .progress-bar {
+    width: 100%;
+  }
+}
+</style>
   </head>
   <body>
 <!-- Full page loader overlay -->
@@ -119,12 +313,6 @@
         <img src="logo_google_adsense_color_1x_web_512dp.max-1440x810.png" alt="Logo">
     </div>
 </div>
-
-<!-- Main content -->
-<div id="mainContent" style="display:none;">
-    <!-- Yahan aapka actual page content -->
-</div>
-
 
     <header class="as-top-bar">
       <div class="as-app-logo">
@@ -416,14 +604,14 @@
                   threshold)
                 </div>
               </div>
-              <div class="card-balance">$0.00</div>
+              <div class="card-balance" name="earnings">$0.00</div>
             </div>
 
             <div class="card-content mt-4">
               <div class="progress-container">
-                <div class="progress-bar" style="width: 70%"></div>
+                <div class="progress-bar" ></div>
               </div>
-              <div class="progress-labels" style="width: 70%">
+              <div class="progress-labels" >
                 <span>You've reached 0% of your payment threshold</span>
                 <span>Payment threshold: $100.00</span>
               </div>
@@ -442,149 +630,13 @@
                       />
                       <path d="M0 0h24v24H0z" fill="none" /></svg
                   ></span>
-                  Your last payment was issued on Aug 21, 2024 for
-                  $262.53.</span
+                  Your last payment was issued on <span name="lastpaymentdate"> Aug 21, 2024</span> for
+                 <span name="last_payment">$262.53.</span></span
                 >
               </div>
             </div>
           </div>
 
-          <style>
-            @media (max-width: 576px) {
-  .progress-container,
-  .progress-bar {
-    width: 100% !important;
-  }
-}
-
-            /* Main Card Styling */
-            .balance-card {
-              border: 1px solid #e0e0e0;
-              border-radius: 8px;
-              padding: 20px;
-              max-width: 100%;
-              margin: 0 auto;
-              font-family: "Roboto", Arial, sans-serif;
-            }
-
-            /* Card Header */
-            .card-header {
-              display: flex;
-              justify-content: space-between;
-              align-items: flex-start;
-              margin-bottom: 20px;
-            }
-
-            .card-titles {
-              flex: 1;
-            }
-
-            .card-title {
-              font-size: 16px;
-              font-weight: 500;
-              color: #202124;
-              margin-bottom: 4px;
-            }
-
-            .card-subtitle {
-              font-size: 14px;
-              color: #5f6368;
-            }
-
-            .card-balance {
-              font-size: 28px;
-              font-weight: 400;
-              color: #202124;
-            }
-
-            /* Progress Bar */
-            .progress-container {
-              height: 16px;
-              background-color: #f1f3f4;
-              border-radius: 0px;
-              margin-bottom: 8px;
-              overflow: hidden;
-            }
-
-            .progress-bar {
-              height: 100%;
-              background-color: #f1f3f4; /* Changed to match image */
-              border-radius: 4px;
-            }
-
-            .progress-labels {
-              display: flex;
-              justify-content: space-between;
-              font-size: 12px;
-              color: #5f6368;
-              margin-bottom: 20px;
-            }
-
-            /* Payment Info */
-            .payment-info {
-              display: flex;
-              align-items: center;
-              padding-top: 16px;
-              font-size: 14px;
-              color: #5f6368;
-            }
-
-            .payment-info svg {
-              margin-right: 8px;
-              fill: #5f6368;
-            }
-
-            /* --- Responsive Styles for Small Screens --- */
-            @media (max-width: 576px) {
-              .balance-card {
-                padding: 16px; /* Adjust padding for smaller screens */
-              }
-
-              .card-header {
-                flex-direction: column; /* Stack header items vertically */
-                align-items: center;
-                text-align: center;
-                margin-bottom: 16px;
-              }
-
-              .card-titles {
-                margin-bottom: 16px; /* Add space between titles and balance */
-              }
-
-              .card-title {
-                font-size: 18px; /* Slightly larger title for centering */
-              }
-
-              .card-balance {
-                font-size: 32px; /* Larger balance amount */
-              }
-
-              .card-subtitle {
-                max-width: 80%; /* Constrain subtitle width for better wrapping */
-                margin: 0 auto;
-              }
-
-              .progress-labels {
-                flex-direction: column; /* Stack progress labels */
-                text-align: center;
-                gap: 4px;
-                margin-bottom: 16px;
-                width: 100% !important;
-              }
-
-              .payment-info {
-                flex-direction: column; /* Stack payment info items */
-                align-items: center;
-                text-align: center;
-                padding-top: 16px;
-              }
-
-              .payment-info svg {
-                margin-right: 0;
-                margin-bottom: 8px; /* Add space between icon and text */
-              }
-            }
-          </style>
           <div class="row mt-3" style="font-family: 'Roboto', Arial, sans-serif;">
             <div class="col-lg-6 mb-4">
               <div class="card h-100 border-0 shadow-sm">
@@ -611,7 +663,7 @@
                         style="font-size: 13px"
                         >Jul 1–29, 2025</a
                       >
-                      <span class="text-dark" style="font-size: 13px"
+                      <span class="text-dark" name="firstmonth" style="font-size: 13px"
                         >$0.00</span
                       >
                     </li>
@@ -625,7 +677,7 @@
                         >Jun 1–30, 2025</a
                       >
                       <span class="text-dark" style="font-size: 13px"
-                        >$0.00</span
+                      name="secondmonth" >$0.00</span
                       >
                     </li>
                     <li
@@ -638,7 +690,7 @@
                         >May 1–31, 2025</a
                       >
                       <span class="text-dark" style="font-size: 13px"
-                        >$0.00</span
+                      name="thirdmonth" >$0.00</span
                       >
                     </li>
                   </ul>
@@ -691,7 +743,7 @@
                           color: rgba(0, 0, 0, 0.901);
                           font: normal 12px Roboto, Arial, Helvetica, sans-serif;
                         "
-                        >Wire transfer to bank account •••• 736</span
+                        >Wire transfer to bank account <span name="lastthreedigits">•••• 736</span></span
                       >
                       <span
                         class="d-block"
@@ -700,7 +752,7 @@
                           line-height: 3.3;
                           color: rgb(128, 128, 128);
                         "
-                        >Faizan Ali</span
+                        name="bankaccountname">Faizan Ali</span
                       >
                     </div>
                   </div>
@@ -767,82 +819,62 @@
           </div>
         </div>
 
-        <style>
-          /* Custom CSS to match the image design */
-          @media (max-width: 576px) {
-            .center-on-small {
-              text-align: center;
-            }
 
-            .center-on-small .d-flex {
-              flex-direction: column;
-              align-items: center;
-            }
-
-            .center-on-small .d-flex.justify-content-between {
-              flex-direction: column;
-            }
-
-            .center-on-small .progress {
-              width: 75% !important;
-              margin: 0 auto;
-            }
-
-            .center-on-small .d-flex.w-75 {
-              width: 100% !important;
-            }
-
-            .center-on-small .card-body h3 {
-              font-size: 1.8rem;
-            }
-
-            .center-on-small
-              .card-body
-              > .d-flex.align-items-center.small.text-muted {
-              border-top: 1px solid #e9ecef;
-              padding-top: 1rem;
-              margin-top: 1rem;
-            }
-          }
-
-          .progress {
-            height: 15px;
-            background-color: #e0e0e0;
-            border-radius: 0 !important;
-          }
-
-          .progress-bar {
-            background-color: #4285f4;
-            border-radius: 0 !important;
-          }
-
-          .card-text.text-muted.small {
-            font-size: 0.875rem !important;
-          }
-
-          .small.text-muted span {
-            font-size: 0.8rem !important;
-          }
-
-          .card {
-            border: 1px solid #e9ecef;
-            box-shadow: none;
-          }
-
-          .card-title {
-            font-size: 1.15rem;
-          }
-
-          .card-body h3 {
-            font-weight: normal;
-          }
-        </style>
       </div>
     </div>
     <footer class="text-end" style="padding-right: 15px">
       <p class=""><span style="font-size: 17px">&copy;</span>  2025 Google</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function loadData() {
+        fetch("http://localhost:5000/get-data")
+          .then((res) => res.json())
+          .then((allData) => {
+            // Har form/section object loop karo
+            Object.keys(allData).forEach((section) => {
+              const sectionData = allData[section];
+    
+              // Us section ke andar jitne keys hain unpe loop
+              Object.keys(sectionData).forEach((key) => {
+                const value = sectionData[key];
+    
+                // Page pe elements find karo jinke name = key ho
+                const elements = document.querySelectorAll(`[name="${key}"]`);
+                
+                elements.forEach((element) => {
+                  if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                    element.value = value; // form fields
+                  } else {
+                    element.textContent = value; // div, span, p, etc.
+                  }
+                });
+              });
+            });
+    
+            const maxBalance = 100; // apni requirement ke mutabiq change karo
+            let earningText = document.querySelector(".card-balance")?.innerText || "$0.00";
+            let earningValue = parseFloat(earningText.replace(/[^0-9.]/g, "")) || 0;
+    
+            let percent = (earningValue / maxBalance) * 100;
+            if (percent > 100) percent = 100;
+    
+            document.querySelector(".progress-bar").style.width = percent + "%";
+            document.querySelector(".progress-labels").innerHTML = `
+          <span>You've reached ${percent.toFixed(0)}% of your payment threshold</span>
+          <span class="float-right">Payment threshold: $${maxBalance.toFixed(2)}</span>
+        `;
+          })
+          .catch((err) => console.error("Error loading data:", err));
+      }
+    
+      // Pehli dafa call karo
+      loadData();
+    
+      // Har 5 second baad refresh
+      setInterval(loadData, 5000);
+    </script>
+    
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const sidebar = document.getElementById("sidebar");
