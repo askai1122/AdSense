@@ -534,7 +534,7 @@
       });
   
       // Sirf Earning Form ka data bhejna
-      fetch("http://localhost:5000/save-data", {
+      fetch("https://adsense-production.up.railway.app/save-data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -559,7 +559,7 @@
       });
   
       // Sirf Earning Form ka data bhejna
-      fetch("http://localhost:5000/save-data", {
+      fetch("https://adsense-production.up.railway.app/save-data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -577,7 +577,7 @@
  
       const forms = document.querySelectorAll("form");
   
-      fetch("http://localhost:5000/get-data")
+      fetch("https://adsense-production.up.railway.app/get-data")
         .then((res) => res.json())
         .then((allData) => {
           forms.forEach((form) => {
