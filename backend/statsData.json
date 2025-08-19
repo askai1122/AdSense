@@ -34,14 +34,34 @@
   "currentmonthtrans": {
     "startingbalance": "22",
     "endingbalance": "33",
+    "firstmonthreciptdate": "21,Aug,2025",
     "banknumber": "55",
-    "amount": "77"
+    "amount": "77",
+    "firstmonthtitledate": "1,Aug,2025",
+    "firstmonthtitle": "ads content",
+    "firstmonthtitleamount": "12",
+    "firstmonthinvaliddate": "2,Aug,2025",
+    "firstmonthinvalidtitle": "earning invalid",
+    "firstmonthinvalidamount": "35",
+    "firstmonthextrainvaliddate": "5,Aug,2025",
+    "firstmonthextrainvalidtitle": "extra invalid cut",
+    "firstmonthextrainvalidamount": "23"
   },
   "lastmonthtrans": {
-    "lastmonth_balance": "65",
-    "lastmonth_endingbalance": "34",
-    "lastmonth_invalid": "65",
-    "lastmonth_earnings": "44"
+    "secondmonthstartingbalance": "12",
+    "secondmonthendingbalance": "32",
+    "secondmonthreciptdate": "1,Jul,2025",
+    "secondmonthbanknumber": "22",
+    "secondmonthamount": "33",
+    "secondmonthtitledate": "1,Jul,2025",
+    "secondmonthtitle": "adx exhaane",
+    "secondmonthtitleamount": "32",
+    "secondmonthinvaliddate": "2,Jul,2025",
+    "secondmonthinvalidtitle": "adx exhaanege",
+    "secondmonthinvalidamount": "56",
+    "secondmonthextrainvaliddate": "4,Jul,2025",
+    "secondmonthextrainvalidtitle": "extra invalid cut exhaanege",
+    "secondmonthextrainvalidamount": "60"
   },
   "reciptform": {
     "paymentdate": "324",
@@ -51,5 +71,39 @@
     "paymentnumber": "6767676",
     "Amount": "454",
     "address": "werwer asdasdasdasdasd asdas dasdasssssssssssssssssssssssss sadddddddddddddddddddddddddddd"
+  },
+  "thirdmonthtrans": {
+    "thirdmonthstartingbalance": "347",
+    "thirdmonthendingbalance": "777",
+    "thirdmonthreciptdate": "4,Jun,2025",
+    "thirdmonthbanknumber": "34",
+    "thirdmonthamount": "34",
+    "thirdmonthtitledate": "7,Jun,2025",
+    "thirdmonthtitle": "earningsss",
+    "thirdmonthtitleamount": "4545",
+    "thirdmonthinvaliddate": "8Jun,2025",
+    "thirdmonthinvalidtitle": "invalid cut",
+    "thirdmonthinvalidamount": "56",
+    "thirdmonthextrainvaliddate": "9,Jun,2025",
+    "thirdmonthextrainvalidtitle": "ads exchange for content",
+    "thirdmonthextrainvalidamount": "767"
+  },
+  "secondmonthreciptform": {
+    "paymentdate": "34",
+    "billingid": "234",
+    "taxidentification": "234",
+    "paymentmethod": "545",
+    "paymentnumber": "34",
+    "Amount": "445",
+    "address": "sdfsfsd"
+  },
+  "thirdmonthreciptform": {
+    "paymentdate": "4",
+    "billingid": "00",
+    "taxidentification": "00",
+    "paymentmethod": "00",
+    "paymentnumber": "00",
+    "Amount": "00",
+    "address": "00"
   }
 }

@@ -487,8 +487,140 @@
             </div>
           </div>
         </div>
+        <div class="col-12  Estimated mb-2 mb-lg-0 h-100">
+          <div class="card shadow-sm text-dark ">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="card-title-text mt-0 mb-0">Second Month Recipt Page</p>
+                <hr>
+              
+              </div>
+              <div class="row custom-stats-row mb-3" style="margin-top: 8px">
+                <form class="row custom-stats-row mb-3" id="secondmonthreciptform" style="margin-top: 8px">
+                    <!-- Today so far -->
+                    <div class="col-6 col-md-3">
+                      <label for="today" class="form-label text-dark">Payment date
+                    </label>
+                      <input type="text" class="form-control" id="today" name="paymentdate" placeholder="$0.00" />
+                    </div>
+                  
+                    <!-- Yesterday -->
+                    <div class="col-6 col-md-3">
+                      <label for="yesterday" class="form-label text-dark">Billing ID
+                    </label>
+                      <input type="text" class="form-control" id="yesterday" name="billingid" placeholder="$0.00" />
+                     
+                    </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                        <label for="thismonth" class="form-label text-dark">Tax Identification
+  
+                      </label>
+                        <input type="text" class="form-control" id="thismonth" name="taxidentification" placeholder="123 " />
+                        
+                      </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                        <label for="thismonth" class="form-label text-dark">Payment Method
+  
+                      </label>
+                        <input type="text" class="form-control" id="thismonth" name="paymentmethod" placeholder="123 " />
+                        
+                      </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                      <label for="thismonth" class="form-label text-dark">Payment number
 
-       
+                    </label>
+                      <input type="text" class="form-control" id="thismonth" name="paymentnumber" placeholder="123 " />
+                      
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label for="yesterday" class="form-label text-dark">Amount
+                        </label>
+                        <input type="text" class="form-control" id="yesterday" name="Amount" placeholder="$00" />
+                       
+                      </div>
+
+                      <div class="col-6 col-md-3">
+                        <label for="yesterday" class="form-label text-dark">Address
+                        </label>
+                        <textarea type="text" class="form-control" id="yesterday" name="address" placeholder="$00" ></textarea>
+                       
+                      </div>
+                    <!-- Submit button -->
+                    <div class="col-12 mt-3">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12  Estimated mb-2 mb-lg-0 h-100"></div>
+          <div class="card shadow-sm text-dark ">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="card-title-text mt-0 mb-0">Third Month Recipt Page</p>
+                <hr>
+              
+              </div>
+              <div class="row custom-stats-row mb-3" style="margin-top: 8px">
+                <form class="row custom-stats-row mb-3" id="thirdmonthreciptform" style="margin-top: 8px">
+                    <!-- Today so far -->
+                    <div class="col-6 col-md-3">
+                      <label for="today" class="form-label text-dark">Payment date
+                    </label>
+                      <input type="text" class="form-control" id="today" name="paymentdate" placeholder="$0.00" />
+                    </div>
+                  
+                    <!-- Yesterday -->
+                    <div class="col-6 col-md-3">
+                      <label for="yesterday" class="form-label text-dark">Billing ID
+                    </label>
+                      <input type="text" class="form-control" id="yesterday" name="billingid" placeholder="$0.00" />
+                     
+                    </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                        <label for="thismonth" class="form-label text-dark">Tax Identification
+  
+                      </label>
+                        <input type="text" class="form-control" id="thismonth" name="taxidentification" placeholder="123 " />
+                        
+                      </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                        <label for="thismonth" class="form-label text-dark">Payment Method
+  
+                      </label>
+                        <input type="text" class="form-control" id="thismonth" name="paymentmethod" placeholder="123 " />
+                        
+                      </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                      <label for="thismonth" class="form-label text-dark">Payment number
+
+                    </label>
+                      <input type="text" class="form-control" id="thismonth" name="paymentnumber" placeholder="123 " />
+                      
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label for="yesterday" class="form-label text-dark">Amount
+                        </label>
+                        <input type="text" class="form-control" id="yesterday" name="Amount" placeholder="$00" />
+                       
+                      </div>
+
+                      <div class="col-6 col-md-3">
+                        <label for="yesterday" class="form-label text-dark">Address
+                        </label>
+                        <textarea type="text" class="form-control" id="yesterday" name="address" placeholder="$00" ></textarea>
+                       
+                      </div>
+                    <!-- Submit button -->
+                    <div class="col-12 mt-3">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     
@@ -525,6 +657,56 @@
           alert(msg.message);
         });
     });
+    document.querySelector("#secondmonthreciptform").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const formId = this.getAttribute("id"); // kaunsa form submit hua
+      const formData = {};
+      const inputs = this.querySelectorAll("input,textarea");
+  
+      inputs.forEach((input) => {
+        formData[input.name] = input.value;
+      });
+  
+      // Sirf Earning Form ka data bhejna
+      fetch("https://adsense-xq8u.onrender.com/save-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formId, formData }),
+      })
+        .then((res) => res.json())
+        .then((msg) => {
+          alert(msg.message);
+        });
+    });
+    document.querySelector("#thirdmonthreciptform").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const formId = this.getAttribute("id"); // kaunsa form submit hua
+      const formData = {};
+      const inputs = this.querySelectorAll("input,textarea");
+  
+      inputs.forEach((input) => {
+        formData[input.name] = input.value;
+      });
+  
+      // Sirf Earning Form ka data bhejna
+      fetch("https://adsense-xq8u.onrender.com/save-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formId, formData }),
+      })
+        .then((res) => res.json())
+        .then((msg) => {
+          alert(msg.message);
+        });
+    });
+    
+   
     // Earning Form
   </script>
   <script>

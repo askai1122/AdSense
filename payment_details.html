@@ -688,29 +688,31 @@ function toggleHeader(element) {
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     loadData();
-    setInterval(loadData, 5000); // 5s refresh
+    setInterval(loadData, 5000); // Refresh every 5 seconds
   });
 
   function loadData() {
+    // 🔁 Save currently expanded collapse divs
+    const expandedSections = Array.from(document.querySelectorAll('.collapse.show')).map(el => el.id);
+
     fetch("https://adsense-xq8u.onrender.com/get-data")
       .then((res) => res.json())
       .then((allData) => {
-        // 🧮 Backend values uthao
         const current = allData.currentmonthtrans || {};
         const last = allData.lastmonthtrans || {};
+        const third = allData.thirdmonthtrans || {};
 
         const balances = [
           { starting: parseFloat(current.startingbalance) || 0, ending: parseFloat(current.endingbalance) || 0 },
-          { starting: parseFloat(last.lastmonth_balance) || 0, ending: parseFloat(last.lastmonth_endingbalance) || 0 },
-          { starting: 0.0, ending: 0.0 } // two months ago static
+          { starting: parseFloat(last.secondmonthstartingbalance) || 0, ending: parseFloat(last.secondmonthendingbalance) || 0 },
+          { starting: parseFloat(third.thirdmonthstartingbalance) || 0, ending: parseFloat(third.thirdmonthendingbalance) || 0 }
         ];
 
-        // 🔄 Pehle container empty karo
         const monthsContainer = document.getElementById("months-container");
         monthsContainer.innerHTML = "";
 
         const today = new Date();
-        const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
         for (let i = 0; i < 3; i++) {
           const date = new Date(today.getFullYear(), today.getMonth() - i, 1);
@@ -730,45 +732,51 @@ function toggleHeader(element) {
           let noTransactions = false;
 
           if (i === 0) {
-            transactionsHtml = `
-              <div class="row mt-2 border-top" style="font-size: 13px;">
-                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${month} ${today.getDate()}, ${year}</span></div>
-                <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
-                  <a href="kk.html">Automatic payment wire transfer to bank account <span name="banknumber">${current.banknumber || "..."}</span></a>
-                </span></div>
-                <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-$${current.amount || "0.00"}</span></div>
-              </div>
-              <hr>
-            `;
+            if (current.firstmonthinvalidamount) {
+              transactionsHtml += createTransactionRow(current.firstmonthinvaliddate, current.firstmonthinvalidtitle, current.firstmonthinvalidamount);
+            }
+            transactionsHtml += createTransactionRow(current.firstmonthreciptdate, `<a href="kk.html?month=first">Automatic payment wire transfer to bank account <span name="banknumber">${current.banknumber || "..."}</span></a>`, current.amount || "0.00");
+            if (current.firstmonthtitle) {
+              transactionsHtml += createTransactionRow(current.firstmonthtitledate, current.firstmonthtitle, current.firstmonthtitleamount || "0.00");
+            }
+            if (current.firstmonthextrainvaliddate) {
+              transactionsHtml += createTransactionRow(current.firstmonthextrainvaliddate, current.firstmonthextrainvalidtitle, current.firstmonthextrainvalidamount);
+            }
           } else if (i === 1) {
-            transactionsHtml = `
-              <div class="row mt-2 border-top" style="font-size: 13px;">
-                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${month} 1-31, ${year}</span></div>
-                <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
-                  <span>Invalid traffic - Ad Exchange for content</span>
-                </span></div>
-                <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-${last.lastmonth_invalid || "0.00"}</span></div>
-              </div>
-               <div class="row mt-2 border-top" style="font-size: 13px;">
-                <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${month} 1-31, ${year}</span></div>
-                <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">
-                  <span>Earnings - Ad Exchange for content</span>
-                </span></div>
-                <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">${last.lastmonth_earnings || "0.00"}</span></div>
-              </div>
-              <hr>
-            `;
+            if (last.secondmonthinvaliddate) {
+              transactionsHtml += createTransactionRow(last.secondmonthinvaliddate, last.secondmonthinvalidtitle, last.secondmonthinvalidamount);
+            }
+            transactionsHtml += createTransactionRow(last.secondmonthreciptdate, `<a href="kk.html?month=second">Automatic payment wire transfer to bank account <span name="banknumber">${last.secondmonthbanknumber || "..."}</span></a>`, last.secondmonthamount || "0.00");
+            if (last.secondmonthtitle) {
+              transactionsHtml += createTransactionRow(last.secondmonthtitledate, last.secondmonthtitle, last.secondmonthtitleamount || "0.00");
+            }
+            if (last.secondmonthextrainvaliddate) {
+              transactionsHtml += createTransactionRow(last.secondmonthextrainvaliddate, last.secondmonthextrainvalidtitle, last.secondmonthextrainvalidamount);
+            }
           } else {
-            noTransactions = true;
+            if (third.thirdmonthinvaliddate) {
+              transactionsHtml += createTransactionRow(third.thirdmonthinvaliddate, third.thirdmonthinvalidtitle, third.thirdmonthinvalidamount);
+            }
+            transactionsHtml += createTransactionRow(third.thirdmonthreciptdate, `<a href="kk.html?month=third">Automatic payment wire transfer to bank account <span name="banknumber">${third.thirdmonthbanknumber || "..."}</span></a>`, third.thirdmonthamount || "0.00");
+            if (third.thirdmonthtitle) {
+              transactionsHtml += createTransactionRow(third.thirdmonthtitledate, third.thirdmonthtitle, third.thirdmonthtitleamount || "0.00");
+            }
+            if (third.thirdmonthextrainvaliddate) {
+              transactionsHtml += createTransactionRow(third.thirdmonthextrainvaliddate, third.thirdmonthextrainvalidtitle, third.thirdmonthextrainvalidamount);
+            }
           }
+
+          transactionsHtml += `<hr>`;
 
           const startingBalance = balances[i].starting.toFixed(2);
           const endingBalance = balances[i].ending.toFixed(2);
+          const isExpanded = expandedSections.includes(`${monthId}-collapse`);
+          const collapseClass = isExpanded ? "collapse show" : "collapse";
 
           const rowHtml = `
             <div class="row mt-3">
               <div class="col-12 p-3 border rounded-2 d-flex justify-content-between align-items-center transaction-header"
-                  data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="false"
+                  data-bs-toggle="collapse" data-bs-target="#${monthId}-collapse" aria-expanded="${isExpanded}"
                   aria-controls="${monthId}-collapse" style="cursor: pointer;" onclick="toggleHeader(this)">
                   <div class="d-flex align-items-center">
                       <p class="mb-0 transaction-header-collapse">${monthText}</p>
@@ -777,7 +785,7 @@ function toggleHeader(element) {
                   <p class="mb-0 transaction-ending-balance">Ending balance: $${endingBalance}</p>
               </div>
 
-              <div class="collapse" id="${monthId}-collapse">
+              <div class="${collapseClass}" id="${monthId}-collapse">
                   <div class="row mt-2 border-bottom">
                       <div class="col-12 text-end p-2"><span class="transaction-expanded-header">Ending balance:  $${endingBalance}</span></div>
                   </div>
@@ -805,7 +813,24 @@ function toggleHeader(element) {
       })
       .catch((err) => console.error("Error loading data:", err));
   }
+
+  // ✅ Utility to generate a transaction row
+  function createTransactionRow(date, title, amount) {
+    return `
+      <div class="row mt-2 border-top" style="font-size: 13px;">
+        <div class="col-3 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${date}</span></div>
+        <div class="col-5 mt-2 mb-1"><span class="transaction-expanded-header mt-3 ">${title}</span></div>
+        <div class="col-4 mt-2 mb-1 text-end"><span class="transaction-expanded-header mt-3 ">-$${amount}</span></div>
+      </div>
+    `;
+  }
+
+  // Optional: toggle logic for icon or UI change
+  function toggleHeader(headerElement) {
+    // you can add icon toggle or active class logic here
+  }
 </script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -424,7 +424,7 @@
           <div class="card shadow-sm text-dark ">
             <div class="p-3">
               <div class="d-flex justify-content-between align-items-center">
-                <p class="card-title-text mt-0 mb-0">Current Month Transaction</p>
+                <p class="card-title-text mt-0 mb-0">First Month Transaction</p>
                 <hr>
               
               </div>
@@ -442,9 +442,18 @@
                       <input type="text" class="form-control" id="yesterday" name="endingbalance" placeholder="$0.00" />
                      
                     </div>
-                 
+                  <br >
+                  <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Recipt Section</p>
+                <hr class="mt-3">
+
                   
                     <!-- This month -->
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                      <label for="thismonth" class="form-label text-dark">Recipt Date</label>
+                      <input type="text" class="form-control" id="thismonth" name="firstmonthreciptdate" placeholder="21,Jun 027 " />
+                      
+                    </div>
                     <div class="col-6 col-md-3 mt-4 mt-md-0">
                       <label for="thismonth" class="form-label text-dark">Recipt Bank Number</label>
                       <input type="text" class="form-control" id="thismonth" name="banknumber" placeholder="• • •123 " />
@@ -455,7 +464,80 @@
                         </label>
                         <input type="text" class="form-control" id="yesterday" name="amount" placeholder="$000" />
                        
+
                       </div>
+                      <br >
+                      <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Earning Title From/Adx</p>
+                <br >
+                <hr class="mt-3">
+                <div class="col-6 col-md-2 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title Date</label>
+                  <input type="text" class="form-control" id="thismonth" name="firstmonthtitledate" placeholder="21,Jun 027 " />
+                  
+                </div>
+                <div class="col-8 col-md-7 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title</label>
+                  <input type="text" class="form-control" id="thismonth" name="firstmonthtitle" placeholder="Earnings - Ad Exchange for content
+                   " />
+                  
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                    </label>
+                    <input type="text" class="form-control" id="yesterday" name="firstmonthtitleamount" placeholder="$000" />
+                   
+
+                  </div>
+                  <br >
+                  <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Invalid Cut</p>
+
+                <br >
+                <hr class="mt-3">
+                <div class="col-6 col-md-2 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark"> Date</label>
+                  <input type="text" class="form-control" id="thismonth" name="firstmonthinvaliddate" placeholder="21,Jun 027 " />
+                  
+                </div>
+                <div class="col-8 col-md-7 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title</label>
+                  <input type="text" class="form-control" id="thismonth" name="firstmonthinvalidtitle" placeholder="Earnings - Ad Exchange for content
+                   " />
+                  
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                    </label>
+                    <input type="text" class="form-control" id="yesterday" name="firstmonthinvalidamount" placeholder="$000" />
+                   
+
+                  </div>
+
+                  <br >
+                  <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Extra Invalid Cut</p>
+
+                <br >
+                <hr class="mt-3">
+                <div class="col-6 col-md-2 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark"> Date</label>
+                  <input type="text" class="form-control" id="thismonth" name="firstmonthextrainvaliddate" placeholder="21,Jun 027 " />
+                  
+                </div>
+                <div class="col-8 col-md-7 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title</label>
+                  <input type="text" class="form-control" id="thismonth" name="firstmonthextrainvalidtitle" placeholder="Earnings - Ad Exchange for content
+                   " />
+                  
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                    </label>
+                    <input type="text" class="form-control" id="yesterday" name="firstmonthextrainvalidamount" placeholder="$000" />
+                   
+
+                  </div>
                     <!-- Submit button -->
                     <div class="col-12 mt-3">
                       <button type="submit" class="btn btn-primary">Save</button>
@@ -465,56 +547,268 @@
             </div>
           </div>
         </div>
-
+<br>
+<br>
         <div class="col-12  Estimated mb-2 mb-lg-0 h-100 mt-4">
             <form id="lastmonthtrans">
             <div class="card shadow-sm text-dark ">
               <div class="p-3">
                 <div class="d-flex justify-content-between align-items-center">
-                  <p class="card-title-text mt-0 mb-0">Last Month Transaction</p>
+                  <p class="card-title-text mt-0 mb-0">Second Month Transaction</p>
                   <hr>
                 
                 </div>
                 <div class="row custom-stats-row mb-3" style="margin-top: 8px">
-                  <form class="row custom-stats-row mb-3" style="margin-top: 8px">
-                      <!-- Today so far -->
-                      <div class="col-6 col-md-3">
-                        <label for="today" class="form-label text-dark">Starting Balance</label>
-                        <input type="text" class="form-control" id="today" name="lastmonth_balance" placeholder="$0.00" />
-                      </div>
-                    
-                      <!-- Yesterday -->
-                      <div class="col-6 col-md-3">
-                        <label for="yesterday" class="form-label text-dark">Ending Balance</label>
-                        <input type="text" class="form-control" id="yesterday" name="lastmonth_endingbalance" placeholder="$0.00" />
+                  <form class="row custom-stats-row mb-3" id="currentmonthtrans" style="margin-top: 8px">
+                    <!-- Today so far -->
+                    <div class="col-6 col-md-3">
+                      <label for="today" class="form-label text-dark">Starting Balance</label>
+                      <input type="text" class="form-control" id="today" name="secondmonthstartingbalance" placeholder="$0.00" />
+                    </div>
+                  
+                    <!-- Yesterday -->
+                    <div class="col-6 col-md-3">
+                      <label for="yesterday" class="form-label text-dark">Ending Balance</label>
+                      <input type="text" class="form-control" id="yesterday" name="secondmonthendingbalance" placeholder="$0.00" />
+                     
+                    </div>
+                  <br >
+                  <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Recipt Section</p>
+                <hr class="mt-3">
+
+                  
+                    <!-- This month -->
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                      <label for="thismonth" class="form-label text-dark">Recipt Date</label>
+                      <input type="text" class="form-control" id="thismonth" name="secondmonthreciptdate" placeholder="21,Jun 027 " />
+                      
+                    </div>
+                    <div class="col-6 col-md-3 mt-4 mt-md-0">
+                      <label for="thismonth" class="form-label text-dark">Recipt Bank Number</label>
+                      <input type="text" class="form-control" id="thismonth" name="secondmonthbanknumber" placeholder="• • •123 " />
+                      
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                        </label>
+                        <input type="text" class="form-control" id="yesterday" name="secondmonthamount" placeholder="$000" />
                        
+
                       </div>
+                      <br >
+                      <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Earning Title From/Adx</p>
+                <br >
+                <hr class="mt-3">
+                <div class="col-6 col-md-2 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title Date</label>
+                  <input type="text" class="form-control" id="thismonth" name="secondmonthtitledate" placeholder="21,Jun 027 " />
+                  
+                </div>
+                <div class="col-8 col-md-7 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title</label>
+                  <input type="text" class="form-control" id="thismonth" name="secondmonthtitle" placeholder="Earnings - Ad Exchange for content
+                   " />
+                  
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                    </label>
+                    <input type="text" class="form-control" id="yesterday" name="secondmonthtitleamount" placeholder="$000" />
                    
-                      <div class="col-6 col-md-3">
-                        <label for="today" class="form-label text-dark">Invalid Traffic Cut</label>
-                        <input type="text" class="form-control" id="today" name="lastmonth_invalid" placeholder="$0.00" />
-                      </div>
-                    
-                      <!-- Yesterday -->
-                      <div class="col-6 col-md-3">
-                        <label for="yesterday" class="form-label text-dark">Earning Ad Exchange Cut</label>
-                        <input type="text" class="form-control" id="yesterday" name="lastmonth_earnings" placeholder="$0.00" />
-                       
-                      </div>
+
+                  </div>
+                  <br >
+                  <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Invalid Cut</p>
+
+                <br >
+                <hr class="mt-3">
+                <div class="col-6 col-md-2 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark"> Date</label>
+                  <input type="text" class="form-control" id="thismonth" name="secondmonthinvaliddate" placeholder="21,Jun 027 " />
+                  
+                </div>
+                <div class="col-8 col-md-7 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title</label>
+                  <input type="text" class="form-control" id="thismonth" name="secondmonthinvalidtitle" placeholder="Earnings - Ad Exchange for content
+                   " />
+                  
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                    </label>
+                    <input type="text" class="form-control" id="yesterday" name="secondmonthinvalidamount" placeholder="$000" />
                    
-                    
-                    
-                    
-                      <!-- Submit button -->
-                      <div class="col-12 mt-3">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                      </div>
-                    </form>
+
+                  </div>
+
+                  <br >
+                  <hr class="mt-3">
+                <p class="card-title-text mt-0 mb-0">* Extra Invalid Cut</p>
+
+                <br >
+                <hr class="mt-3">
+                <div class="col-6 col-md-2 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark"> Date</label>
+                  <input type="text" class="form-control" id="thismonth" name="secondmonthextrainvaliddate" placeholder="21,Jun 027 " />
+                  
+                </div>
+                <div class="col-8 col-md-7 mt-4 mt-md-0">
+                  <label for="thismonth" class="form-label text-dark">Title</label>
+                  <input type="text" class="form-control" id="thismonth" name="secondmonthextrainvalidtitle" placeholder="Earnings - Ad Exchange for content
+                   " />
+                  
+                </div>
+                <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                    </label>
+                    <input type="text" class="form-control" id="yesterday" name="secondmonthextrainvalidamount" placeholder="$000" />
+                   
+
+                  </div>
+                    <!-- Submit button -->
+                    <div class="col-12 mt-3">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
             </form>
           </div>
+
+          
+        <div class="col-12  Estimated mb-2 mb-lg-0 h-100 mt-4">
+          <form id="thirdmonthtrans">
+          <div class="card shadow-sm text-dark ">
+            <div class="p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="card-title-text mt-0 mb-0">Third Month Transaction</p>
+                <hr>
+              
+              </div>
+              <div class="row custom-stats-row mb-3" style="margin-top: 8px">
+                <form class="row custom-stats-row mb-3" id="thirdmonthtrans" style="margin-top: 8px">
+                  <!-- Today so far -->
+                  <div class="col-6 col-md-3">
+                    <label for="today" class="form-label text-dark">Starting Balance</label>
+                    <input type="text" class="form-control" id="today" name="thirdmonthstartingbalance" placeholder="$0.00" />
+                  </div>
+                
+                  <!-- Yesterday -->
+                  <div class="col-6 col-md-3">
+                    <label for="yesterday" class="form-label text-dark">Ending Balance</label>
+                    <input type="text" class="form-control" id="yesterday" name="thirdmonthendingbalance" placeholder="$0.00" />
+                   
+                  </div>
+                <br >
+                <hr class="mt-3">
+              <p class="card-title-text mt-0 mb-0">* Recipt Section</p>
+              <hr class="mt-3">
+
+                
+                  <!-- This month -->
+                  <div class="col-6 col-md-3 mt-4 mt-md-0">
+                    <label for="thismonth" class="form-label text-dark">Recipt Date</label>
+                    <input type="text" class="form-control" id="thismonth" name="thirdmonthreciptdate" placeholder="21,Jun 027 " />
+                    
+                  </div>
+                  <div class="col-6 col-md-3 mt-4 mt-md-0">
+                    <label for="thismonth" class="form-label text-dark">Recipt Bank Number</label>
+                    <input type="text" class="form-control" id="thismonth" name="thirdmonthbanknumber" placeholder="• • •123 " />
+                    
+                  </div>
+                  <div class="col-6 col-md-3">
+                      <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                      </label>
+                      <input type="text" class="form-control" id="yesterday" name="thirdmonthamount" placeholder="$000" />
+                     
+
+                    </div>
+                    <br >
+                    <hr class="mt-3">
+              <p class="card-title-text mt-0 mb-0">* Earning Title From/Adx</p>
+              <br >
+              <hr class="mt-3">
+              <div class="col-6 col-md-2 mt-4 mt-md-0">
+                <label for="thismonth" class="form-label text-dark">Title Date</label>
+                <input type="text" class="form-control" id="thismonth" name="thirdmonthtitledate" placeholder="21,Jun 027 " />
+                
+              </div>
+              <div class="col-8 col-md-7 mt-4 mt-md-0">
+                <label for="thismonth" class="form-label text-dark">Title</label>
+                <input type="text" class="form-control" id="thismonth" name="thirdmonthtitle" placeholder="Earnings - Ad Exchange for content
+                 " />
+                
+              </div>
+              <div class="col-6 col-md-3">
+                  <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                  </label>
+                  <input type="text" class="form-control" id="yesterday" name="thirdmonthtitleamount" placeholder="$000" />
+                 
+
+                </div>
+                <br >
+                <hr class="mt-3">
+              <p class="card-title-text mt-0 mb-0">* Invalid Cut</p>
+
+              <br >
+              <hr class="mt-3">
+              <div class="col-6 col-md-2 mt-4 mt-md-0">
+                <label for="thismonth" class="form-label text-dark"> Date</label>
+                <input type="text" class="form-control" id="thismonth" name="thirdmonthinvaliddate" placeholder="21,Jun 027 " />
+                
+              </div>
+              <div class="col-8 col-md-7 mt-4 mt-md-0">
+                <label for="thismonth" class="form-label text-dark">Title</label>
+                <input type="text" class="form-control" id="thismonth" name="thirdmonthinvalidtitle" placeholder="Earnings - Ad Exchange for content
+                 " />
+                
+              </div>
+              <div class="col-6 col-md-3">
+                  <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                  </label>
+                  <input type="text" class="form-control" id="yesterday" name="thirdmonthinvalidamount" placeholder="$000" />
+                 
+
+                </div>
+
+                <br >
+                <hr class="mt-3">
+              <p class="card-title-text mt-0 mb-0">* Extra Invalid Cut</p>
+
+              <br >
+              <hr class="mt-3">
+              <div class="col-6 col-md-2 mt-4 mt-md-0">
+                <label for="thismonth" class="form-label text-dark"> Date</label>
+                <input type="text" class="form-control" id="thismonth" name="thirdmonthextrainvaliddate" placeholder="21,Jun 027 " />
+                
+              </div>
+              <div class="col-8 col-md-7 mt-4 mt-md-0">
+                <label for="thismonth" class="form-label text-dark">Title</label>
+                <input type="text" class="form-control" id="thismonth" name="thirdmonthextrainvalidtitle" placeholder="Earnings - Ad Exchange for content
+                 " />
+                
+              </div>
+              <div class="col-6 col-md-3">
+                  <label for="yesterday" class="form-label text-dark">- Amount (USD)
+                  </label>
+                  <input type="text" class="form-control" id="yesterday" name="thirdmonthextrainvalidamount" placeholder="$000" />
+                 
+
+                </div>
+                  <!-- Submit button -->
+                  <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
       </div>
 
     
@@ -578,6 +872,33 @@
           alert(msg.message);
         });
     });
+  
+    document.querySelector("#thirdmonthtrans").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const formId = this.getAttribute("id"); // kaunsa form submit hua
+      const formData = {};
+      const inputs = this.querySelectorAll("input");
+  
+      inputs.forEach((input) => {
+        formData[input.name] = input.value;
+      });
+  
+      // Sirf Earning Form ka data bhejna
+      fetch("https://adsense-xq8u.onrender.com/save-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formId, formData }),
+      })
+        .then((res) => res.json())
+        .then((msg) => {
+          alert(msg.message);
+        });
+    });
+  
+  
   </script>
   <script>
       document.addEventListener("DOMContentLoaded", function () {
