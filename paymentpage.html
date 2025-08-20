@@ -488,12 +488,61 @@
                   <input type="text" class="form-control" id="today" name="firstmonth" placeholder="$0.00" />
                 </div>
                 <div class="col-6 mb-3">
+                  <p class="text-muted mb-0">1st Month-Date </p>
+                  <input type="text" class="form-control" id="today" name="firstmonthdate" placeholder="21,june" />
+                </div>
+                <div class="col-6 mb-3">
                   <p class="text-muted mb-0">2nd Month</p>
                   <input type="text" class="form-control" id="today" name="secondmonth" placeholder="$0.00" />
                 </div>
                 <div class="col-6 mb-3">
+                  <p class="text-muted mb-0">2nd Month-Date </p>
+                  <input type="text" class="form-control" id="today" name="secondmonthdate" placeholder="21,june" />
+                </div>
+                <div class="col-6 mb-3">
                   <p class="text-muted mb-0">3rd Month</p>
                   <input type="text" class="form-control" id="today" name="thirdmonth" placeholder="$0.00" />
+                </div>
+                <div class="col-6 mb-3">
+                  <p class="text-muted mb-0">3rd Month-Date </p>
+                  <input type="text" class="form-control" id="today" name="thirdmonthdate" placeholder="21,june" />
+                </div>
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+              </div>
+            </form>
+              <div class="text-start mt-5 d-flex justify-content-between">
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-6 mb-2">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <p class="card-titles mb-0 b-0" style="font-size: 1.125rem">
+                  Settings
+                </p>
+                
+              </div>
+              
+              <form id="settingsform">
+              <div class="row text-center">
+                <div class="col-6 mb-3">
+                  <p class="text-muted mb-0">Publisher id  </p>
+                  <input type="text" class="form-control" id="today" name="publisherid" placeholder="Pub-67567" />
+                </div>
+                <div class="col-6 mb-3">
+                  <p class="text-muted mb-0">Publisher Name </p>
+                  <input type="text" class="form-control" id="today" name="publishername" placeholder="Jhon Wick...." />
+                </div>
+                <div class="col-6 mb-3">
+                  <p class="text-muted mb-0">Publisher Users</p>
+                  <input type="text" class="form-control" id="today" name="publisheruser" placeholder="3 Users.." />
                 </div>
                 
                 <div class="col-12 mt-3">
@@ -507,7 +556,6 @@
             </div>
           </div>
         </div>
-
        
       </div>
     </div>
@@ -547,6 +595,30 @@
         });
     });
     // Earning Form
+    document.querySelector("#settingsform").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const formId = this.getAttribute("id"); // kaunsa form submit hua
+      const formData = {};
+      const inputs = this.querySelectorAll("input");
+  
+      inputs.forEach((input) => {
+        formData[input.name] = input.value;
+      });
+  
+      // Sirf Earning Form ka data bhejna
+      fetch("https://adsense-xq8u.onrender.com/save-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formId, formData }),
+      })
+        .then((res) => res.json())
+        .then((msg) => {
+          alert(msg.message);
+        });
+    });
     document.querySelector("#payment_page").addEventListener("submit", function (e) {
       e.preventDefault();
   
