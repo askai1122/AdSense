@@ -703,9 +703,9 @@ function toggleHeader(element) {
         const third = allData.thirdmonthtrans || {};
 
         const balances = [
-          { starting: parseFloat(current.startingbalance) || 0, ending: parseFloat(current.endingbalance) || 0 },
-          { starting: parseFloat(last.secondmonthstartingbalance) || 0, ending: parseFloat(last.secondmonthendingbalance) || 0 },
-          { starting: parseFloat(third.thirdmonthstartingbalance) || 0, ending: parseFloat(third.thirdmonthendingbalance) || 0 }
+          { starting: (current.startingbalance) || 0, ending: (current.endingbalance) || 0 },
+          { starting: (last.secondmonthstartingbalance) || 0, ending: (last.secondmonthendingbalance) || 0 },
+          { starting: (third.thirdmonthstartingbalance) || 0, ending: (third.thirdmonthendingbalance) || 0 }
         ];
 
         const monthsContainer = document.getElementById("months-container");
