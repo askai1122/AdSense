@@ -735,10 +735,11 @@ function toggleHeader(element) {
             if (current.firstmonthinvalidamount) {
               transactionsHtml += createTransactionRow(current.firstmonthinvaliddate, current.firstmonthinvalidtitle, current.firstmonthinvalidamount);
             }
-            transactionsHtml += createTransactionRow(current.firstmonthreciptdate, `<a href="kk.html?month=first">Automatic payment wire transfer to bank account <span name="banknumber">${current.banknumber || "..."}</span></a>`, current.amount || "0.00");
             if (current.firstmonthtitle) {
               transactionsHtml += createTransactionRow(current.firstmonthtitledate, current.firstmonthtitle, current.firstmonthtitleamount || "0.00");
             }
+            transactionsHtml += createTransactionRow(current.firstmonthreciptdate, `<a href="kk.html?month=first">Automatic payment wire transfer to bank account <span name="banknumber">${current.banknumber || "..."}</span></a>`, current.amount || "0.00");
+            
             if (current.firstmonthextrainvaliddate) {
               transactionsHtml += createTransactionRow(current.firstmonthextrainvaliddate, current.firstmonthextrainvalidtitle, current.firstmonthextrainvalidamount);
             }
@@ -746,10 +747,11 @@ function toggleHeader(element) {
             if (last.secondmonthinvaliddate) {
               transactionsHtml += createTransactionRow(last.secondmonthinvaliddate, last.secondmonthinvalidtitle, last.secondmonthinvalidamount);
             }
-            transactionsHtml += createTransactionRow(last.secondmonthreciptdate, `<a href="kk.html?month=second">Automatic payment wire transfer to bank account <span name="banknumber">${last.secondmonthbanknumber || "..."}</span></a>`, last.secondmonthamount || "0.00");
             if (last.secondmonthtitle) {
               transactionsHtml += createTransactionRow(last.secondmonthtitledate, last.secondmonthtitle, last.secondmonthtitleamount || "0.00");
             }
+            transactionsHtml += createTransactionRow(last.secondmonthreciptdate, `<a href="kk.html?month=second">Automatic payment wire transfer to bank account <span name="banknumber">${last.secondmonthbanknumber || "..."}</span></a>`, last.secondmonthamount || "0.00");
+            
             if (last.secondmonthextrainvaliddate) {
               transactionsHtml += createTransactionRow(last.secondmonthextrainvaliddate, last.secondmonthextrainvalidtitle, last.secondmonthextrainvalidamount);
             }
@@ -757,10 +759,11 @@ function toggleHeader(element) {
             if (third.thirdmonthinvaliddate) {
               transactionsHtml += createTransactionRow(third.thirdmonthinvaliddate, third.thirdmonthinvalidtitle, third.thirdmonthinvalidamount);
             }
-            transactionsHtml += createTransactionRow(third.thirdmonthreciptdate, `<a href="kk.html?month=third">Automatic payment wire transfer to bank account <span name="banknumber">${third.thirdmonthbanknumber || "..."}</span></a>`, third.thirdmonthamount || "0.00");
             if (third.thirdmonthtitle) {
               transactionsHtml += createTransactionRow(third.thirdmonthtitledate, third.thirdmonthtitle, third.thirdmonthtitleamount || "0.00");
             }
+            transactionsHtml += createTransactionRow(third.thirdmonthreciptdate, `<a href="kk.html?month=third">Automatic payment wire transfer to bank account <span name="banknumber">${third.thirdmonthbanknumber || "..."}</span></a>`, third.thirdmonthamount || "0.00");
+            
             if (third.thirdmonthextrainvaliddate) {
               transactionsHtml += createTransactionRow(third.thirdmonthextrainvaliddate, third.thirdmonthextrainvalidtitle, third.thirdmonthextrainvalidamount);
             }
