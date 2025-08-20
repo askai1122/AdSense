@@ -692,7 +692,7 @@ function toggleHeader(element) {
   });
 
   function loadData() {
-    // 🔁 Save currently expanded collapse divs
+    // 🔁 Save currently expandesd collapse divs
     const expandedSections = Array.from(document.querySelectorAll('.collapse.show')).map(el => el.id);
     const formatAmount = (amount) => {
   return amount.toLocaleString('en-US', {
