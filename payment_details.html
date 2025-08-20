@@ -694,6 +694,12 @@ function toggleHeader(element) {
   function loadData() {
     // 🔁 Save currently expanded collapse divs
     const expandedSections = Array.from(document.querySelectorAll('.collapse.show')).map(el => el.id);
+    const formatAmount = (amount) => {
+  return amount.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+};
 
     fetch("https://adsense-xq8u.onrender.com/get-data")
       .then((res) => res.json())
@@ -703,9 +709,9 @@ function toggleHeader(element) {
         const third = allData.thirdmonthtrans || {};
 
         const balances = [
-          { starting: (current.startingbalance) || 0, ending: (current.endingbalance) || 0 },
-          { starting: (last.secondmonthstartingbalance) || 0, ending: (last.secondmonthendingbalance) || 0 },
-          { starting: (third.thirdmonthstartingbalance) || 0, ending: (third.thirdmonthendingbalance) || 0 }
+          { starting: current.startingbalance || 0, ending: current.endingbalance || 0 },
+          { starting: last.secondmonthstartingbalance || 0, ending: last.secondmonthendingbalance || 0 },
+          { starting: third.thirdmonthstartingbalance || 0, ending: third.thirdmonthendingbalance || 0 }
         ];
 
         const monthsContainer = document.getElementById("months-container");
@@ -770,9 +776,11 @@ function toggleHeader(element) {
           }
 
           transactionsHtml += `<hr>`;
+          const startingBalance = formatAmount(balances[i].starting);
+const endingBalance = formatAmount(balances[i].ending);
 
-          const startingBalance = balances[i].starting.toFixed(2);
-          const endingBalance = balances[i].ending.toFixed(2);
+          // const startingBalance = balances[i].starting.toFixed(2);
+          // const endingBalance = balances[i].ending.toFixed(2);
           const isExpanded = expandedSections.includes(`${monthId}-collapse`);
           const collapseClass = isExpanded ? "collapse show" : "collapse";
 
