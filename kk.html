@@ -20,14 +20,12 @@
             border: 1px solid #000000 !important;
         }
 
-        /* Ensure content starts from left edge */
         #content {
             margin: 0 !important;
             padding: 0 !important;
             width: 100%;
         }
 
-        /* Keep columns side-by-side */
         .no-wrap {
             display: flex;
             flex-wrap: nowrap;
@@ -37,20 +35,17 @@
             max-width: 50%;
         }
 
-        /* Font & spacing adjustments for smaller screens */
+        /* Smooth fade-in effect for dynamic data */
+        [name] {
+            transition: opacity 0.3s ease;
+        }
+
         @media (max-width: 992px) {
             body { padding: 15px; }
             .section-title { font-size: 24px; }
             .address { font-size: 14px; }
             table { font-size: 14px; }
-             .col-fixed {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
- .col-fixed {
-            flex: 0 0 36%;
-            max-width: 50%;
-        }
+            .col-fixed { flex: 0 0 50%; max-width: 50%; }
         }
         @media (max-width: 768px) {
             body { padding: 10px; }
@@ -58,10 +53,7 @@
             .address { font-size: 13px; }
             table { font-size: 13px; }
             img { height: 40px !important; }
-             .col-fixed {
-            flex: 0 0 40%;
-            max-width: 50%;
-        }
+            .col-fixed { flex: 0 0 40%; max-width: 50%; }
         }
         @media (max-width: 576px) {
             body { padding: 8px; }
@@ -69,12 +61,9 @@
             .address { font-size: 12px; }
             table { font-size: 12px; }
             img { height: 35px !important; }
-             .col-fixed {
-            flex: 0 0 40%;
-            max-width: 50%;
+            .col-fixed { flex: 0 0 40%; max-width: 50%; }
         }
-        }   
-          @media (max-width: 1200px) {
+        @media (max-width: 1200px) {
             body { padding: 8px; }
             .section-title { font-size: 20px; }
             .address { font-size: 12px; }
@@ -106,7 +95,6 @@
                         India
                     </span>
                 </div>
-                
             </div>
 
             <!-- Right Column -->
@@ -114,23 +102,22 @@
                 <div class="section-title">Payment Receipt</div>
 
                 <div class="row mt-5">
-                    <div class="col-6 "><b>Payment date</b></div>
-                    <div class="col-6 " name="paymentdate"></div>
+                    <div class="col-6"><b>Payment date</b></div>
+                    <div class="col-6" name="paymentdate"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 "><b>Billing ID</b></div>
-                    <div class="col-6 " name="billingid"></div>
+                    <div class="col-6"><b>Billing ID</b></div>
+                    <div class="col-6" name="billingid"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 "><b>Payment method</b></div>
-                    <div class="col-6 " name="paymentmethod"></div>
+                    <div class="col-6"><b>Payment method</b></div>
+                    <div class="col-6" name="paymentmethod"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 "><b>Payment number</b></div>
-                    <div class="col-6 " name="paymentnumber"></div>
+                    <div class="col-6"><b>Payment number</b></div>
+                    <div class="col-6" name="paymentnumber"></div>
                 </div>
             </div>
-            
         </div>
 
         <!-- Table -->
@@ -151,54 +138,65 @@
             </table>
         </div>
     </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function loadData() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const month = urlParams.get("month") || "first";
+
+            let formKey = "reciptform";
+            if (month !== "first") {
+                formKey = `${month}monthreciptform`;
+            }
+
+            fetch("https://adsense-xq8u.onrender.com/get-data")
+                .then(res => res.json())
+                .then(allData => {
+                    const sectionData = allData[formKey];
+                    if (!sectionData) {
+                        console.warn(`No data found for ${formKey}`);
+                        return;
+                    }
+
+                    Object.keys(sectionData).forEach((key) => {
+                        const value = sectionData[key];
+                        const elements = document.querySelectorAll(`[name="${key}"]`);
+
+                        elements.forEach((element) => {
+                            const newText = value?.toString() ?? "";
+
+                            // Only update if different
+                            if (element.textContent.trim() !== newText.trim()) {
+                                element.style.opacity = '0';
+
+                                setTimeout(() => {
+                                    if (
+                                        element.tagName === "INPUT" ||
+                                        element.tagName === "TEXTAREA"
+                                    ) {
+                                        element.value = newText;
+                                    } else {
+                                        element.textContent = newText;
+                                    }
+
+                                    element.style.opacity = '1';
+                                }, 200);
+                            }
+                        });
+                    });
+                })
+                .catch((err) => console.error("Error loading data:", err));
+        }
+
+        // Initial load
+        loadData();
+
+        // Reload every 5 seconds
+        setInterval(loadData, 5000);
+    </script>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    function loadData() {
-  // 1. URL se query param nikaalo
-  const urlParams = new URLSearchParams(window.location.search);
-  const month = urlParams.get("month") || "first";
-
-  // 2. Form key banao
-  let formKey = "reciptform"; // Default
-  if (month !== "first") {
-    formKey = `${month}monthreciptform`;
-  }
-
-  // 3. Get data from backend
-  fetch("https://adsense-xq8u.onrender.com/get-data")
-    .then((res) => res.json())
-    .then((allData) => {
-      const sectionData = allData[formKey];
-
-      if (!sectionData) {
-        console.warn(`No data found for ${formKey}`);
-        return;
-      }
-
-      // 4. Har key-value ko inject karo DOM mein
-      Object.keys(sectionData).forEach((key) => {
-        const value = sectionData[key];
-        const elements = document.querySelectorAll(`[name="${key}"]`);
-
-        elements.forEach((element) => {
-          if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-            element.value = value;
-          } else {
-            element.textContent = value;
-          }
-        });
-      });
-
-      
-    })
-    .catch((err) => console.error("Error loading data:", err));
-}
-
-loadData()
-    // Har 5 second baad refresh
-    setInterval(loadData, 5000);
-  </script>
 </html>
