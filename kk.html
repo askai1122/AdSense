@@ -1,202 +1,185 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Google AdSense Payment Receipt</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <style>
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            padding: 20px;
-            background: #ffffff;
-        }
-        .section-title {
-            font-size: 27px;
-            font-weight: 540;
-            margin: 15px 0;
-        }
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #000000 !important;
-        }
+  <meta charset="UTF-8">
+  <title>Google AdSense Payment Receipt</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      padding: 20px;
+      background: #ffffff;
+    }
 
-        #content {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-        }
+    .section-title {
+      font-size: 27px;
+      font-weight: 540;
+      margin: 15px 0;
+    }
 
-        .no-wrap {
-            display: flex;
-            flex-wrap: nowrap;
-        }
-        .col-fixed {
-            flex: 0 0 37%;
-            max-width: 50%;
-        }
+    .table-bordered th, .table-bordered td {
+      border: 1px solid #000000 !important;
+    }
 
-        /* Smooth fade-in effect for dynamic data */
-        [name] {
-            transition: opacity 0.3s ease;
-        }
+    /* ❌ Hide full content before data comes */
+    #content {
+      display: none;
+    }
 
-        @media (max-width: 992px) {
-            body { padding: 15px; }
-            .section-title { font-size: 24px; }
-            .address { font-size: 14px; }
-            table { font-size: 14px; }
-            .col-fixed { flex: 0 0 50%; max-width: 50%; }
-        }
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .section-title { font-size: 22px; }
-            .address { font-size: 13px; }
-            table { font-size: 13px; }
-            img { height: 40px !important; }
-            .col-fixed { flex: 0 0 40%; max-width: 50%; }
-        }
-        @media (max-width: 576px) {
-            body { padding: 8px; }
-            .section-title { font-size: 20px; }
-            .address { font-size: 12px; }
-            table { font-size: 12px; }
-            img { height: 35px !important; }
-            .col-fixed { flex: 0 0 40%; max-width: 50%; }
-        }
-        @media (max-width: 1200px) {
-            body { padding: 8px; }
-            .section-title { font-size: 20px; }
-            .address { font-size: 12px; }
-            table { font-size: 12px; }
-            img { height: 35px !important; }
-        }
-    </style>
+    .no-wrap {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .col-fixed {
+      flex: 0 0 37%;
+      max-width: 50%;
+    }
+
+    @media (max-width: 992px) {
+      body { padding: 15px; }
+      .section-title { font-size: 24px; }
+      .address { font-size: 14px; }
+      table { font-size: 14px; }
+      .col-fixed { flex: 0 0 50%; max-width: 50%; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 10px; }
+      .section-title { font-size: 22px; }
+      .address { font-size: 13px; }
+      table { font-size: 13px; }
+      img { height: 40px !important; }
+      .col-fixed { flex: 0 0 40%; max-width: 50%; }
+    }
+
+    @media (max-width: 576px) {
+      body { padding: 8px; }
+      .section-title { font-size: 20px; }
+      .address { font-size: 12px; }
+      table { font-size: 12px; }
+      img { height: 35px !important; }
+      .col-fixed { flex: 0 0 40%; max-width: 50%; }
+    }
+
+    @media (max-width: 1200px) {
+      body { padding: 8px; }
+      .section-title { font-size: 20px; }
+      .address { font-size: 12px; }
+      table { font-size: 12px; }
+      img { height: 35px !important; }
+    }
+  </style>
 </head>
 <body>
-    <div id="content" class="bg-white">
-        <div class="row no-wrap">
-            <!-- Left Column -->
-            <div class="col-fixed">
-                <div class="header">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
-                </div>
-                <div class="address mt-5" style="font-weight: 545 !important;">
-                    Google Asia Pacific Pte. Ltd.<br>
-                    70 Pasir Panjang Road, #03-71<br>
-                    Mapletree Business City<br>
-                    Singapore 117371<br><br>
-                    Tax identification number<br>
-                    <span name="taxidentification">200817984R</span><br><br>
-                    <span name="address">
-                        Simardeep Singh<br>
-                        Flat No #1003, Willow Homes, Near Atta Chakki<br>
-                        Dashmesh Nagar<br>
-                        Kharar, Punjab 140301<br>
-                        India
-                    </span>
-                </div>
-            </div>
 
-            <!-- Right Column -->
-            <div class="col-fixed">
-                <div class="section-title">Payment Receipt</div>
-
-                <div class="row mt-5">
-                    <div class="col-6"><b>Payment date</b></div>
-                    <div class="col-6" name="paymentdate"></div>
-                </div>
-                <div class="row">
-                    <div class="col-6"><b>Billing ID</b></div>
-                    <div class="col-6" name="billingid"></div>
-                </div>
-                <div class="row">
-                    <div class="col-6"><b>Payment method</b></div>
-                    <div class="col-6" name="paymentmethod"></div>
-                </div>
-                <div class="row">
-                    <div class="col-6"><b>Payment number</b></div>
-                    <div class="col-6" name="paymentnumber"></div>
-                </div>
-            </div>
+  <!-- ✅ This will be hidden until data comes -->
+  <div id="content" class="bg-white">
+    <div class="row no-wrap">
+      <!-- Left Column -->
+      <div class="col-fixed">
+        <div class="header">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
         </div>
+        <div class="address mt-5" style="font-weight: 545 !important;">
+          Google Asia Pacific Pte. Ltd.<br>
+          70 Pasir Panjang Road, #03-71<br>
+          Mapletree Business City<br>
+          Singapore 117371<br><br>
 
-        <!-- Table -->
-        <div class="col-10 mt-3">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Payment amount</td>
-                        <td name="Amount"></td>
-                    </tr>
-                </tbody>
-            </table>
+          Tax identification number<br>
+          <span name="taxidentification"></span><br><br>
+
+          <span name="address"></span>
         </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-fixed">
+        <div class="section-title">Payment Receipt</div>
+
+        <div class="row mt-5">
+          <div class="col-6"><b>Payment date</b></div>
+          <div class="col-6" name="paymentdate"></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><b>Billing ID</b></div>
+          <div class="col-6" name="billingid"></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><b>Payment method</b></div>
+          <div class="col-6" name="paymentmethod"></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><b>Payment number</b></div>
+          <div class="col-6" name="paymentnumber"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function loadData() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const month = urlParams.get("month") || "first";
+    <!-- Table -->
+    <div class="col-10 mt-3">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Payment amount</td>
+            <td name="Amount"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-            let formKey = "reciptform";
-            if (month !== "first") {
-                formKey = `${month}monthreciptform`;
-            }
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function loadData() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const month = urlParams.get("month") || "first";
+      let formKey = "reciptform";
 
-            fetch("https://adsense-xq8u.onrender.com/get-data")
-                .then(res => res.json())
-                .then(allData => {
-                    const sectionData = allData[formKey];
-                    if (!sectionData) {
-                        console.warn(`No data found for ${formKey}`);
-                        return;
-                    }
+      if (month !== "first") {
+        formKey = `${month}monthreciptform`;
+      }
 
-                    Object.keys(sectionData).forEach((key) => {
-                        const value = sectionData[key];
-                        const elements = document.querySelectorAll(`[name="${key}"]`);
+      fetch("https://adsense-xq8u.onrender.com/get-data")
+        .then(res => res.json())
+        .then(allData => {
+          const sectionData = allData[formKey];
+          if (!sectionData) {
+            console.warn(`No data found for ${formKey}`);
+            return;
+          }
 
-                        elements.forEach((element) => {
-                            const newText = value?.toString() ?? "";
+          // Fill all dynamic fields
+          Object.keys(sectionData).forEach((key) => {
+            const value = sectionData[key];
+            const elements = document.querySelectorAll(`[name="${key}"]`);
 
-                            // Only update if different
-                            if (element.textContent.trim() !== newText.trim()) {
-                                element.style.opacity = '0';
+            elements.forEach((element) => {
+              const newText = value?.toString() ?? "";
+              element.textContent = newText;
+            });
+          });
 
-                                setTimeout(() => {
-                                    if (
-                                        element.tagName === "INPUT" ||
-                                        element.tagName === "TEXTAREA"
-                                    ) {
-                                        element.value = newText;
-                                    } else {
-                                        element.textContent = newText;
-                                    }
+          // ✅ Show full content instantly after data is filled
+          document.getElementById("content").style.display = "block";
+        })
+        .catch((err) => console.error("Error loading data:", err));
+    }
 
-                                    element.style.opacity = '1';
-                                }, 200);
-                            }
-                        });
-                    });
-                })
-                .catch((err) => console.error("Error loading data:", err));
-        }
+    // Load data initially
+    loadData();
 
-        // Initial load
-        loadData();
-
-        // Reload every 5 seconds
-        setInterval(loadData, 5000);
-    </script>
+    // Optional: Auto-refresh every 5 seconds
+    setInterval(loadData, 5000);
+  </script>
 </body>
 </html>
