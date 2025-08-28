@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Google AdSense Payment Receipt</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
   <style>
     body {
-      font-family: 'Roboto', Arial, sans-serif;
+      font-family: "Roboto", Arial, sans-serif;
       padding: 20px;
       background: #ffffff;
     }
@@ -17,7 +20,8 @@
       margin: 15px 0;
     }
 
-    .table-bordered th, .table-bordered td {
+    .table-bordered th,
+    .table-bordered td {
       border: 1px solid #000000 !important;
     }
 
@@ -30,6 +34,7 @@
       display: flex;
       flex-wrap: nowrap;
     }
+
     /* .col-fixed {
       flex: none !important;
       width: 400px;
@@ -40,27 +45,48 @@
       max-width: 50%;
     }
 
-  
+    /* ===== Responsive for Mobile ===== */
+    @media (max-width: 768px) {
+      .no-wrap {
+        flex-wrap: wrap !important; /* Allow wrapping on small screens */
+      }
+
+      .col-fixed {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px; /* Spacing between stacked columns */
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+
+      body {
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
-
   <!-- ✅ This will be hidden until data comes -->
   <div id="content" class="bg-white">
     <div class="row no-wrap">
       <!-- Left Column -->
       <div class="col-fixed">
         <div class="header">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height: 50px;">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+            style="height: 50px"
+          />
         </div>
         <div class="address mt-5" style="font-weight: 545 !important;">
-          Google Asia Pacific Pte. Ltd.<br>
-          70 Pasir Panjang Road, #03-71<br>
-          Mapletree Business City<br>
-          Singapore 117371<br><br>
+          Google Asia Pacific Pte. Ltd.<br />
+          70 Pasir Panjang Road, #03-71<br />
+          Mapletree Business City<br />
+          Singapore 117371<br /><br />
 
-          Tax identification number<br>
-          <span name="taxidentification"></span><br><br>
+          Tax identification number<br />
+          <span name="taxidentification"></span><br /><br />
 
           <span name="address"></span>
         </div>
@@ -122,8 +148,8 @@
       }
 
       fetch("https://adsense-xq8u.onrender.com/get-data")
-        .then(res => res.json())
-        .then(allData => {
+        .then((res) => res.json())
+        .then((allData) => {
           const sectionData = allData[formKey];
           if (!sectionData) {
             console.warn(`No data found for ${formKey}`);
