@@ -700,7 +700,9 @@ function toggleHeader(element) {
     maximumFractionDigits: 2
   });
 };
-
+function getLastDayOfMonth(year, month) {
+  return new Date(year, month + 1, 0).getDate();
+}
     fetch("https://adsense-xq8u.onrender.com/get-data")
       .then((res) => res.json())
       .then((allData) => {
@@ -728,11 +730,12 @@ function toggleHeader(element) {
 
           let monthText;
           if (i === 0) {
-            const currentDay = today.getDate();
-            monthText = `${month} 1 – ${currentDay}, ${year}`;
-          } else {
-            monthText = `${month} 1 – 31, ${year}`;
-          }
+    const currentDay = today.getDate();
+    monthText = `${month} 1 – ${currentDay}, ${year}`;
+  } else {
+    const lastDay = getLastDayOfMonth(year, date.getMonth());
+    monthText = `${month} 1 – ${lastDay}, ${year}`;
+  }
 
           let transactionsHtml = "";
           let noTransactions = false;
