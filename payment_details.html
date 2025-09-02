@@ -730,12 +730,17 @@ function getLastDayOfMonth(year, month) {
 
           let monthText;
           if (i === 0) {
-    const currentDay = today.getDate();
-    monthText = `${month} 1 – ${currentDay}, ${year}`;
+  const currentDay = today.getDate();
+  if (currentDay === 1) {
+    monthText = `${month} 1, ${year}`;
   } else {
-    const lastDay = getLastDayOfMonth(year, date.getMonth());
-    monthText = `${month} 1 – ${lastDay}, ${year}`;
+    monthText = `${month} 1 – ${currentDay}, ${year}`;
   }
+} else {
+  const lastDay = getLastDayOfMonth(year, date.getMonth());
+  monthText = `${month} 1 – ${lastDay}, ${year}`;
+}
+
 
           let transactionsHtml = "";
           let noTransactions = false;
@@ -753,6 +758,7 @@ function getLastDayOfMonth(year, month) {
             if (current.firstmonthextrainvaliddate) {
               transactionsHtml += createTransactionRow(current.firstmonthextrainvaliddate, current.firstmonthextrainvalidtitle, current.firstmonthextrainvalidamount);
             }
+            noTransactions = transactionsHtml.trim() === "";
           } else if (i === 1) {
             if (last.secondmonthinvaliddate) {
               transactionsHtml += createTransactionRow(last.secondmonthinvaliddate, last.secondmonthinvalidtitle, last.secondmonthinvalidamount);
@@ -766,6 +772,7 @@ function getLastDayOfMonth(year, month) {
             if (last.secondmonthextrainvaliddate) {
               transactionsHtml += createTransactionRow(last.secondmonthextrainvaliddate, last.secondmonthextrainvalidtitle, last.secondmonthextrainvalidamount);
             }
+            noTransactions = transactionsHtml.trim() === "";
           } else {
             if (third.thirdmonthinvaliddate) {
               transactionsHtml += createTransactionRow(third.thirdmonthinvaliddate, third.thirdmonthinvalidtitle, third.thirdmonthinvalidamount);
@@ -781,6 +788,7 @@ function getLastDayOfMonth(year, month) {
             if (third.thirdmonthextrainvaliddate) {
               transactionsHtml += createTransactionRow(third.thirdmonthextrainvaliddate, third.thirdmonthextrainvalidtitle, third.thirdmonthextrainvalidamount);
             }
+            noTransactions = transactionsHtml.trim() === "";
           }
 
           transactionsHtml += `<hr>`;

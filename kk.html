@@ -162,9 +162,16 @@
             const elements = document.querySelectorAll(`[name="${key}"]`);
 
             elements.forEach((element) => {
-              const newText = value?.toString() ?? "";
-              element.textContent = newText;
-            });
+  const newText = value?.toString() ?? "";
+
+  // If field is expected to contain HTML (like <br>), use innerHTML
+  if (key === "address" || key === "taxidentification") {
+    element.innerHTML = newText;
+  } else {
+    element.textContent = newText;
+  }
+});
+
           });
 
           // ✅ Show full content instantly after data is filled
