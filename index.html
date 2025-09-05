@@ -83,6 +83,13 @@
         align-items: center;
         justify-content: space-between;
       }
+      #mainContent {
+  display: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+
       .card-illustration-bg {
         background-color: #0d6efd; /* A lighter shade of blue */
         padding: 2rem; /* Adjust as needed */
@@ -1006,33 +1013,41 @@
   </body>
 </html>
 <script>
-  function loadData() {
-    fetch("https://adsense-xq8u.onrender.com/get-data")
-      .then((res) => res.json())
-      .then((allData) => {
-        // Har form/section object loop karo
-        Object.keys(allData).forEach((section) => {
-          const sectionData = allData[section];
+  console.time("loadData");
+function loadData() {
+  fetch("https://adsense-xq8u.onrender.com/get-data")
+    .then((res) => res.json())
+    .then((allData) => {
+      console.timeLog("loadData", "Data fetched");
 
-          // Us section ke andar jitne keys hain unpe loop
-          Object.keys(sectionData).forEach((key) => {
-            const value = sectionData[key];
-
-            // Page pe elements find karo jinke name = key ho
-            const elements = document.querySelectorAll(`[name="${key}"]`);
-            
-            elements.forEach((element) => {
-              if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-                element.value = value; // form fields
-              } else {
-                element.textContent = value; // div, span, p, etc.
-              }
-            });
+      Object.keys(allData).forEach((section) => {
+        const sectionData = allData[section];
+        Object.keys(sectionData).forEach((key) => {
+          const value = sectionData[key];
+          const elements = document.querySelectorAll(`[name="${key}"]`);
+          elements.forEach((element) => {
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+              element.value = value;
+            } else {
+              element.textContent = value;
+            }
           });
         });
-      })
-      .catch((err) => console.error("Error loading data:", err));
-  }
+      });
+
+      console.timeLog("loadData", "DOM updated");
+
+      const main = document.getElementById("mainContent");
+      main.style.display = "block";
+      main.style.opacity = "1";
+      main.style.visibility = "visible";
+
+      console.timeEnd("loadData");
+    })
+    .catch((err) => console.error("Error loading data:", err));
+}
+
+loadData();
 
   // Pehli dafa call karo
   loadData();
