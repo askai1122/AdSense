@@ -1013,48 +1013,63 @@
   </body>
 </html>
 <script>
-  console.time("loadData");
-function loadData() {
-  fetch("https://adsense-xq8u.onrender.com/get-data")
-    .then((res) => res.json())
-    .then((allData) => {
-      console.timeLog("loadData", "Data fetched");
+  function loadData() {
+    console.time("loadData");
 
-      Object.keys(allData).forEach((section) => {
-        const sectionData = allData[section];
-        Object.keys(sectionData).forEach((key) => {
-          const value = sectionData[key];
-          const elements = document.querySelectorAll(`[name="${key}"]`);
-          elements.forEach((element) => {
-            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
-              element.value = value;
-            } else {
-              element.textContent = value;
-            }
+    // Animate the loader bar
+    const bar = document.getElementById("topLoaderBar");
+    requestAnimationFrame(() => {
+      if (bar) bar.style.width = "100%";
+    });
+
+    fetch("https://adsense-xq8u.onrender.com/get-data")
+      .then((res) => res.json())
+      .then((allData) => {
+        console.timeLog("loadData", "Data fetched");
+
+        Object.keys(allData).forEach((section) => {
+          const sectionData = allData[section];
+          Object.keys(sectionData).forEach((key) => {
+            const value = sectionData[key];
+            const elements = document.querySelectorAll(`[name="${key}"]`);
+            elements.forEach((element) => {
+              if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                element.value = value;
+              } else {
+                element.textContent = value;
+              }
+            });
           });
         });
+
+        console.timeLog("loadData", "DOM updated");
+
+        // Hide loader and show content only once
+        const loader = document.getElementById("pageLoader");
+        const main = document.getElementById("mainContent");
+
+        if (loader) loader.style.display = "none";
+        if (main) main.style.display = "block";
+
+        // Reset bar after short delay
+        setTimeout(() => {
+          if (bar) bar.style.width = "0%";
+        }, 500);
+
+        console.timeEnd("loadData");
+      })
+      .catch((err) => {
+        console.error("Error loading data:", err);
       });
+  }
 
-      console.timeLog("loadData", "DOM updated");
-
-      const main = document.getElementById("mainContent");
-      main.style.display = "block";
-      // main.style.opacity = "1";
-      // main.style.visibility = "visible";
-
-      console.timeEnd("loadData");
-    })
-    .catch((err) => console.error("Error loading data:", err));
-}
-
-loadData();
-
-  // Pehli dafa call karo
-  loadData();
-
-  // Har 5 second baad refresh
-  setInterval(loadData, 5000);
+  // Wait for DOM to load
+  document.addEventListener("DOMContentLoaded", function () {
+    loadData(); // Initial call
+    setInterval(loadData, 5000); // Refresh every 5 seconds
+  });
 </script>
+
 
 
                     <script>
@@ -1120,21 +1135,3 @@ loadData();
         window.addEventListener("resize", setSidebarState);
       });
     </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var bar = document.getElementById("topLoaderBar");
-    var loader = document.getElementById("pageLoader");
-    var main = document.getElementById("mainContent");
-
-    // Start bar animation
-    requestAnimationFrame(function () {
-      bar.style.width = "100%";
-    });
-
-    // After 10s hide loader and show content
-    setTimeout(function () {
-      loader.classList.add("hide");
-      main.style.display = "";
-    }, 1000);
-  });
-</script>
