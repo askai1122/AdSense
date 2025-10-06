@@ -1,0 +1,32 @@
+<div id="sparkline"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+var options = {
+  chart: {
+    type: 'line',
+    height: 40,   // chhoti height
+    width: 100,   // chhoti width
+    sparkline: { enabled: true } // axes, grid hide
+  },
+  stroke: {
+    curve: 'smooth',
+    width: [0.7, 0.7] // blue line thodi moti, grey patli
+  },
+  series: [
+    {
+      name: 'Current',
+      data: [20, 35, 25, 40, 32, 45, 50]
+    },
+    {
+      name: 'Previous',
+      data: [22, 65, 27, 35, 38, 60, 46]
+    }
+  ],
+  colors: ['#1a73e8', '#cfd8dc'], // Google blue + light grey
+  tooltip: { enabled: false } // hover popup hide
+};
+
+var chart = new ApexCharts(document.querySelector("#sparkline"), options);
+chart.render();
+</script>

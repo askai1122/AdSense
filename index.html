@@ -171,6 +171,7 @@
         padding-bottom: 1px;
       }
 
+   
       .custom-stats-row .stat-change {
         /* font-size: 0.9rem; */
         font-weight: 200;
@@ -303,6 +304,147 @@
           font-weight: 500;
           color: #1a73e8 !important;
         }
+        
+      </style>
+      <style>
+       table {
+        width: 100%;
+        border-collapse: collapse;
+    table-layout: fixed;
+  }
+  thead {
+    background: transparent;
+    color: #5f6368;
+    font-size: 14px;
+  }
+
+  th {
+    font-weight: 500;
+    text-align: left;
+    padding: 10px 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: transparent;
+  }
+
+  /* Down arrow after each header */
+  th.sortable {
+  position: relative;
+  padding-right: 22px; /* default space for arrow */
+}
+
+/* Common arrow style */
+th.sortable::after {
+  content: "\f0d7"; /* Unicode for Font Awesome 'caret-down' */
+  font-family: "Font Awesome 6 Free"; /* or 'Font Awesome 5 Free' depending on version */
+  font-weight: 900; /* solid style */
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: #5f6368;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+
+/* 2nd column (Estimated earnings) → arrow closer to text */
+th:nth-child(2).sortable::after {
+  right: 6px;
+}
+
+/* 3rd & 4th columns (Page views, Clicks) → arrow slightly more to right */
+th:nth-child(3).sortable::after,
+th:nth-child(4).sortable::after {
+  right: 6px;
+}
+
+  td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-top: 1px solid #e0e0e0bd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Country column with blue background */
+  td:first-child {
+    /* background: #1a73e8; */
+    color: rgb(51 54 56);
+    font-size: 12px;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    text-align: left;
+    font-weight: 500;
+  }
+  
+   
+th:nth-child(2),
+td:nth-child(2),
+th:nth-child(3),
+td:nth-child(3),
+th:nth-child(4),
+td:nth-child(4) {
+  font-size: 12px;
+  width: 18.3%; /* remaining three equal widths */
+}
+  /* US$0.00 style inside blue column */
+  td:first-child span {
+    background: #fff;
+    color: #1a73e8;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-weight: 500;
+  }
+  td:nth-child(2)  {
+    background: #1a73e8;
+    color: #ffffff;
+    text-align: center;
+  }
+  /* Grey background for page views and clicks */
+  td:nth-child(3),   
+  td:nth-child(4)    {
+    background: #f1f3f4;
+    color: #202124;
+    text-align: right;
+    border-left: 1px solid #e0e0e0ec;
+  }
+
+  /* Transparent header */
+  th:nth-child(1), th:nth-child(2), th:nth-child(3) {
+    background: transparent;
+  }
+  .country-dropdown {
+  transform: translate(16px, 10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease-in-out;
+}
+.dropdown-item{
+  padding: 14px 26px 14px 22px;
+  color: rgba(51, 54, 56, 0.884);
+} 
+.dropdown-item.selected {
+  background-color: rgb(232, 240, 254);
+    border-left: 4px solid #0d86ff;
+    padding-left: 8px;
+    /* font-weight: 500; */
+    margin: 0px;
+    color: rgb(51 54 56);
+}
+.dropdown.show .country-dropdown {
+  transform: translate(16px, 0px) !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+
+  /* Responsive truncate headers */
+   
       </style>
   </head>
   <body>
@@ -733,6 +875,7 @@
                       line-height: 1px !important;
                     "
                   ></i>
+                  
                 </span>
               </div>
 
@@ -997,6 +1140,176 @@
                       style="height: 20px; cursor: pointer"
                     />
 
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-6 mb-2" > 
+          <div class="card shadow-sm">
+            <div class="card-body" style="padding: 0 !important;">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <p class="card-titles mb-0 b-0" style="padding: 20px 8px 0px 17px;font-size: 1.125rem">
+                  Countries
+                </p>
+                <button class="btn btn-link   text-muted" style="padding: 20px 13px 0px 19px;">
+                  <i class="bi bi-three-dots-vertical text-dark"></i>
+                </button>
+              </div>
+              <div class="  position-relative">
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+                />
+                <div class="dropdown" style="display: inline-block; position: relative;">
+                  <button
+                    class="btn btn-light dropdown-toggle"
+                    type="button"
+                    id="performanceDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="
+                      font-size: 14px;
+                      background-color: #fff;
+                      display: flex;
+                      align-items: center;
+                      border: none;
+                      margin-left: 5px;
+                      color: #333;
+                      
+                      gap: 5px;
+                    "
+                  >
+                    Today so far
+                    <!-- <i class="fa-solid fa-caret-down" style="font-size: 13px; color: #555;"></i> -->
+                  </button>
+                
+                  <ul
+                    class="dropdown-menu   shadow-sm   "
+                    id="dropdowns-menu dropdowns"
+                    aria-labelledby="performanceDropdown"
+                    style="
+                      min-width: 180px;
+                      font-size: 14px;
+                      min-width: 183px;
+    font-size: 15px;
+    border: 1px solid rgb(238, 238, 238);
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    padding: 23px 0px 21px 0px;;
+    transform: translate(16px, 0px) !important;
+                      border: 1px solid #eee;
+                    "
+                  >
+                    <li>
+                      <a class="dropdown-item py-2" href="#">Today so far</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item py-2 selected" href="#">Yesterday vs same day last week</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item py-2" href="#">Last 7 days vs previous 7 days</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item py-2" href="#">Last 28 days vs previous 28 days</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item py-2" href="#">Last 3 months vs previous 3 months</a>
+                    </li>
+                     
+                  </ul>
+                </div>
+                
+                <!-- <span style="font-size: 14px; cursor: pointer;padding: 0px 7px 0px 17px;">
+                  Today so far
+                  <i
+                    class="fa-solid fa-caret-down"
+                    style="
+                      font-size: 14px;
+                      color: #555;
+                      line-height: 1px !important;
+                    "
+                  ></i>
+                </span> -->
+              </div>
+ 
+                <table class="adsense-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th class="sortable">Estimated earnings</th>
+                      <th class="sortable">Page views</th>
+                      <th class="sortable">Clicks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Nigeria</td>
+                      <td>$0.00</td>
+                      <td>346</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>India</td>
+                      <td>$0.00</td>
+                      <td>12</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>United States</td>
+                      <td>$0.00</td>
+                      <td>6</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>Ghana</td>
+                      <td>$0.00</td>
+                      <td>4</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>Unknown Region</td>
+                      <td>$0.00</td>
+                      <td>1</td>
+                      <td>0</td>
+                    </tr>
+                  </tbody>
+                </table>
+            
+              <div class="text-start mt-5 d-flex justify-content-between">
+                <div class="">
+                  <a href="#" class="btn btn-link p-0 text-decoration-none"
+                    >View report <i class="bi bi-arrow-right"></i
+                  ></a>
+                </div>
+                <div class="">
+                  <button class="btn btn-link p-0 text-dark">
+                    <!-- <i class="fa-solid fa-thumbtack"></i> -->
+                    <img
+                      id="toggleImage"
+                      src="pin.png"
+                      alt="Pin"
+                      style="height: 20px; cursor: pointer"
+                    />
+
+                    <script>
+                      const toggleImage =
+                        document.getElementById("toggleImage");
+                      let isFirstImage = true; // Track which image is showing
+
+                      toggleImage.addEventListener("click", function () {
+                        if (isFirstImage) {
+                          toggleImage.src = "thumbtacks.png"; // Show second image
+                        } else {
+                          toggleImage.src = "pin.png"; // Show first image
+                        }
+                        isFirstImage = !isFirstImage; // Toggle the state
+                      });
+                    </script>
                   </button>
                 </div>
               </div>
