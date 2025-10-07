@@ -381,7 +381,89 @@ th:nth-child(4).sortable::after {
     text-align: left;
     font-weight: 500;
   }
+  .custom-dropdown {
+  position: relative;
+  display: inline-block;
+  /* font-family: sans-serif; */
+}
+
+.dropdown-toggle {
+  font-size: 14px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border: none;
+  margin-left: 5px;
+  color: #333;
+  gap: 5px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border:none !important ;
+  border-radius: 4px;
+  min-width: 180px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #eee;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.06);
+  min-width: 183px;
+  font-size: 15px;
+  list-style: none;
+  padding: 16px 0;
+  border-radius: 4px;
+  z-index: 100;
+
+  /* Transition setup */
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0) translateY(-10px);
+  transform-origin: top left;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.2s ease;
+  pointer-events: none;
+}
+
+.custom-dropdown.open .dropdown-list {
+   opacity: 1;
+  visibility: visible;
+  transform: scaleY(1) translateY(0) translate(11px, -43px);
+  pointer-events: auto;
+  border-radius: 8px;
+  font-size: 14px;
   
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 8px 12px 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.dropdown-item.selected {
+  background-color: #e0f0ff;
+   
+  border-left: 4px solid #004080;
+}
+
    
 th:nth-child(2),
 td:nth-child(2),
@@ -431,7 +513,7 @@ td:nth-child(4) {
 .dropdown-item.selected {
   background-color: rgb(232, 240, 254);
     border-left: 4px solid #0d86ff;
-    padding-left: 8px;
+    padding: 12px 18px;
     /* font-weight: 500; */
     margin: 0px;
     color: rgb(51 54 56);
@@ -1164,65 +1246,18 @@ td:nth-child(4) {
                   rel="stylesheet"
                   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 />
-                <div class="dropdown" style="display: inline-block; position: relative;">
-                  <button
-                    class="btn btn-light dropdown-toggle"
-                    type="button"
-                    id="performanceDropdown"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    style="
-                      font-size: 14px;
-                      background-color: #fff;
-                      display: flex;
-                      align-items: center;
-                      border: none;
-                      margin-left: 5px;
-                      color: #333;
-                      
-                      gap: 5px;
-                    "
-                  >
-                    Today so far
-                    <!-- <i class="fa-solid fa-caret-down" style="font-size: 13px; color: #555;"></i> -->
-                  </button>
-                
-                  <ul
-                    class="dropdown-menu   shadow-sm   "
-                    id="dropdowns-menu dropdowns"
-                    aria-labelledby="performanceDropdown"
-                    style="
-                      min-width: 180px;
-                      font-size: 14px;
-                      min-width: 183px;
-    font-size: 15px;
-    border: 1px solid rgb(238, 238, 238);
-    position: absolute;
-    inset: 0px auto auto 0px;
-    margin: 0px;
-    padding: 23px 0px 21px 0px;;
-    transform: translate(16px, 0px) !important;
-                      border: 1px solid #eee;
-                    "
-                  >
-                    <li>
-                      <a class="dropdown-item py-2" href="#">Today so far</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item py-2 selected" href="#">Yesterday vs same day last week</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item py-2" href="#">Last 7 days vs previous 7 days</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item py-2" href="#">Last 28 days vs previous 28 days</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item py-2" href="#">Last 3 months vs previous 3 months</a>
-                    </li>
-                     
+                <div class="custom-dropdown">
+                  <button class="dropdown-toggle" id="selectedValue">Today so far</button>
+                  <ul class="dropdown-list">
+                    <li class="dropdown-item selected">Today so far</li>
+                    <li class="dropdown-item">Yesterday vs same day last week</li>
+                    <li class="dropdown-item">Last 7 days vs previous 7 days</li>
+                    <li class="dropdown-item">Last 28 days vs previous 28 days</li>
+                    <li class="dropdown-item">Last 3 months vs previous 3 months</li>
                   </ul>
                 </div>
+                
+               
                 
                 <!-- <span style="font-size: 14px; cursor: pointer;padding: 0px 7px 0px 17px;">
                   Today so far
@@ -1282,12 +1317,12 @@ td:nth-child(4) {
             
               <div class="text-start mt-5 d-flex justify-content-between">
                 <div class="">
-                  <a href="#" class="btn btn-link p-0 text-decoration-none"
+                  <a href="#" class="btn btn-link p-3 text-decoration-none"
                     >View report <i class="bi bi-arrow-right"></i
                   ></a>
                 </div>
                 <div class="">
-                  <button class="btn btn-link p-0 text-dark">
+                  <button class="btn btn-link p-3 text-dark">
                     <!-- <i class="fa-solid fa-thumbtack"></i> -->
                     <img
                       id="toggleImage"
@@ -1384,6 +1419,35 @@ td:nth-child(4) {
 </script>
 
 
+<script>
+  const dropdown = document.querySelector('.custom-dropdown');
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  const list = dropdown.querySelector('.dropdown-list');
+  const items = dropdown.querySelectorAll('.dropdown-item');
+  const selectedValue = document.getElementById('selectedValue');
+
+  toggle.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+  });
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove old selection
+      items.forEach(i => i.classList.remove('selected'));
+      // Add new selection
+      item.classList.add('selected');
+      selectedValue.textContent = item.textContent;
+      dropdown.classList.remove('open');
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  });
+</script>
 
                     <script>
                       const toggleImage1 =
