@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -947,24 +948,23 @@ td:nth-child(4) {
                   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
                 />
 
-                <span style="font-size: 14px; cursor: pointer">
-                  Today so far
-                  <i
-                    class="fa-solid fa-caret-down"
-                    style="
-                      font-size: 14px;
-                      color: #555;
-                      line-height: 1px !important;
-                    "
-                  ></i>
-                  
-                </span>
+                <div class="custom-dropdown">
+                  <button class="dropdown-toggle" id="selectedValue">Today so far</button>
+                  <ul class="dropdown-list">
+                    <li class="dropdown-item selected">Today so far</li>
+                    <li class="dropdown-item">Yesterday vs same day last week</li>
+                    <li class="dropdown-item">Last 7 days vs previous 7 days</li>
+                    <li class="dropdown-item">Last 28 days vs previous 28 days</li>
+                    <li class="dropdown-item">Last 3 months vs previous 3 months</li>
+                  </ul>
+                </div>
               </div>
 
               <div class="row text-center">
                 <div class="col-4 mb-3">
                   <p class="text-muted mb-0">Page views</p>
                   <h4 name="pageviews" >0</h4>
+                  <div id="sparkline"></div>
                 </div>
                 <div class="col-4 mb-3">
                   <p class="text-muted mb-0">Page RPM</p>
@@ -973,18 +973,23 @@ td:nth-child(4) {
                 <div class="col-4 mb-3">
                   <p class="text-muted mb-0" style="    display: table-cell;">Impressions</p>
                   <h4  name="impressions">0</h4>
+                  <div class="sparkline"></div>
                 </div>
                 <div class="col-4">
                   <p class="text-muted mb-0">Clicks</p>
                   <h4 name="clicks">0</h4>
+                  <div class="sparkline"></div>
                 </div>
                 <div class="col-4">
                   <p class="text-muted mb-0">CPC</p>
                   <h4 name="cpc" style="    display: table-cell;">$0.00</h4>
+                  <div class="sparkline"></div>
                 </div>
                 <div class="col-4">
                   <p class="text-muted mb-0">Page CTR</p>
-                  <h4  name="pagectr" style="    display: table-cell;">0.00%</h4>
+                  <h4  name="pagectr" style="    display: table-cell;">0.00%</h4> 
+                  <div class="sparkline"></div>
+
                 </div>
               </div>
               <div class="text-start mt-5 d-flex justify-content-between">
@@ -1417,37 +1422,76 @@ td:nth-child(4) {
     setInterval(loadData, 5000); // Refresh every 5 seconds
   });
 </script>
-
-
 <script>
-  const dropdown = document.querySelector('.custom-dropdown');
-  const toggle = dropdown.querySelector('.dropdown-toggle');
-  const list = dropdown.querySelector('.dropdown-list');
-  const items = dropdown.querySelectorAll('.dropdown-item');
-  const selectedValue = document.getElementById('selectedValue');
+  var options = {
+    chart: {
+      type: 'line',
+      height: 40,   // chhoti height
+      width: 90,   // chhoti width
+      sparkline: { enabled: true } // axes, grid hide
+    },
+    stroke: {
+      curve: 'smooth',
+      width: [0.7, 0.7] // blue line thodi moti, grey patli
+    },
+    series: [
+      {
+        name: 'Current',
+        data: [20, 35, 25, 40, 32, 45, 50]
+      },
+      {
+        name: 'Previous',
+        data: [22, 65, 27, 35, 38, 60, 46]
+      }
+    ],
+    colors: ['#1a73e8', '#cfd8dc'], // Google blue + light grey
+    tooltip: { enabled: false } // hover popup hide
+  };
+  
+  var chart = new ApexCharts(document.querySelector(".sparkline"), options);
+  chart.render();
+  </script>
+  
 
-  toggle.addEventListener('click', () => {
-    dropdown.classList.toggle('open');
-  });
-
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remove old selection
-      items.forEach(i => i.classList.remove('selected'));
-      // Add new selection
-      item.classList.add('selected');
-      selectedValue.textContent = item.textContent;
-      dropdown.classList.remove('open');
+  <script>
+    const dropdowns = document.querySelectorAll('.custom-dropdown');
+  
+    dropdowns.forEach(dropdown => {
+      const toggle = dropdown.querySelector('.dropdown-toggle');
+      const list = dropdown.querySelector('.dropdown-list');
+      const items = dropdown.querySelectorAll('.dropdown-item');
+      const selectedValue = dropdown.querySelector('.dropdown-toggle'); // For button label update
+  
+      // Toggle dropdown open/close
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent bubbling
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove('open'); // Close others
+        });
+        dropdown.classList.toggle('open');
+      });
+  
+      // Handle item selection
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          items.forEach(i => i.classList.remove('selected'));
+          item.classList.add('selected');
+          selectedValue.textContent = item.textContent;
+          dropdown.classList.remove('open');
+        });
+      });
     });
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove('open');
-    }
-  });
-</script>
+  
+    // Global click listener to close dropdowns if clicked outside
+    document.addEventListener('click', (e) => {
+      dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+  </script>
+  
 
                     <script>
                       const toggleImage1 =
