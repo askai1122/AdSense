@@ -1023,7 +1023,129 @@ td:nth-child(4) {
             </div>
           </div>
         </div>
+        <div class="col-lg-6 col-xl-6 mb-2" > 
+          <div class="card shadow-sm">
+            <div class="card-body" style="padding: 0 !important;">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <p class="card-titles mb-0 b-0" style="padding: 20px 8px 0px 17px;font-size: 1.125rem">
+                  Countries
+                </p>
+                <button class="btn btn-link   text-muted" style="padding: 20px 13px 0px 19px;">
+                  <i class="bi bi-three-dots-vertical text-dark"></i>
+                </button>
+              </div>
+              <div class="  position-relative">
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+                />
+                <div class="custom-dropdown">
+                  <button class="dropdown-toggle" id="selectedValue">Today so far</button>
+                  <ul class="dropdown-list">
+                    <li class="dropdown-item selected">Today so far</li>
+                    <li class="dropdown-item">Yesterday vs same day last week</li>
+                    <li class="dropdown-item">Last 7 days vs previous 7 days</li>
+                    <li class="dropdown-item">Last 28 days vs previous 28 days</li>
+                    <li class="dropdown-item">Last 3 months vs previous 3 months</li>
+                  </ul>
+                </div>
+                
+               
+                
+                <!-- <span style="font-size: 14px; cursor: pointer;padding: 0px 7px 0px 17px;">
+                  Today so far
+                  <i
+                    class="fa-solid fa-caret-down"
+                    style="
+                      font-size: 14px;
+                      color: #555;
+                      line-height: 1px !important;
+                    "
+                  ></i>
+                </span> -->
+              </div>
+ 
+                <table class="adsense-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th class="sortable">Estimated earnings</th>
+                      <th class="sortable">Page views</th>
+                      <th class="sortable">Clicks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Nigeria</td>
+                      <td>$0.00</td>
+                      <td>346</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>India</td>
+                      <td>$0.00</td>
+                      <td>12</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>United States</td>
+                      <td>$0.00</td>
+                      <td>6</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>Ghana</td>
+                      <td>$0.00</td>
+                      <td>4</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>Unknown Region</td>
+                      <td>$0.00</td>
+                      <td>1</td>
+                      <td>0</td>
+                    </tr>
+                  </tbody>
+                </table>
+            
+              <div class="text-start mt-5 d-flex justify-content-between">
+                <div class="">
+                  <a href="#" class="btn btn-link p-3 text-decoration-none"
+                    >View report <i class="bi bi-arrow-right"></i
+                  ></a>
+                </div>
+                <div class="">
+                  <button class="btn btn-link p-3 text-dark">
+                    <!-- <i class="fa-solid fa-thumbtack"></i> -->
+                    <img
+                      id="toggleImage"
+                      src="pin.png"
+                      alt="Pin"
+                      style="height: 20px; cursor: pointer"
+                    />
 
+                    <script>
+                      const toggleImage =
+                        document.getElementById("toggleImage");
+                      let isFirstImage = true; // Track which image is showing
+
+                      toggleImage.addEventListener("click", function () {
+                        if (isFirstImage) {
+                          toggleImage.src = "thumbtacks.png"; // Show second image
+                        } else {
+                          toggleImage.src = "pin.png"; // Show first image
+                        }
+                        isFirstImage = !isFirstImage; // Toggle the state
+                      });
+                    </script>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-6 col-xl-6 mb-3">
           <div class="row justify-content-center">
             <div class="col-md-12">
@@ -1228,129 +1350,7 @@ td:nth-child(4) {
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-xl-6 mb-2" > 
-          <div class="card shadow-sm">
-            <div class="card-body" style="padding: 0 !important;">
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <p class="card-titles mb-0 b-0" style="padding: 20px 8px 0px 17px;font-size: 1.125rem">
-                  Countries
-                </p>
-                <button class="btn btn-link   text-muted" style="padding: 20px 13px 0px 19px;">
-                  <i class="bi bi-three-dots-vertical text-dark"></i>
-                </button>
-              </div>
-              <div class="  position-relative">
-                <link
-                  rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-                />
-                <div class="custom-dropdown">
-                  <button class="dropdown-toggle" id="selectedValue">Today so far</button>
-                  <ul class="dropdown-list">
-                    <li class="dropdown-item selected">Today so far</li>
-                    <li class="dropdown-item">Yesterday vs same day last week</li>
-                    <li class="dropdown-item">Last 7 days vs previous 7 days</li>
-                    <li class="dropdown-item">Last 28 days vs previous 28 days</li>
-                    <li class="dropdown-item">Last 3 months vs previous 3 months</li>
-                  </ul>
-                </div>
-                
-               
-                
-                <!-- <span style="font-size: 14px; cursor: pointer;padding: 0px 7px 0px 17px;">
-                  Today so far
-                  <i
-                    class="fa-solid fa-caret-down"
-                    style="
-                      font-size: 14px;
-                      color: #555;
-                      line-height: 1px !important;
-                    "
-                  ></i>
-                </span> -->
-              </div>
- 
-                <table class="adsense-table">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th class="sortable">Estimated earnings</th>
-                      <th class="sortable">Page views</th>
-                      <th class="sortable">Clicks</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Nigeria</td>
-                      <td>$0.00</td>
-                      <td>346</td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>India</td>
-                      <td>$0.00</td>
-                      <td>12</td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>United States</td>
-                      <td>$0.00</td>
-                      <td>6</td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>Ghana</td>
-                      <td>$0.00</td>
-                      <td>4</td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>Unknown Region</td>
-                      <td>$0.00</td>
-                      <td>1</td>
-                      <td>0</td>
-                    </tr>
-                  </tbody>
-                </table>
-            
-              <div class="text-start mt-5 d-flex justify-content-between">
-                <div class="">
-                  <a href="#" class="btn btn-link p-3 text-decoration-none"
-                    >View report <i class="bi bi-arrow-right"></i
-                  ></a>
-                </div>
-                <div class="">
-                  <button class="btn btn-link p-3 text-dark">
-                    <!-- <i class="fa-solid fa-thumbtack"></i> -->
-                    <img
-                      id="toggleImage"
-                      src="pin.png"
-                      alt="Pin"
-                      style="height: 20px; cursor: pointer"
-                    />
-
-                    <script>
-                      const toggleImage =
-                        document.getElementById("toggleImage");
-                      let isFirstImage = true; // Track which image is showing
-
-                      toggleImage.addEventListener("click", function () {
-                        if (isFirstImage) {
-                          toggleImage.src = "thumbtacks.png"; // Show second image
-                        } else {
-                          toggleImage.src = "pin.png"; // Show first image
-                        }
-                        isFirstImage = !isFirstImage; // Toggle the state
-                      });
-                    </script>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
     <footer class="text-end" style="padding-right: 15px">
