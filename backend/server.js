@@ -29,22 +29,57 @@ const formSchema = new mongoose.Schema({
 const Form = mongoose.model("Form", formSchema);
 
 // ✅ Save data
+// app.post("/save-data", async (req, res) => {
+//   const { formId, formData } = req.body;
+
+//   try {
+//     const existing = await Form.findOne({ formId });
+
+//     if (existing) {
+//       // Update existing document
+//       existing.formData = formData;
+//       await existing.save();
+//     } else {
+//       // Create new document
+//       await Form.create({ formId, formData });
+//     }
+
+//     res.json({ message: `Data saved for ${formId} ✅` });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: "Error saving data" });
+//   }
+// });
 app.post("/save-data", async (req, res) => {
   const { formId, formData } = req.body;
 
   try {
-    const existing = await Form.findOne({ formId });
+    let existing = await Form.findOne({ formId });
 
     if (existing) {
-      // Update existing document
-      existing.formData = formData;
+      // 🟩 If same country name already exists → update it
+      const countries = existing.formData?.countries || [];
+      const index = countries.findIndex(
+        (c) => c.countrynametoday === formData.countrynametoday
+      );
+
+      if (index !== -1) {
+        countries[index] = formData; // update existing
+      } else {
+        countries.push(formData); // add new country
+      }
+
+      existing.formData.countries = countries;
       await existing.save();
     } else {
-      // Create new document
-      await Form.create({ formId, formData });
+      // 🆕 Create new document with first country entry
+      await Form.create({
+        formId,
+        formData: { countries: [formData] },
+      });
     }
 
-    res.json({ message: `Data saved for ${formId} ✅` });
+    res.json({ message: `Country added/updated for ${formId} ✅` });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error saving data" });
