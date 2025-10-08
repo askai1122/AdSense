@@ -51,35 +51,43 @@ const Form = mongoose.model("Form", formSchema);
 //   }
 // });
 app.post("/save-data", async (req, res) => {
-  const { formId, formData } = req.body;
-
   try {
+    const { formId, formData } = req.body;
+    console.log("📥 Incoming data for", formId, JSON.stringify(formData, null, 2));
+
     let existing = await Form.findOne({ formId });
 
-    // 🟢 Special handling only for "countriestoday"
+    // 🟢 Handle "countriestoday" specially
     if (formId === "countriestoday") {
       const newCountries = formData.countries || [];
 
+      if (!Array.isArray(newCountries) || newCountries.length === 0) {
+        return res.status(400).json({ message: "⚠️ No countries provided" });
+      }
+
       if (existing) {
+        console.log("🟢 Updating existing document...");
+
         const countries = existing.formData?.countries || [];
 
-        // Merge or update existing country records
         newCountries.forEach((newC) => {
           const index = countries.findIndex(
-            (c) => c.countrynametoday === newC.countrynametoday
+            (c) =>
+              c.countrynametoday.trim().toLowerCase() ===
+              newC.countrynametoday.trim().toLowerCase()
           );
 
           if (index !== -1) {
-            countries[index] = newC; // update
+            countries[index] = newC; // update existing country
           } else {
-            countries.push(newC); // add new
+            countries.push(newC); // add new country
           }
         });
 
         existing.formData.countries = countries;
         await existing.save();
       } else {
-        // 🆕 Create new document for countries
+        console.log("🆕 Creating new countries document...");
         await Form.create({
           formId,
           formData: { countries: newCountries },
@@ -87,16 +95,18 @@ app.post("/save-data", async (req, res) => {
       }
 
       return res.json({
-        message: `✅ ${newCountries.length} country record(s) saved for ${formId}`,
+        message: `✅ ${newCountries.length} country record(s) saved/updated for ${formId}`,
       });
     }
 
-    // 🟣 For all other forms (performance, clicks, RPM, etc.)
+    // 🟣 Default: handle all other forms normally
     if (existing) {
       existing.formData = formData;
       await existing.save();
+      console.log("🟣 Updated existing document for", formId);
     } else {
       await Form.create({ formId, formData });
+      console.log("🆕 Created new document for", formId);
     }
 
     res.json({ message: `✅ Data saved for ${formId}` });
