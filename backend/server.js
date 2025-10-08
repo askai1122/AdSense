@@ -56,35 +56,43 @@ app.post("/save-data", async (req, res) => {
   try {
     let existing = await Form.findOne({ formId });
 
-    if (existing) {
-      // 🟩 If same country name already exists → update it
-      const countries = existing.formData?.countries || [];
-      const index = countries.findIndex(
-        (c) => c.countrynametoday === formData.countrynametoday
-      );
+    // 🟩 Extract incoming countries array safely
+    const newCountries = formData.countries || [];
 
-      if (index !== -1) {
-        countries[index] = formData; // update existing
-      } else {
-        countries.push(formData); // add new country
-      }
+    if (existing) {
+      // Get already saved countries
+      const countries = existing.formData?.countries || [];
+
+      // Merge new ones (update if same name exists)
+      newCountries.forEach((newC) => {
+        const index = countries.findIndex(
+          (c) => c.countrynametoday === newC.countrynametoday
+        );
+
+        if (index !== -1) {
+          countries[index] = newC; // update existing
+        } else {
+          countries.push(newC); // add new country
+        }
+      });
 
       existing.formData.countries = countries;
       await existing.save();
     } else {
-      // 🆕 Create new document with first country entry
+      // 🆕 Create new document if none exists
       await Form.create({
         formId,
-        formData: { countries: [formData] },
+        formData: { countries: newCountries },
       });
     }
 
-    res.json({ message: `Country added/updated for ${formId} ✅` });
+    res.json({ message: `✅ ${newCountries.length} country record(s) saved for ${formId}` });
   } catch (err) {
-    console.error(err);
+    console.error("❌ Error saving data:", err);
     res.status(500).json({ message: "Error saving data" });
   }
 });
+
 
 // ✅ Get all data
 app.get("/get-data", async (req, res) => {

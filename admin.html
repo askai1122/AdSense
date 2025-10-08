@@ -952,40 +952,67 @@
         <div class="col-lg-6 col-xl-6 mb-2">
           <div class="card shadow-sm">
             <div class="card-body">
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
+              <div class="d-flex justify-content-between align-items-center mb-3">
                 <p class="card-titles mb-0 b-0" style="font-size: 1.125rem">
-                  Countries- Today so far
+                  Countries — Today so far
                 </p>
-                
               </div>
-              
-<form id="countriestoday">
-              <div class="row text-center">
-                <div class="col-6 mb-3">
-                  <p class="text-muted mb-0">Country name</p>
-                  <input type="text" class="form-control" id="today" name="countrynametoday" placeholder="Country name" />
+        
+              <form id="countriestoday">
+                <div id="countryFields" class="row text-center">
+                  <!-- country input group template -->
+                  <div class="country-group border p-2 mb-3 rounded">
+                    <div class="row">
+                      <div class="col-4 mb-2">
+                        <p class="text-muted mb-0">Country Name</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="countrynametoday"
+                          placeholder="Country name"
+                          required
+                        />
+                      </div>
+                      <div class="col-4 mb-2">
+                        <p class="text-muted mb-0">Estimated Earnings</p>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="estimatedearningstoday"
+                          placeholder="$0.00"
+                          required
+                        />
+                      </div>
+                      <div class="col-4 mb-2">
+                        <p class="text-muted mb-0">Page Views</p>
+                        <input
+                          type="number"
+                          class="form-control"
+                          name="pageviewstoday"
+                          placeholder="0"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-6 mb-3">
-                  <p class="text-muted mb-0">Estimated Earnings</p>
-                  <input type="text" class="form-control" id="today" name="estimatedearningstoday" placeholder="$0.00" />
+        
+                <!-- Add/Save buttons -->
+                <div class="text-center mt-3">
+                  <button type="button" id="addCountry" class="btn btn-secondary me-2">
+                    ➕ Add Another Country
+                  </button>
+                  <button type="submit" class="btn btn-primary">💾 Save</button>
                 </div>
-                <div class="col-4 mb-3">
-                  <p class="text-muted mb-0">Page Views</p>
-                  <input type="text" class="form-control" id="today" name="pageviewstoday" placeholder="110" />
-                </div>
-                 
-              </div>
-              <div class="col-12 mt-3 text-center">
-                <button type="submit" class="btn btn-primary">Save</button>
-              </div>
               </form>
-              <div class="text-start mt-5 d-flex justify-content-between">
-               
-              </div>
+        
+              <hr />
+        
+              
             </div>
           </div>
+        </div>
+        
         </div>
        
     </div>
@@ -998,6 +1025,65 @@
   </body>
 </html>
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const addBtn = document.querySelector("#addCountry");
+    const fieldsContainer = document.querySelector("#countryFields");
+    const form = document.querySelector("#countriestoday");
+  
+    // ➕ Add another country input group
+    addBtn.addEventListener("click", () => {
+      const clone = fieldsContainer.firstElementChild.cloneNode(true);
+      clone.querySelectorAll("input").forEach((input) => (input.value = ""));
+      fieldsContainer.appendChild(clone);
+    });
+  
+    // 💾 Save all countries
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const formId = form.getAttribute("id"); // e.g. "countriestoday"
+      const allCountries = [];
+  
+      // Collect all country groups
+      fieldsContainer.querySelectorAll(".country-group").forEach((group) => {
+        const countryData = {};
+        group.querySelectorAll("input").forEach((input) => {
+          countryData[input.name] = input.value.trim();
+        });
+        if (countryData.countrynametoday) {
+          allCountries.push(countryData);
+        }
+      });
+  
+      if (allCountries.length === 0) {
+        alert("Please add at least one country!");
+        return;
+      }
+  
+      // Prepare final object
+      const formData = { countries: allCountries };
+  
+      console.log("📤 Sending to backend:", { formId, formData });
+  
+      try {
+        const res = await fetch("https://adsense-xq8u.onrender.com/save-data", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ formId, formData }),
+        });
+  
+        const msg = await res.json();
+        alert(msg.message);
+      } catch (err) {
+        console.error("Error saving countries:", err);
+        alert("Failed to save countries.");
+      }
+    });
+  });
+  </script>
+  
+<script>
+  
     // Balance Form
     document.querySelector("#balance").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -1146,62 +1232,12 @@
           alert(msg.message);
         });
     });
-    document.querySelector("#countriestoday").addEventListener("submit", function (e) {
-      e.preventDefault();
-  
-      const formId = this.getAttribute("id"); // kaunsa form submit hua
-      const formData = {};
-      const inputs = this.querySelectorAll("input");
-  
-      inputs.forEach((input) => {
-        formData[input.name] = input.value;
-      });
-  
-      // Sirf Balance Form ka data bhejna
-      fetch("https://adsense-xq8u.onrender.com/save-data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ formId, formData }),
-      })
-        .then((res) => res.json())
-        .then((msg) => {
-          alert(msg.message);
-        });
-    });
-    
-    
-    
-    // Earning Form
-    document.querySelector("#estimated_earnings").addEventListener("submit", function (e) {
-      e.preventDefault();
-  
-      const formId = this.getAttribute("id"); // kaunsa form submit hua
-      const formData = {};
-      const inputs = this.querySelectorAll("input");
-  
-      inputs.forEach((input) => {
-        formData[input.name] = input.value;
-      });
-  
-      // Sirf Earning Form ka data bhejna
-      fetch("https://adsense-xq8u.onrender.com/save-data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ formId, formData }),
-      })
-        .then((res) => res.json())
-        .then((msg) => {
-          alert(msg.message);
-        });
-    });
-  </script>
+ 
+</script>
+ 
   
                     
-<script>
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const forms = document.querySelectorAll("form");
   
