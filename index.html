@@ -1371,7 +1371,7 @@ td:nth-child(4) {
 
   function renderSparklines(data, suffix = "") {
     const keys = ["pageviews", "pagerpm", "impressions", "clicks", "cpc", "pagectr"];
-    const colors = ["#1a73e8", "#cfd8dc"]; // fixed colors
+    const colors = ["#135db0", "#cfd8dc"]; // fixed colors
 
     // Show all sparkline containers
     document.querySelectorAll(".sparkline").forEach((el) => (el.style.display = "block"));
@@ -1418,7 +1418,7 @@ td:nth-child(4) {
         // Create chart only once
         const options = {
           chart: { type: "line", height: 40, width: 90, sparkline: { enabled: true } },
-          stroke: { curve: "smooth", width: [1.0, 1.0] },
+          stroke: { curve: "smooth", width: [1.2, 1.2] },
           series: [
             { name: "Current", data: currentData },
             { name: "Previous", data: previousData },
