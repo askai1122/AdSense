@@ -993,6 +993,18 @@
                           placeholder="0"
                           required
                         />
+                        
+                      </div>
+                      <div class="col-4 mb-2">
+                        <p class="text-muted mb-0">Clicks</p>
+                        <input
+                           
+                          class="form-control"
+                          name="clickstoday"
+                          placeholder="0"
+                          required
+                        />
+                        
                       </div>
                     </div>
                   </div>
@@ -1057,6 +1069,17 @@
                           required
                         />
                       </div>
+                      <div class="col-4 mb-2"> 
+                        <p class="text-muted mb-0">Clicks</p>
+                        <input
+                           
+                          class="form-control"
+                          name="clicksyesterday"
+                          placeholder="0"
+                          required
+                        />
+                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1120,6 +1143,17 @@
                           required
                         />
                       </div>
+                      <div class="col-4 mb-2"> 
+                        <p class="text-muted mb-0">Clicks</p>
+                        <input
+                           
+                          class="form-control"
+                          name="clickslast7days"
+                          placeholder="0"
+                          required
+                        />
+                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -1183,6 +1217,16 @@
                           required
                         />
                       </div>
+                      <div class="col-4 mb-2"> 
+                        <p class="text-muted mb-0">Clicks</p>
+                        <input
+                           
+                          class="form-control"
+                          name="clicks28days"
+                          placeholder="0"
+                          required
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1242,6 +1286,16 @@
                            
                           class="form-control"
                           name="pageviewsthreemonths"
+                          placeholder="0"
+                          required
+                        />
+                      </div> 
+                      <div class="col-4 mb-2"> 
+                        <p class="text-muted mb-0">Clicks</p>
+                        <input
+                           
+                          class="form-control"
+                          name="clicksthreemonths"
                           placeholder="0"
                           required
                         />
@@ -1584,6 +1638,17 @@
             required
             value="${data[`pageviews${prefix.replace('countryname', '')}`] || ""}"
           />
+          <div class="col-12 mb-2">
+          <p class="text-muted mb-0">Clicks</p>
+          <input
+             
+            class="form-control"
+            name="clicks${prefix.replace('countryname', '') || ''}"
+            placeholder="0"
+            required
+            value="${data[`clicks${prefix.replace('countryname', '')}`] || ""}"
+          />
+        </div>
         </div>
       </div>
     `;
