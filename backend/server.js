@@ -57,8 +57,8 @@ app.post("/save-data", async (req, res) => {
 
     let existing = await Form.findOne({ formId });
 
-    // 🟢 Handle "countriestoday" specially
-    if (formId === "countriestoday") {
+    // 🟢 Handle all "countries*" forms the same way (today, yesterday, etc.)
+    if (formId.startsWith("countries")) {
       const newCountries = formData.countries || [];
 
       if (!Array.isArray(newCountries) || newCountries.length === 0) {
@@ -66,15 +66,18 @@ app.post("/save-data", async (req, res) => {
       }
 
       if (existing) {
-        console.log("🟢 Updating existing document...");
+        console.log(`🟢 Updating existing countries document for ${formId}...`);
 
         const countries = existing.formData?.countries || [];
 
         newCountries.forEach((newC) => {
+          // Get the key name dynamically (e.g., countrynametoday, countrynameyesterday, etc.)
+          const nameKey = Object.keys(newC).find((k) => k.startsWith("countryname"));
+          if (!nameKey) return;
+
+          const newName = newC[nameKey].trim().toLowerCase();
           const index = countries.findIndex(
-            (c) =>
-              c.countrynametoday.trim().toLowerCase() ===
-              newC.countrynametoday.trim().toLowerCase()
+            (c) => c[nameKey]?.trim().toLowerCase() === newName
           );
 
           if (index !== -1) {
@@ -87,7 +90,7 @@ app.post("/save-data", async (req, res) => {
         existing.formData.countries = countries;
         await existing.save();
       } else {
-        console.log("🆕 Creating new countries document...");
+        console.log(`🆕 Creating new countries document for ${formId}...`);
         await Form.create({
           formId,
           formData: { countries: newCountries },
@@ -99,7 +102,7 @@ app.post("/save-data", async (req, res) => {
       });
     }
 
-    // 🟣 Default: handle all other forms normally
+    // 🟣 Default: handle all non-country forms normally
     if (existing) {
       existing.formData = formData;
       await existing.save();
