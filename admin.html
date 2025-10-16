@@ -1401,6 +1401,31 @@
 <script>
   
     // Balance Form
+    document.querySelector("#estimated_earnings").addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const formId = this.getAttribute("id"); // kaunsa form submit hua
+      const formData = {};
+      const inputs = this.querySelectorAll("input");
+  
+      inputs.forEach((input) => {
+        formData[input.name] = input.value;
+      });
+  
+      // Sirf Balance Form ka data bhejna
+      fetch("https://adsense-xq8u.onrender.com/save-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ formId, formData }),
+      })
+        .then((res) => res.json())
+        .then((msg) => {
+          alert(msg.message);
+        });
+    });
+    
     document.querySelector("#balance").addEventListener("submit", function (e) {
       e.preventDefault();
   
@@ -1557,26 +1582,44 @@
   document.addEventListener("DOMContentLoaded", function () {
   const forms = document.querySelectorAll("form");
 
+ 
   fetch("https://adsense-xq8u.onrender.com/get-data")
     .then((res) => res.json())
     .then((allData) => {
       forms.forEach((form) => {
-        const formId = form.getAttribute("id"); 
+        const formId = form.getAttribute("id");
         const savedData = allData[formId] || {};
-        const countries = savedData.countries || [];
 
+        // ✅ Handle the "estimated_earnings" form separately
+        if (formId === "estimated_earnings") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
+        if (formId === "balance") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
+        // ✅ Handle forms with country fields
+        const countries = savedData.countries || [];
         const fieldsContainer = form.querySelector("#countryFields");
         if (!fieldsContainer) return;
 
-        // Clear existing country groups (keep only one template)
         fieldsContainer.innerHTML = "";
 
         if (countries.length === 0) {
-          // No saved data: add one empty country group as default
           const template = createCountryGroup(formId);
           fieldsContainer.appendChild(template);
         } else {
-          // For each saved country, create a filled input group
           countries.forEach((country) => {
             const group = createCountryGroup(formId, country);
             fieldsContainer.appendChild(group);
@@ -1584,7 +1627,6 @@
         }
       });
     });
-
   // Helper to create a country-group div filled with data (or empty if no data)
   function createCountryGroup(formId, data = {}) {
     const div = document.createElement("div");

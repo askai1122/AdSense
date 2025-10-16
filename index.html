@@ -919,7 +919,7 @@ td:nth-child(4) {
                   name="last_payment"
                     class="stat-comparison"
                     style="line-height: 12px; font-size: 11px"
-                    >+$262.53</small
+                    ></small
                   >
                 </div>
               </div>
@@ -1514,7 +1514,40 @@ td:nth-child(4) {
       .then((allData) => {
         console.timeLog("loadData", "Data fetched");
         window.performanceData = allData;
+        const earnings = allData.estimated_earnings || {};
+        const balance = allData.balance || {};
 
+        function setValue(name, value, prefix = "$") {
+  const el = document.querySelector(`[name="${name}"]`);
+  if (!el) return;
+
+  // Handle text elements
+  if (["H3", "P", "SMALL"].includes(el.tagName)) {
+    // For positive prefixes like +$ or $
+    if (prefix === null) {
+      el.textContent = value || "0.00";
+    } else {
+      el.textContent = value ? `${prefix}${value}` : `${prefix}0.00`;
+    }
+  }
+
+  // Handle inputs
+  else if (el.tagName === "INPUT") {
+    el.value = value || "";
+  }
+}
+// Main fields
+setValue("today", earnings.today);
+setValue("yesterday", earnings.yesterday);
+setValue("last7days", earnings.last7days);
+setValue("thismonth", earnings.thismonth);
+
+// “extra” comparison fields (these are prefixed with +)
+setValue("extrayesterday", earnings.extrayesterday,  );
+setValue("extralast7days", earnings.extralast7days,  );
+setValue("extrathismonth", earnings.extrathismonth,  );
+setValue("balance", balance.balance,  );
+setValue("last_payment", balance.last_payment,  );
         // 🟩 1️⃣ Handle Performance Card
         const selectedType = window.selectedPerformanceType || "today";
         const config = performanceKeyMap[selectedType];
