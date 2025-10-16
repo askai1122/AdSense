@@ -1609,6 +1609,51 @@
           });
           return; // Skip countryFields logic for this form
         }
+        if (formId === "performance") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
+        if (formId === "performanceyesterday") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
+        if (formId === "performance7days") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
+        if (formId === "performancelast28days") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
+        if (formId === "performancethreemonths") {
+          Object.keys(savedData).forEach((key) => {
+            const input = form.querySelector(`[name="${key}"]`);
+            if (input) {
+              input.value = savedData[key];
+            }
+          });
+          return; // Skip countryFields logic for this form
+        }
         // ✅ Handle forms with country fields
         const countries = savedData.countries || [];
         const fieldsContainer = form.querySelector("#countryFields");
