@@ -1517,7 +1517,7 @@ td:nth-child(4) {
         const earnings = allData.estimated_earnings || {};
         const balance = allData.balance || {};
 
-        function setValue(name, value, prefix = "$") {
+        function setValue(name, value, prefix = " ") {
   const el = document.querySelector(`[name="${name}"]`);
   if (!el) return;
 
