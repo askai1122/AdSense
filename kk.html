@@ -147,7 +147,7 @@
         formKey = `${month}monthreciptform`;
       }
 
-      fetch("https://adsense-production-2ea8.up.railway.app")
+      fetch("https://adsense-production-2ea8.up.railway.app/get-data")
         .then((res) => res.json())
         .then((allData) => {
           const sectionData = allData[formKey];
