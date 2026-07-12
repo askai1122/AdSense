@@ -703,7 +703,7 @@ function toggleHeader(element) {
 function getLastDayOfMonth(year, month) {
   return new Date(year, month + 1, 0).getDate();
 }
-    fetch("https://adsense-production-d9f2.up.railway.app/get-data")
+    fetch("https://adsense-production-3007.up.railway.app/get-data")
       .then((res) => res.json())
       .then((allData) => {
         const current = allData.currentmonthtrans || {};
